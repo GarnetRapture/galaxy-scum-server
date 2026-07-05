@@ -117,7 +117,7 @@ export const router = createBrowserRouter([
 **포함 컴포넌트**:
 - `<GuideHeader />`: 제목, 카테고리, 우선순위
 - `<GuideBody />`: 가이드 본문 (Markdown)
-- `<GuideMetadata />`: 출처, 검증 상태, 업데이트 날짜
+- `<GuideMetadata />`: 출처, 확인 상태, 업데이트 날짜
 - `<RelatedGuides />`: 관련 가이드
 - `<GuideBreadcrumb />`: 네비게이션 경로
 
@@ -295,7 +295,7 @@ export const router = createBrowserRouter([
 ```
 디스코드 초대
 저작권 및 출처 정보
-관리자 정보
+서버 문의 정보
 ```
 
 ---
@@ -430,3 +430,4 @@ export const ROUTES: Record<RouteKey, RouteConfig> = {
 - `data-model.md`: 데이터 타입
 - `api-contract.md`: API 호출 명세
 - `implementation-plan.md`: 구현 우선순위
+

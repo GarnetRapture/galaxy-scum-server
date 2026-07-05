@@ -100,7 +100,7 @@ function App() {
 
         <aside className="galaxy-panel">
           <img className="galaxy-media" src={capsuleImage.src} alt={pickLocalizedText(capsuleImage.alt, locale)} />
-          <h2>{language === "ko" ? "현재 검증 기준" : "Current Verification"}</h2>
+          <h2>{language === "ko" ? "현재 자료 기준" : "Current Information Basis"}</h2>
           <CurrentVersionCard />
         </aside>
       </section>

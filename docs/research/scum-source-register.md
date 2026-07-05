@@ -7,34 +7,34 @@
 ### Tier 1: Official (공식)
 공식 개발사/퍼블리셔 또는 공식 채널의 정보
 - **신뢰도**: 최상 (100%)
-- **사용 기준**: 즉시 반영 가능, 재검증 불필요
+- **사용 기준**: 즉시 반영 가능, 재확인 불필요
 - **예시**: Steam Store, Steam News, Gamepires 공식 사이트
 
 ### Tier 2: Steam (Steam 공식)
 Steam Store 페이지 또는 Steam Community의 공식 정보
 - **신뢰도**: 높음 (95%)
-- **사용 기준**: 즉시 반영 가능, 연 1회 재검증
+- **사용 기준**: 즉시 반영 가능, 연 1회 재확인
 - **예시**: 게임 설명, 시스템 요구사항, 공식 패치 노트
 
 ### Tier 3: Wiki (공식/준공식 위키)
 SCUM 공식 위키 또는 커뮤니티에서 관리하는 공식 위키
 - **신뢰도**: 높음 (85-90%)
-- **사용 기준**: 간단한 사실 확인 후 반영, 월 1회 재검증
+- **사용 기준**: 간단한 사실 확인 후 반영, 월 1회 재확인
 - **예시**: SCUM Gamepedia Wiki, 공식 허가 위키
 
 ### Tier 4: Community (커뮤니티)
 Reddit, Discord, 커뮤니티 사이트의 플레이어 작성 정보
 - **신뢰도**: 중간 (60-80%)
-- **사용 기준**: 교차 검증 후 반영, 분기 재검증
+- **사용 기준**: 교차 확인 후 반영, 분기 재확인
 - **예시**: r/SCUMgame, 플레이어 가이드, YouTube 튜토리얼
 
 ### Tier 5: Server Local (서버 로컬)
 갤럭시 서버 운영진에게서 받은 정보
 - **신뢰도**: 높음 (90%) — 로컬 정책이므로 절대적
 - **사용 기준**: 즉시 반영, 월 1회 확인
-- **예시**: 관리자(블락)로부터 직접 받은 정보
+- **예시**: 서버 문의(Galaxy Notice)로부터 직접 받은 정보
 
-### Tier 6: Unverified (미검증)
+### Tier 6: Unverified (확인 전)
 신뢰도가 낮거나 오래된 정보, 또는 출처가 명확하지 않은 정보
 - **신뢰도**: 낮음 (30-50%)
 - **사용 기준**: 반영 금지, 마크업으로 표시만
@@ -69,7 +69,7 @@ export const SOURCE_REFS = {
   // 갤럭시 서버 로컬 출처
   "galaxy-server-local": {
     id: "source-galaxy-server-local-2026-07-05",
-    title: "갤럭시 서버 운영자 제공 정보",
+    title: "갤럭시 서버 공지 담당 제공 정보",
     url: "https://discord.gg/VeNFX3CAwZ",
     reliability: "server-local",
     checkedAt: "2026-07-05T00:00:00Z",
@@ -108,14 +108,14 @@ export const SOURCE_REFS = {
 - **SCUM 공식 정보**: steam-store 또는 steam-news-* 출처 우선
 - **갤럭시 서버 정보**: galaxy-server-local 출처만 사용
 - **혼합 불가**: SCUM 정보와 갤럭시 서버 정보 절대 섞지 않음
-- **재검증**: Tier 2 (Steam) 월 1회, Tier 5 (Server Local) 월 1회 확인
+- **재확인**: Tier 2 (Steam) 월 1회, Tier 5 (Server Local) 월 1회 확인
 
 ## 확인된 정보 출처
 
 ### SCUM 게임 정보
 
 #### 1. SCUM 1.3.1.0.125621 버전 정보
-| 항목 | 정보 | 출처 | 등급 | 검증상태 | 마지막 확인 |
+| 항목 | 정보 | 출처 | 등급 | 확인상태 | 마지막 확인 |
 |------|------|------|------|---------|-----------|
 | 버전 번호 | 1.3.1.0.125621 | Steam News | Tier 2 | verified | 2026-07-05 |
 | 업데이트명 | INTO THE WILD - June Update | Steam News | Tier 2 | verified | 2026-07-05 |
@@ -126,7 +126,7 @@ export const SOURCE_REFS = {
 | 플랫폼 | PC (Steam) | Steam Store | Tier 2 | verified | 2026-07-05 |
 
 #### 2. 주요 게임 시스템
-| 시스템 | 포함 요소 | 출처 | 등급 | 검증상태 | 세부 재검증 |
+| 시스템 | 포함 요소 | 출처 | 등급 | 확인상태 | 세부 재확인 |
 |--------|---------|------|------|---------|----------|
 | 신진대사 | Metabolism, Nutrition, Hydration, Fatigue | Steam Store | Tier 2 | verified | 계산식, 수치 범위 필요 |
 | 건강 | Health, Injuries, Contamination, Radiation | Steam Store | Tier 2 | partial | 질병 종류, 회복 시간, 감염 경로 필요 |
@@ -137,7 +137,7 @@ export const SOURCE_REFS = {
 | 이동 | Vehicles, Server settings | Steam Store | Tier 2 | partial | 차량 종류, 연료 효율, 서버 옵션 목록 필요 |
 
 #### 3. INTO THE WILD 업데이트 내용 (1.3.1.0.125621, 2026-06-30)
-| 기능 | 설명 | 출처 | 등급 | 검증상태 | 추가 필요 정보 |
+| 기능 | 설명 | 출처 | 등급 | 확인상태 | 추가 필요 정보 |
 |------|------|------|------|---------|------------|
 | 자유로운 랜드 동물 | Free-roaming land animals | Steam News | Tier 2 | verified | 동물 종류, 행동 패턴, 루팅 아이템 |
 | 1.0 기념 퀘스트 | SCUM 1.0 Anniversary quest | Steam News | Tier 2 | verified | 퀘스트 보상, 진행 조건 |
@@ -161,19 +161,19 @@ export const SOURCE_REFS = {
 | 운영 시작 | 2021년 | 사용자 제공 | Tier 5 | 2026-07-05 |
 | 센트리 설정 | 없음 (센트리 비활성) | 사용자 제공 | Tier 5 | 2026-07-05 |
 
-#### 2. 관리자 및 운영
+#### 2. 서버 문의 및 운영
 | 항목 | 정보 | 출처 | 등급 | 마지막 확인 |
 |------|------|------|------|-----------|
-| 관리자 디스코드명 | 블락 | 사용자 제공 | Tier 5 | 2026-07-05 |
+| 서버 문의 디스코드명 | Galaxy Notice | 사용자 제공 | Tier 5 | 2026-07-05 |
 | 뉴비 가이드 제공 | 적응까지 가이드 + 기본 속성외 ~15분 | 사용자 제공 | Tier 5 | 2026-07-05 |
 | 디스코드 초대 링크 | https://discord.gg/VeNFX3CAwZ | 사용자 제공 | Tier 5 | 2026-07-05 |
 
 #### 3. 서버 정책
-| 정책 | 내용 | 출처 | 등급 | 검증상태 | 마지막 확인 |
+| 정책 | 내용 | 출처 | 등급 | 확인상태 | 마지막 확인 |
 |------|------|------|------|---------|-----------|
 | 웰컴팩 | 신규 유저는 웰컴팩 메뉴에서 수령 | Server Local | Tier 5 | verified | 2026-07-05 |
 | 차량 정책 | 자연 차량 스폰 차단, 신규 유저 무료 렌트, 새 차량 구매 시 반납 | Server Local | Tier 5 | partial | 2026-07-05 |
-| 뉴비 지원 | 적응 단계별 가이드, 관리자(블락) 직접 안내 ~15분 | Server Local | Tier 5 | partial | 2026-07-05 |
+| 뉴비 지원 | 적응 단계별 가이드, 서버 문의(Galaxy Notice) 직접 안내 ~15분 | Server Local | Tier 5 | partial | 2026-07-05 |
 
 #### 4. 서버 특징
 | 특징 | 설명 | 출처 | 등급 | 마지막 확인 |
@@ -193,13 +193,13 @@ export const SOURCE_REFS = {
 | 공존 철학 | 고인물과 뉴비 공존 | 사용자 제공 | Tier 5 | 2026-07-05 |
 | 경험치 이벤트 | 현재 진행 중 | 사용자 제공 | Tier 5 | 2026-07-05 |
 
-## 재검증 필요 항목
+## 재확인 필요 항목
 
 ### 높은 우선순위 (Phase 2 데이터 작성 전 필수)
 
 | # | 항목 | 현재 상태 | 조사 현황 | 다음 단계 | sourceId |
 |---|------|---------|---------|---------|----------|
-| 1 | INTO THE WILD 랜드 동물 종류 | partial → verified | ✓ 9개 동물 확인, 행동 패턴 60% 기록 | Bear/Boar/Wolf 완전 검증, Chicken/Goat/Donkey 세부 조사 | source-scum-into-wild-wildlife |
+| 1 | INTO THE WILD 랜드 동물 종류 | partial → verified | ✓ 9개 동물 확인, 행동 패턴 60% 기록 | Bear/Boar/Wolf 완전 확인, Chicken/Goat/Donkey 세부 조사 | source-scum-into-wild-wildlife |
 | 2 | 야생동물 서버 컨트롤 옵션 | needs-review → verified | ✓ 8개 옵션 완전 문서화, server-settings.com 기준 | Phase 2 즉시 사용 가능 | source-scum-into-wild-wildlife-config |
 | 3 | INTO THE WILD 즉흥 요리 레시피 | partial → verified | ✓ 4개 즉흥 요리 확인, INTO THE WILD 신규 시스템 문서화 | 각 요리 핵심 재료 정확화 필요 | source-scum-into-wild-cooking |
 | 4 | 1.0 기념 퀘스트 세부사항 | partial | — | Phase 2 병렬 조사 필요 (퀘스트명, 경로, 보상) | source-scum-into-wild-quest |
@@ -223,7 +223,7 @@ export const SOURCE_REFS = {
 | 12 | 동물/사냥 루팅 테이블 | partial | 동물 종류별 루팅 가능 아이템, 드롭률 | Tier 3-4 (Wiki/Community) | 사냥 가이드 작성 시 | source-scum-hunting-loot-table |
 | 13 | SCUM 최신 업데이트 (월 1회) | outdated | INTO THE WILD 이후 추가 패치 정보 | Tier 2 (Steam) | 월 1회 확인 | source-scum-steam-news-latest |
 
-## 검증 프로세스
+## 확인 프로세스
 
 ### 콘텐츠 작성 시 체크리스트
 
@@ -233,24 +233,24 @@ export const SOURCE_REFS = {
    ```
    - [ ] SOURCE_REFS에서 출처 ID 찾기 (또는 새로 등록)
    - [ ] 신뢰도 등급 (Tier 1-6) 확인
-   - [ ] 검증 상태 (verified/partial/needs-review) 확인
+   - [ ] 확인 상태 (verified/partial/needs-review) 확인
    - [ ] 마지막 확인일 (checkedAt) 확인
    ```
 
 2. **콘텐츠 신뢰도 반영**
    ```
-   - Tier 1-2 (Steam): 즉시 반영, 연 1회 재검증
-   - Tier 3 (Wiki): 교차 검증 후 반영, 월 1회 재검증
-   - Tier 4 (Community): 교차 검증 + 다중 출처 확인 후 반영
+   - Tier 1-2 (Steam): 즉시 반영, 연 1회 재확인
+   - Tier 3 (Wiki): 교차 확인 후 반영, 월 1회 재확인
+   - Tier 4 (Community): 교차 확인 + 다중 출처 확인 후 반영
    - Tier 5 (Server Local): 즉시 반영, 월 1회 확인
    - Tier 6 (Unverified): 반영 금지, [needs-review] 태그만
    ```
 
-3. **검증 상태 표시**
+3. **확인 상태 표시**
    ```
    - verified: 공식 출처에서 확인됨
    - partial: 일부는 확인, 일부는 미확인 (needs-review 표시)
-   - needs-review: 공식 출처 필요, 재검증 대기
+   - needs-review: 공식 출처 필요, 재확인 대기
    - deprecated: 패치로 인해 더 이상 유효하지 않음
    - server-local-only: 갤럭시 서버 전용 정보
    ```
@@ -278,8 +278,8 @@ export const SOURCE_REFS = {
 
 배지/인디케이터:
 - ✓ verified: 녹색, 신뢰도 높음
-- ⚠ partial: 황색, 일부 검증됨
-- ⚡ needs-review: 주황색, 재검증 진행 중
+- ⚠ partial: 황색, 일부 확인됨
+- ⚡ needs-review: 주황색, 재확인 진행 중
 - 🔒 server-local: 파란색, 갤럭시 서버 전용
 
 ## 다음 단계
@@ -305,11 +305,11 @@ export const SOURCE_REFS = {
 2. 심화 가이드 콘텐츠 작성
 
 ### 정기 관리
-- **월 1회**: Tier 2-3-5 재검증
+- **월 1회**: Tier 2-3-5 재확인
 - **분기 1회**: Tier 4 커뮤니티 정보 크로스 확인
 - **6개월 1회**: 전체 콘텐츠 신선도 평가
 
-## 검증 상태 요약
+## 확인 상태 요약
 
 ### SCUM 공식 정보
 - **버전/업데이트** (1.3.1.0.125621, INTO THE WILD): verified (Tier 2)
@@ -324,8 +324,8 @@ export const SOURCE_REFS = {
 
 ### 종합
 - **즉시 사용 가능**: 45%
-- **조건부 사용 (부분 검증)**: 40%
-- **재검증 필요**: 15%
+- **조건부 사용 (부분 확인)**: 40%
+- **재확인 필요**: 15%
 
 ## 관련 문서
 
@@ -335,8 +335,8 @@ export const SOURCE_REFS = {
 | `scum-content-taxonomy.md` | 30개 콘텐츠 카테고리, 우선순위 | Mixed (Tier 2-5) |
 | `scum-beginner-guide.md` | 신규 유저 6단계 가이드 | Tier 2 (Steam) + Tier 5 (Server Local) |
 | `scum-server-galaxy-profile.md` | 갤럭시 서버 소개, 정책, 운영 철학 | Tier 5 (Server Local) |
-| `data-model.md` | 타입 정의, 검증용 메타 필드 | Design |
-| `implementation-plan.md` | Phase별 구현 순서, 재검증 스케줄 | Design |
+| `data-model.md` | 타입 정의, 확인용 메타 필드 | Design |
+| `implementation-plan.md` | Phase별 구현 순서, 재확인 스케줄 | Design |
 
 ## 주의사항
 
@@ -344,4 +344,5 @@ export const SOURCE_REFS = {
 - ⚠️ verificationStatus가 "needs-review"인 항목은 [needs-review] 태그 필수
 - ⚠️ SCUM 일반 정보와 갤럭시 서버 정보 절대 혼합 금지
 - ⚠️ 구체적 수치/드롭률/회복시간 확정 금지 (출처 필수)
-- ⚠️ 월 1회 Tier 2-3-5 재검증 스케줄 유지
+- ⚠️ 월 1회 Tier 2-3-5 재확인 스케줄 유지
+

@@ -256,7 +256,7 @@ export async function getGalaxyServerProfile(): Promise<GalaxyServerProfile>
   playStyle: "PVE",
   sinceYear: 2021,
   discordInviteUrl: "https://discord.gg/VeNFX3CAwZ",
-  adminDiscordName: "블락",
+  adminDiscordName: "Galaxy Notice",
   features: [
     "뉴비용 아이템 파밍",
     "고인물용 엔드컨텐츠",
@@ -357,7 +357,7 @@ export async function getVehicleRentalPolicy(): Promise<VehicleRentalPolicy>
     newbiersOnly: true,
     maxRentals: null, // 무제한
   },
-  requestProcess: "디스코드에서 관리자(블락)에게 /차량렌트 요청",
+  requestProcess: "디스코드에서 서버 문의(Galaxy Notice)에게 /차량렌트 요청",
   rentalRules: [
     "자연 차량 스폰은 차단됨",
     "신규 유저만 무료 렌트 가능",
@@ -398,8 +398,8 @@ export async function getNewbieCareProgram(): Promise<NewbieCareProgram>
       duration: "약 15분",
     },
   ],
-  contactMethod: "디스코드 DM 또는 서버 채팅에서 '블락' 찾기",
-  adminDiscordName: "블락",
+  contactMethod: "디스코드 DM 또는 서버 채팅에서 'Galaxy Notice' 찾기",
+  adminDiscordName: "Galaxy Notice",
   features: [
     "적응까지 가이드",
     "기본 속성외 약 15분",
@@ -486,7 +486,7 @@ export async function getDiscordCommunity(): Promise<DiscordCommunity>
     { id: "ch-006", name: "공지", purpose: "중요 업데이트", category: "정보" },
     { id: "ch-007", name: "피드백", purpose: "서버 개선 의견", category: "커뮤니티" },
   ],
-  adminName: "블락",
+  adminName: "Galaxy Notice",
   sourceIds: ["source-001"],
 }
 
@@ -622,3 +622,4 @@ export function GuideListComponent() {
 - `data-model.md`: 데이터 타입
 - `route-map.md`: 라우팅 구조
 - `implementation-plan.md`: 구현 우선순위
+

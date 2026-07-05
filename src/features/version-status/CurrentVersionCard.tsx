@@ -7,6 +7,7 @@ import { getCurrentVersion } from "@/shared/api/version"
 import { VerificationBadge } from "./VerificationBadge"
 import { versionFeatures } from "@/data/current-version.data"
 import type { VersionFeature } from "@/domains/scum/version/types"
+import { VERIFICATION_STATUS_LABELS } from "@/shared/types"
 import "@/styles/scum-authentic.css"
 
 export function CurrentVersionCard() {
@@ -73,9 +74,9 @@ export function CurrentVersionCard() {
             <dd style={{ color: 'var(--scum-text-primary)', margin: 0 }}>{version.officialReleaseDate || "—"}</dd>
           </div>
           <div>
-            <dt style={{ color: 'var(--scum-text-secondary)', fontSize: '12px', marginBottom: '4px' }}>검증 상태</dt>
+            <dt style={{ color: 'var(--scum-text-secondary)', fontSize: '12px', marginBottom: '4px' }}>자료 상태</dt>
             <dd style={{ color: 'var(--scum-text-primary)', margin: 0, textTransform: 'capitalize' }}>
-              {version.meta.verificationStatus}
+              {VERIFICATION_STATUS_LABELS[version.meta.verificationStatus]}
             </dd>
           </div>
         </dl>
@@ -109,7 +110,7 @@ export function CurrentVersionCard() {
         <p>
           마지막 확인: {new Date(version.meta.checkedAt).toLocaleDateString("ko-KR")}
           {version.meta.reviewBefore &&
-            ` · 재검증: ${new Date(version.meta.reviewBefore).toLocaleDateString("ko-KR")}`}
+            ` · 업데이트 확인: ${new Date(version.meta.reviewBefore).toLocaleDateString("ko-KR")}`}
         </p>
       </div>
     </div>

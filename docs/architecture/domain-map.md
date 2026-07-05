@@ -172,7 +172,7 @@ scum/guides/
 
 #### 2.1 `profile/`
 - 서버 소개 (방제, 검색 키워드, 플레이스타일)
-- 관리자 정보
+- 서버 문의 정보
 - 운영 철학 (가족 같은 분위기, 고인물+뉴비 공존)
 
 #### 2.2 `rules/`
@@ -193,7 +193,7 @@ scum/guides/
 #### 2.5 `newbie-care/`
 - 뉴비 케어 프로그램 설명
 - 적응 가이드
-- 관리자 연락 방법
+- 서버 문의 연락 방법
 
 #### 2.6 `discord/`
 - 디스코드 초대 링크
@@ -362,3 +362,4 @@ UI Components (shadcn/ui)
 - `route-map.md`: 라우팅 구조
 - `api-contract.md`: API 호출 계약
 - `implementation-plan.md`: 구현 순서
+

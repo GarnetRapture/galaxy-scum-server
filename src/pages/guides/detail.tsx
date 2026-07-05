@@ -1,33 +1,18 @@
-/**
- * 가이드 상세 페이지
- * 경로: /guides/:guideId
- */
-
 import { useParams, useNavigate, Link } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query"
 import {
   ArrowLeft,
   Calendar,
-  CheckCircle2,
-  AlertCircle,
-  AlertTriangle,
-  XCircle,
-  Lock,
+  BookOpen,
   ChevronRight,
 } from "lucide-react"
+import { GuideDetailSkeleton } from "@/features/loading/LoadingSkeleton"
 import { getGuideDetail, getRelatedGuides } from "@/shared/api/guides"
-import { CATEGORY_LABELS, PRIORITY_LABELS, VERIFICATION_STATUS_LABELS } from "@/shared/types"
+import { CATEGORY_LABELS, PRIORITY_LABELS } from "@/shared/types"
 import { getCategoryIcon } from "@/shared/constants/icons"
-import type { VerificationStatus } from "@/shared/types"
+import { scumMissionRefreshNotes, scumMissionSource, scumMissionTraderSections } from "@/data/scum-missions.data"
+import "@/App.css"
 import "@/styles/scum-authentic.css"
-
-const STATUS_ICONS: Record<VerificationStatus, React.ReactNode> = {
-  verified: <CheckCircle2 className="w-5 h-5 text-green-600" />,
-  partial: <AlertCircle className="w-5 h-5 text-yellow-600" />,
-  "needs-review": <AlertTriangle className="w-5 h-5 text-orange-600" />,
-  deprecated: <XCircle className="w-5 h-5 text-red-600" />,
-  "server-local-only": <Lock className="w-5 h-5 text-blue-600" />,
-}
 
 export function GuideDetailPage() {
   const { guideId } = useParams<{ guideId: string }>()
@@ -51,34 +36,30 @@ export function GuideDetailPage() {
 
   if (guideLoading) {
     return (
-      <div style={{ minHeight: '100vh', backgroundColor: 'var(--scum-bg)' }}>
-        <div className="max-w-4xl mx-auto px-6 py-8">
-          <div style={{ animation: 'pulse 2s infinite', display: 'space-y-6' }}>
-            <div style={{ height: '24px', backgroundColor: 'var(--scum-bg-tertiary)', borderRadius: '6px', width: '25%' }}></div>
-            <div style={{ height: '40px', backgroundColor: 'var(--scum-bg-tertiary)', borderRadius: '6px', width: '75%' }}></div>
-            <div style={{ height: '256px', backgroundColor: 'var(--scum-bg-tertiary)', borderRadius: '6px' }}></div>
-          </div>
-        </div>
+      <div className="galaxy-page">
+        <main className="galaxy-container guide-detail-page">
+          <GuideDetailSkeleton />
+        </main>
       </div>
     )
   }
 
   if (guideError || !guide) {
     return (
-      <div style={{ minHeight: '100vh', backgroundColor: 'var(--scum-bg)' }}>
-        <div className="max-w-4xl mx-auto px-6 py-8">
+      <div className="galaxy-page">
+        <main className="galaxy-container guide-detail-page">
           <button
             onClick={() => navigate("/guides")}
             className="scum-button"
-            style={{ marginBottom: '24px' }}
           >
             <ArrowLeft className="w-4 h-4" />
             가이드로 돌아가기
           </button>
-          <div className="scum-card" style={{ textAlign: 'center', backgroundColor: 'rgba(255, 23, 68, 0.05)', borderColor: 'rgba(255, 23, 68, 0.2)' }}>
-            <p style={{ color: 'var(--scum-red)', fontSize: '16px' }}>가이드를 찾을 수 없습니다.</p>
+          <div className="galaxy-panel guide-empty-state guide-empty-state--danger">
+            <h1>가이드를 찾을 수 없습니다</h1>
+            <p>요청한 가이드 주소가 현재 목록에 없습니다.</p>
           </div>
-        </div>
+        </main>
       </div>
     )
   }
@@ -86,94 +67,123 @@ export function GuideDetailPage() {
   const CategoryIcon = getCategoryIcon(guide.category)
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: 'var(--scum-bg)' }}>
-      <div className="max-w-4xl mx-auto px-6 py-8">
-        {/* 네비게이션 */}
+    <div className="galaxy-page">
+      <main className="galaxy-container guide-detail-page">
         <button
           onClick={() => navigate("/guides")}
           className="scum-button"
-          style={{ marginBottom: '24px' }}
         >
           <ArrowLeft className="w-4 h-4" />
           가이드로 돌아가기
         </button>
 
-        {/* 헤더 */}
-        <div className="scum-card" style={{ marginBottom: '24px' }}>
-          <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '16px' }}>
-            <div style={{ flex: 1 }}>
-              <h1 className="scum-title" style={{ fontSize: '32px', marginBottom: '12px' }}>{guide.title}</h1>
-              <p style={{ fontSize: '16px', color: 'var(--scum-text-secondary)', marginBottom: '16px' }}>{guide.summary}</p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '12px' }}>
-                <span className="scum-badge">
-                  <CategoryIcon className="w-4 h-4" />
-                  {CATEGORY_LABELS[guide.category]}
-                </span>
-                <span className="scum-badge accent">
-                  우선순위: {PRIORITY_LABELS[guide.beginnerPriority]}
-                </span>
-              </div>
+        <article className="galaxy-panel guide-detail-hero">
+          <img className="guide-detail__image" src={guide.image.src} alt={guide.image.alt} />
+          <div className="guide-detail-hero__content">
+            <div>
+              <span className="galaxy-kicker">Guide Detail</span>
+              <h1>{guide.title}</h1>
+              <p>{guide.summary}</p>
             </div>
-            <div style={{ textAlign: 'right', marginLeft: '16px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px', fontSize: '13px' }}>
-                {STATUS_ICONS[guide.meta.verificationStatus]}
-                <span style={{ fontWeight: 600, color: 'var(--scum-text-primary)' }}>
-                  {VERIFICATION_STATUS_LABELS[guide.meta.verificationStatus]}
-                </span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '12px', color: 'var(--scum-text-secondary)' }}>
-                <Calendar className="w-3 h-3" />
+            <div className="guide-detail-hero__badges">
+              <span className="scum-badge">
+                <CategoryIcon className="w-4 h-4" />
+                {CATEGORY_LABELS[guide.category]}
+              </span>
+              <span className="scum-badge success">
+                우선순위: {PRIORITY_LABELS[guide.beginnerPriority]}
+              </span>
+              <span className="scum-badge">
+                <Calendar className="w-4 h-4" />
                 {new Date(guide.meta.checkedAt).toLocaleDateString("ko-KR")}
-              </div>
+              </span>
             </div>
           </div>
-        </div>
+        </article>
 
-        {/* 본문 */}
-        <div className="scum-card" style={{ marginBottom: '24px', whiteSpace: 'pre-wrap', color: 'var(--scum-text-secondary)', lineHeight: '1.8' }}>
+        <section className="galaxy-panel guide-detail-body">
           {guide.body}
-        </div>
+        </section>
 
-        {/* 태그 */}
-        <div style={{ marginBottom: '24px', display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+        {guide.id === "guide-015" ? (
+          <section className="mission-guide">
+            <div className="galaxy-panel">
+              <div className="galaxy-section-heading">
+                <BookOpen className="w-5 h-5" />
+                <div>
+                  <span>{scumMissionSource.fileName}</span>
+                  <h2>상인별 전체 미션</h2>
+                </div>
+              </div>
+              <div className="mission-guide__summary">
+                <strong>{scumMissionSource.traderCount}개 상인</strong>
+                <strong>{scumMissionSource.missionLineCount}개 미션 원문 항목</strong>
+                <strong>추출일: {scumMissionSource.extractedAt}</strong>
+              </div>
+              <ul className="mission-guide__notes">
+                {scumMissionRefreshNotes.map((note) => (
+                  <li key={note}>{note}</li>
+                ))}
+              </ul>
+            </div>
+
+            {scumMissionTraderSections.map((section) => (
+              <article className="galaxy-panel mission-trader" key={section.id}>
+                <div className="galaxy-section-heading">
+                  <BookOpen className="w-5 h-5" />
+                  <div>
+                    <span>{section.missions.length} Missions</span>
+                    <h2>{section.traderName}</h2>
+                  </div>
+                </div>
+                <ol className="mission-trader__list">
+                  {section.missions.map((mission, index) => (
+                    <li key={`${section.id}-${index}`}>{mission}</li>
+                  ))}
+                </ol>
+              </article>
+            ))}
+          </section>
+        ) : null}
+
+        <div className="guide-detail-tags">
           {guide.tags.map((tag) => (
-            <span key={tag} className="scum-badge" style={{ fontSize: '12px' }}>
+            <span key={tag} className="scum-badge">
               #{tag}
             </span>
           ))}
         </div>
 
-        {/* 메타데이터 */}
-        <div className="scum-card" style={{ backgroundColor: 'rgba(0, 217, 255, 0.05)', borderLeft: '3px solid var(--scum-cyan)', marginBottom: '32px' }}>
-          <h3 style={{ fontWeight: 600, color: 'var(--scum-text-primary)', marginBottom: '16px' }}>가이드 정보</h3>
-          <dl style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '16px', fontSize: '13px' }}>
+        <section className="galaxy-panel guide-detail-meta">
+          <div className="galaxy-section-heading">
+            <BookOpen className="w-5 h-5" />
             <div>
-              <dt style={{ color: 'var(--scum-text-secondary)', marginBottom: '4px' }}>검증 상태</dt>
-              <dd style={{ color: 'var(--scum-text-primary)', fontWeight: 600, margin: 0 }}>
-                {VERIFICATION_STATUS_LABELS[guide.meta.verificationStatus]}
-              </dd>
+              <span>Guide Information</span>
+              <h2>가이드 정보</h2>
             </div>
+          </div>
+          <dl className="guide-detail-meta__grid">
             <div>
-              <dt style={{ color: 'var(--scum-text-secondary)', marginBottom: '4px' }}>마지막 확인</dt>
-              <dd style={{ color: 'var(--scum-text-primary)', fontWeight: 600, margin: 0 }}>
+              <dt>마지막 확인</dt>
+              <dd>
                 {new Date(guide.meta.checkedAt).toLocaleDateString("ko-KR")}
               </dd>
             </div>
             <div>
-              <dt style={{ color: 'var(--scum-text-secondary)', marginBottom: '4px' }}>신선도</dt>
-              <dd style={{ color: 'var(--scum-text-primary)', fontWeight: 600, margin: 0, textTransform: 'capitalize' }}>
+              <dt>업데이트 민감도</dt>
+              <dd>
                 {guide.meta.freshness === "current"
-                  ? "최신"
+                  ? "현재 기준"
                   : guide.meta.freshness === "patch-sensitive"
                     ? "패치 민감"
                     : guide.meta.freshness === "stale-risk"
-                      ? "오래됨 위험"
+                      ? "갱신 필요 가능성"
                       : "불명"}
               </dd>
             </div>
             <div>
-              <dt style={{ color: 'var(--scum-text-secondary)', marginBottom: '4px' }}>지식 범위</dt>
-              <dd style={{ color: 'var(--scum-text-primary)', fontWeight: 600, margin: 0, textTransform: 'capitalize' }}>
+              <dt>정보 범위</dt>
+              <dd>
                 {guide.meta.knowledgeScope === "official-game-system"
                   ? "공식 시스템"
                   : guide.meta.knowledgeScope === "server-local-policy"
@@ -181,57 +191,51 @@ export function GuideDetailPage() {
                     : "기타"}
               </dd>
             </div>
+            <div>
+              <dt>출처</dt>
+              <dd>{guide.meta.sourceIds.join(", ")}</dd>
+            </div>
           </dl>
 
           {guide.meta.reviewBefore && (
-            <div style={{ marginTop: '16px', padding: '12px', backgroundColor: 'rgba(255, 255, 0, 0.1)', border: '1px solid rgba(255, 255, 0, 0.2)', borderRadius: '6px' }}>
-              <p style={{ fontSize: '13px', color: 'var(--scum-orange)', margin: 0 }}>
-                <span style={{ fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                  <AlertTriangle className="w-4 h-4" />
-                  재검증 권장:
-                </span>{" "}
+            <div className="guide-detail-meta__notice">
+              <p>
                 {new Date(guide.meta.reviewBefore).toLocaleDateString("ko-KR")} 이전에
-                재검증이 필요합니다.
+                업데이트 여부 확인이 필요합니다.
                 {guide.meta.reviewReason && ` (${guide.meta.reviewReason})`}
               </p>
             </div>
           )}
+        </section>
 
-          <div style={{ marginTop: '16px' }}>
-            <p style={{ fontSize: '12px', color: 'var(--scum-text-secondary)', margin: 0 }}>
-              <span style={{ fontWeight: 600 }}>출처:</span> {guide.meta.sourceIds.join(", ")}
-            </p>
-          </div>
-        </div>
-
-        {/* 관련 가이드 */}
         {relatedGuides.length > 0 && (
-          <div>
-            <h2 className="scum-title" style={{ fontSize: '24px', marginBottom: '24px' }}>관련 가이드</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '16px' }}>
+          <section className="guide-related">
+            <div className="galaxy-section-heading">
+              <BookOpen className="w-5 h-5" />
+              <div>
+                <span>Related Guides</span>
+                <h2>관련 가이드</h2>
+              </div>
+            </div>
+            <div className="guide-related__grid">
               {relatedGuides.map((related) => (
                 <Link
                   key={related.id}
                   to={`/guides/${related.id}`}
-                  className="scum-card"
-                  style={{ textDecoration: 'none', color: 'inherit' }}
+                  className="galaxy-info-tile guide-related-card"
                 >
-                  <h4 style={{ fontWeight: 600, color: 'var(--scum-text-primary)', marginBottom: '8px', fontSize: '14px', overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
-                    {related.title}
-                  </h4>
-                  <p style={{ fontSize: '13px', color: 'var(--scum-text-secondary)', marginBottom: '12px', overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
-                    {related.summary}
-                  </p>
-                  <div style={{ fontSize: '12px', color: 'var(--scum-cyan)', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                  <h3>{related.title}</h3>
+                  <p>{related.summary}</p>
+                  <span>
                     보기
                     <ChevronRight className="w-3 h-3" />
-                  </div>
+                  </span>
                 </Link>
               ))}
             </div>
-          </div>
+          </section>
         )}
-      </div>
+      </main>
     </div>
   )
 }

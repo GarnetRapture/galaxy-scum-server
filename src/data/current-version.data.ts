@@ -3,7 +3,7 @@
  *
  * 이 파일은 scum-current-version.md의 섹션 2-6 데이터를
  * TypeScript 정적 데이터로 구조화합니다.
- * 각 항목은 출처 ID와 검증 상태를 명시합니다.
+ * 각 항목은 출처 ID와 자료 상태를 명시합니다.
  */
 
 import type { GameVersion, VersionFeature } from "@/domains/scum/version/types"
@@ -23,7 +23,7 @@ const versionMeta: VerifiableContentMeta = {
   freshness: "current",
   checkedAt: "2026-07-05T00:00:00Z",
   reviewBefore: "2026-08-05T00:00:00Z",
-  reviewReason: "월 1회 Steam News 재검증 스케줄",
+  reviewReason: "월 1회 Steam News 업데이트 확인",
 }
 
 // ============================================================================
@@ -43,7 +43,7 @@ const features: VersionFeature[] = [
   {
     id: "feature-002-wildlife-server-control",
     title: "오픈월드 사냥",
-    description: "동물 서버 컨트롤 추가 (관리자 설정 가능)",
+    description: "동물 서버 컨트롤 추가",
     category: "feature",
     status: "verified",
     affectsGameplay: true,
@@ -148,7 +148,7 @@ export const needsReviewFeatures = features.filter(
 )
 
 // ============================================================================
-// 검증 상태 요약
+// 자료 상태 요약
 // ============================================================================
 
 export const versionSummary = {
@@ -160,5 +160,5 @@ export const versionSummary = {
   partialCount: partialFeatures.length,
   needsReviewCount: needsReviewFeatures.length,
   verificationStatus: "mixed" as const,
-  displayText: `SCUM ${currentVersion.versionNumber} (${currentVersion.updateName}) - 기능 ${verifiedFeatures.length}/8 검증 완료`,
+  displayText: `SCUM ${currentVersion.versionNumber} (${currentVersion.updateName}) - 기능 ${verifiedFeatures.length}/8 확인 완료`,
 }

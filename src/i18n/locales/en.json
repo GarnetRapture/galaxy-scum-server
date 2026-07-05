@@ -7,6 +7,7 @@
   "nav": {
     "home": "Home",
     "guides": "Guides",
+    "wiki": "SCUM Wiki",
     "beginner": "Beginner",
     "serverInfo": "Server Info",
     "events": "Events"
@@ -29,20 +30,20 @@
     "welcomePack": "Welcome Pack",
     "welcomePackDesc": "Startup items and benefits provided to all new players",
     "newbieCare": "Newbie Care",
-    "newbieCareDesc": "Admin support: 15-minute guided tutorial and game orientation",
+    "newbieCareDesc": "New-player onboarding support through Discord requests",
     "gameStart": "GAME START: 3-STEP PROCESS",
     "step1": "Create character and spawn into game world",
     "step2": "Claim welcome pack from in-game menu",
-    "step3": "Contact admin Blac on Discord for newbie care"
+    "step3": "Leave a support request on Discord"
   },
   "version": {
     "title": "SCUM VERSION STATUS",
-    "subtitle": "INTO THE WILD update: Major features and verification status",
+    "subtitle": "INTO THE WILD update: major features and information status",
     "versionInfo": "VERSION INFORMATION",
     "versionNumber": "VERSION NUMBER",
     "releaseDate": "RELEASE DATE",
     "officialReleaseDate": "OFFICIAL RELEASE DATE",
-    "verificationStatus": "VERIFICATION STATUS",
+    "verificationStatus": "INFORMATION STATUS",
     "latestFeatures": "Latest Update Features",
     "lastChecked": "Last Checked"
   },
@@ -58,7 +59,7 @@
     "adjustFilters": "Try adjusting your filters",
     "clearFilters": "CLEAR FILTERS",
     "guideInfo": "GUIDE INFORMATION",
-    "verificationStatus": "Verification Status",
+    "verificationStatus": "Information Status",
     "freshness": "Freshness",
     "knowledgeScope": "Knowledge Scope",
     "reviewRecommended": "Review Recommended",
@@ -110,12 +111,12 @@
     "quickLinks": "Quick Links",
     "community": "COMMUNITY",
     "info": "INFO",
-    "admin": "Admin: Blac",
+    "admin": "Notice Author: Galaxy Notice",
     "since": "Server Since: 2021",
     "game": "Game: SCUM (Gamepires)",
     "mode": "Play Mode: PVE",
-    "copyright": "© {{year}} Galaxy Server. Made by Players",
-    "verification": "Source Verification: Tier 1-6 System",
+    "copyright": "© {{year}} Galaxy Server. Built by Nekoi",
+    "verification": "Information basis: SCUM official material and Galaxy notices",
     "lastUpdate": "Last Update: 2026-07-05",
     "disclaimer": "This website is a fan guide for Galaxy Server. SCUM is a copyrighted game by Gamepires. All information is maintained as accurately as possible but may change with game updates."
   }

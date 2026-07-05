@@ -2,14 +2,14 @@
 
 이 문서는 SCUM을 처음 시작하는 플레이어를 위한 기본 가이드입니다. 갤럭시 서버 기준으로 작성되었습니다.
 
-**검증상태**: partial  
+**확인상태**: partial  
 **sourceIds**: `source-scum-steam-store`, `source-galaxy-server-local-2026-07-05`  
 **마지막 확인**: 2026-07-05  
 **기준 버전**: SCUM 1.3.1.0.125621 (INTO THE WILD)  
 
-## 검증상태 요약
+## 확인상태 요약
 
-| 섹션 | 검증상태 | 주의사항 |
+| 섹션 | 확인상태 | 주의사항 |
 |------|---------|---------|
 | 0단계: 게임 시작 | verified | Steam Store 기준 |
 | 1단계: 첫 30분 생존 | partial | 물 끓이기/질병 감염 수치 needs-review |
@@ -35,7 +35,7 @@
 
 ## 1단계: 첫 30분 생존 (Critical)
 
-> **검증상태**: partial  
+> **확인상태**: partial  
 > **sourceIds**: `source-scum-steam-store`  
 > **주의사항**: 물 끓이기 시간, 질병 감염 경로 구체화 필요
 
@@ -70,7 +70,7 @@
 
 ## 2단계: 초기 정착 (Days 1-3)
 
-> **검증상태**: partial  
+> **확인상태**: partial  
 > **sourceIds**: `source-scum-steam-store`, `source-galaxy-server-local-2026-07-05`  
 > **주의사항**: [partial] 웰컴팩 정확한 아이템 구성 needs-review
 
@@ -101,7 +101,7 @@
 
 ## 3단계: 초급 기술 습득 (Days 3-7)
 
-> **검증상태**: partial  
+> **확인상태**: partial  
 > **sourceIds**: `source-scum-steam-store`  
 > **주의사항**: 스킬 경험치 배수, 레벨업 시간 needs-review
 
@@ -133,7 +133,7 @@
 
 ## 4단계: 생존의 깊이 (Week 2+)
 
-> **검증상태**: partial  
+> **확인상태**: partial  
 > **sourceIds**: `source-scum-steam-store`  
 > **주의사항**: 신진대사 수치/계산식, 회복 시간, 질병 감염 시간 needs-review
 
@@ -177,13 +177,13 @@
 
 ## 5단계: 중급 활동 (Week 3+)
 
-> **검증상태**: partial  
+> **확인상태**: partial  
 > **sourceIds**: `source-scum-steam-store`, `source-galaxy-server-local-2026-07-05` (차량 렌트), `source-scum-into-wild-wildlife` (scouting 동물 needs-review)  
 > **주의사항**: INTO THE WILD 랜드 동물 행동 needs-review
 
 ### 차량 이용 (갤럭시 서버)
 **갤럭시 서버 무료 차량 렌트 정책**:
-1. 디스코드에서 관리자(블락)에게 요청
+1. 디스코드에서 서버 문의(Galaxy Notice)에게 요청
 2. 무료 차량 제공 (신규 유저 환영)
 3. 새 차량을 구매할 때만 기존 차량 반납
 4. 자연 차량 스폰 없음 (렌트만 가능)
@@ -214,7 +214,7 @@
 
 ## 6단계: 고급 콘텐츠 (Week 4+)
 
-> **검증상태**: needs-review  
+> **확인상태**: needs-review  
 > **sourceIds**: `source-scum-steam-store`, `source-galaxy-server-local-2026-07-05`, `source-scum-into-wild-wildlife` (needs-review)  
 > **주의사항**: [needs-review] 갤럭시 파밍지 구체적 위치/보상 필요
 
@@ -241,19 +241,19 @@
 
 ## 갤럭시 서버 신규 유저 팁
 
-> **검증상태**: partial  
+> **확인상태**: partial  
 > **sourceIds**: `source-galaxy-server-local-2026-07-05`  
 > **주의사항**: 웰컴팩 정확한 내용, 차량 렌트 절차 세부 필요
 
 ### 뉴비 케어 프로그램
 - 게임 적응까지 가이드 제공
-- 관리자(블락)가 직접 기본 안내 (약 15분)
+- 서버 문의(Galaxy Notice)가 직접 기본 안내 (약 15분)
 - 디스코드에서 질문 환영
 
 ### 디스코드 참여
 - 링크: https://discord.gg/VeNFX3CAwZ
 - [partial] 문의/신청/질문/거래 등 모두 디스코드 사용
-- 관리자: 블락
+- 서버 문의: Galaxy Notice
 - 웰컴팩, 차량 렌트, 이벤트 모두 디스코드 공지 확인
 
 ### 경험치 이벤트
@@ -272,7 +272,7 @@
 - [ ] 스킬 시스템 이해
 - [ ] 무기 획득 (활 또는 도끼)
 - [ ] 첫 사냥 또는 루팅 성공
-- [ ] 관리자에게 차량 렌트 신청 (선택)
+- [ ] 서버 문의에게 차량 렌트 신청 (선택)
 
 ## 관련 문서
 
@@ -282,25 +282,25 @@
 | `scum-current-version.md` | SCUM 버전/업데이트 기준 |
 | `scum-content-taxonomy.md` | 30+ 카테고리별 심화 가이드 |
 | `scum-server-galaxy-profile.md` | 갤럭시 서버 전용 정보 |
-| `data-model.md` | 타입 정의 및 검증 메타 |
+| `data-model.md` | 타입 정의 및 확인 메타 |
 
 ## 다음 학습 항목
 
 이 초안 가이드 이후 심화 학습:
 - 각 카테고리별 상세 가이드 (`scum-content-taxonomy.md` 참조)
 - `scum-server-galaxy-profile.md`: 갤럭시 서버 전용 정보
-- 프론트엔드에서 검증상태 배지와 함께 표시
+- 프론트엔드에서 확인상태 배지와 함께 표시
 
-## 검증상태 및 주의사항
+## 확인상태 및 주의사항
 
 - **기준 버전**: SCUM 1.3.1.0.125621 (INTO THE WILD - June Update, 2026-06-30)
-- **전체 검증상태**: partial (세부 수치 needs-review)
+- **전체 확인상태**: partial (세부 수치 needs-review)
 - **업데이트 기준**: 월 1회 (Steam News 확인)
 - **갤럭시 서버 정보**: Tier 5 (Server Local) verified
 - [needs-review] 표시된 항목: 프론트엔드에서 "!" 배지 표시
 - [partial] 표시된 항목: 프론트엔드에서 "⚠" 배지 표시
 
-### 재검증 필요 항목
+### 재확인 필요 항목
 
 1. 물 끓이기 정확한 시간
 2. 질병 감염 경로 및 회복 시간
@@ -308,3 +308,4 @@
 4. 웰컴팩 정확한 아이템 구성
 5. INTO THE WILD 랜드 동물 세부 정보
 6. 갤럭시 파밍지 구체적 위치/보상
+

@@ -22,11 +22,15 @@ export type GuideEntry = {
   // 콘텐츠
   summary: string // 요약 (1-2줄)
   body: string // 상세 내용 (Markdown)
+  image: {
+    src: string
+    alt: string
+  }
   tags: string[] // 검색 태그
 
   // 메타정보
   beginnerPriority: BeginnerPriority // 신규 유저 우선순위 (1-5)
-  meta: VerifiableContentMeta // 검증 메타데이터
+  meta: VerifiableContentMeta // 자료 메타데이터
 
   // 관계
   relatedGuideIds?: string[] // 관련 가이드 ID 목록 (최대 5개)

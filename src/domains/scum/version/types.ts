@@ -17,7 +17,7 @@ export type GameVersion = {
   features: string[] // 주요 기능 목록
   bugFixes: string[] // 버그 수정 목록
   qolImprovements: string[] // QoL 개선 사항
-  meta: VerifiableContentMeta // 검증 메타데이터
+  meta: VerifiableContentMeta // 자료 메타데이터
 }
 
 export type VersionInfo = {

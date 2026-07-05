@@ -1,13 +1,13 @@
-/**
- * Card 컴포넌트
- */
-
 import React from "react"
 import { cn } from "@/shared/utils/cn"
 
 export const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn("rounded-lg border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900", className)} {...props} />
+    <div
+      ref={ref}
+      className={cn("rounded-lg border border-[var(--scum-border)] bg-[rgba(17,21,46,0.82)] text-[var(--scum-text-primary)]", className)}
+      {...props}
+    />
   )
 )
 Card.displayName = "Card"
@@ -21,14 +21,14 @@ CardHeader.displayName = "CardHeader"
 
 export const CardTitle = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLHeadingElement>>(
   ({ className, ...props }, ref) => (
-    <h2 ref={ref} className={cn("text-2xl font-bold leading-none tracking-tight text-gray-900 dark:text-white", className)} {...props} />
+    <h2 ref={ref} className={cn("text-2xl font-bold leading-none tracking-normal text-[var(--scum-text-primary)]", className)} {...props} />
   )
 )
 CardTitle.displayName = "CardTitle"
 
 export const CardDescription = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraphElement>>(
   ({ className, ...props }, ref) => (
-    <p ref={ref} className={cn("text-sm text-gray-600 dark:text-gray-400", className)} {...props} />
+    <p ref={ref} className={cn("text-sm text-[var(--scum-text-secondary)]", className)} {...props} />
   )
 )
 CardDescription.displayName = "CardDescription"

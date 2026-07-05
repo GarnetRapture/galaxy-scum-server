@@ -24,7 +24,7 @@ export const PAGINATION = {
 } as const
 
 // ============================================================================
-// 재검증 스케줄
+// 정보 확인 주기
 // ============================================================================
 
 export const REVIEW_SCHEDULE = {
@@ -35,24 +35,24 @@ export const REVIEW_SCHEDULE = {
 } as const
 
 // ============================================================================
-// 검증 상태별 배지
+// 자료 상태별 배지
 // ============================================================================
 
 export const VERIFICATION_BADGES = {
   verified: {
     icon: "CheckCircle2",
     color: "green",
-    tooltip: "공식 출처에서 검증됨",
+    tooltip: "공식 자료 기준 확인 완료",
   },
   partial: {
     icon: "AlertCircle",
     color: "yellow",
-    tooltip: "일부만 검증됨 (세부 사항 필요)",
+    tooltip: "내용 확인 중",
   },
   "needs-review": {
     icon: "AlertTriangle",
     color: "orange",
-    tooltip: "재검증 필요",
+    tooltip: "업데이트 확인 필요",
   },
   deprecated: {
     icon: "XCircle",
@@ -79,8 +79,14 @@ export const GALAXY_SERVER = {
   SERVER_HOST: "121.137.41.200",
   SERVER_PORT: 7002,
   SERVER_ADDRESS: "121.137.41.200:7002",
-  ADMIN_NAME: "블락",
+  NOTICE_AUTHOR: "Galaxy Notice",
+  SITE_CREATOR: "Nekoi",
   SINCE_YEAR: 2021,
+} as const
+
+export const GALAXY_BRAND_ASSETS = {
+  LOGO: "/assets/brand/scum-galaxy-logo.svg",
+  FAVICON: "/favicon.svg",
 } as const
 
 // ============================================================================

@@ -74,21 +74,20 @@ export function ServerInfoPage() {
         <div className="galaxy-section-heading">
           <AlertTriangle className="w-5 h-5" />
           <div>
-            <span>{language === "ko" ? "운영 규칙" : "Server Rules"}</span>
+            <span>{language === "ko" ? "서버 규칙" : "Server Rules"}</span>
             <h2>{language === "ko" ? "갤럭시 PVE 전체 규칙" : "Galaxy PvE Rules"}</h2>
           </div>
         </div>
-        <div className="galaxy-rule-list">
+        <div className="galaxy-notice-list">
           {galaxyRules.map((rule, index) => (
-            <article className={`galaxy-rule-row galaxy-rule-row--${rule.severity}`} key={rule.id}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <div>
-                <div className="galaxy-rule-row__head">
-                  <h3>{pickLocalizedText(rule.title, locale)}</h3>
-                  <strong>{ruleSeverityLabel[rule.severity][locale]}</strong>
-                </div>
-                {rule.detail ? <p>{pickLocalizedText(rule.detail, locale)}</p> : null}
+            <article className={`galaxy-notice-card galaxy-notice-card--${rule.severity}`} key={rule.id}>
+              <div className="galaxy-notice-card__meta">
+                <span>{language === "ko" ? `공지 ${String(index + 1).padStart(2, "0")}` : `Notice ${String(index + 1).padStart(2, "0")}`}</span>
+                <span>{language === "ko" ? `작성자: ${GALAXY_SERVER.NOTICE_AUTHOR}` : `Author: ${GALAXY_SERVER.NOTICE_AUTHOR}`}</span>
+                <strong>{ruleSeverityLabel[rule.severity][locale]}</strong>
               </div>
+              <h3>{pickLocalizedText(rule.title, locale)}</h3>
+              {rule.detail ? <p>{pickLocalizedText(rule.detail, locale)}</p> : null}
             </article>
           ))}
         </div>
@@ -99,7 +98,7 @@ export function ServerInfoPage() {
           <Shield className="w-5 h-5" />
           <div>
             <span>{versionKnowledge.version}</span>
-            <h2>{language === "ko" ? "서버 운영자가 확인해야 할 최신 설정 변화" : "Current Server Settings To Review"}</h2>
+            <h2>{language === "ko" ? "최신 서버 설정 변화" : "Current Server Setting Changes"}</h2>
           </div>
         </div>
         <div className="galaxy-update-grid">

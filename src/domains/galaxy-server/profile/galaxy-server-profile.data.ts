@@ -39,7 +39,7 @@ export const galaxyServerProfile: GalaxyServerProfile = {
   serverAddress: GALAXY_SERVER.SERVER_ADDRESS,
   serverHost: GALAXY_SERVER.SERVER_HOST,
   serverPort: GALAXY_SERVER.SERVER_PORT,
-  adminDiscordName: "블락",
+  adminDiscordName: "Galaxy Notice",
 
   // 특징
   features: [

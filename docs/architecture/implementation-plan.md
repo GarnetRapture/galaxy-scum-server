@@ -10,16 +10,16 @@
 
 ### 완료 항목
 
-- ✓ `scum-source-register.md`: SOURCE_REFS 추가, Tier 분류 정정 (Steam → Tier 2), 재검증 필요 항목 테이블화
+- ✓ `scum-source-register.md`: SOURCE_REFS 추가, Tier 분류 정정 (Steam → Tier 2), 재확인 필요 항목 테이블화
 - ✓ `scum-current-version.md`: 공식 출처 명시 (Steam News, Steam Store), INTO THE WILD 테이블화
 - ✓ `scum-content-taxonomy.md`: 30개 → 40개 카테고리로 확장, ContentKnowledgeKind 메타 추가
-- ✓ `scum-beginner-guide.md`: 검증상태 블록 추가, [needs-review]/[partial] 태그 명시, 오탈자 수정
+- ✓ `scum-beginner-guide.md`: 확인상태 블록 추가, [needs-review]/[partial] 태그 명시, 오탈자 수정
 - ✓ `scum-server-galaxy-profile.md`: Tier 5 (Server Local) 명시, sourceId 연결, 로컬 정책 분리
 - ✓ `data-model.md`: VerifiableContentMeta, ContentKnowledgeKind, ContentFreshness 타입 추가
 
-### 문서 검증상태 요약
+### 문서 확인상태 요약
 
-| 문서 | 검증상태 | 우선순위 |
+| 문서 | 확인상태 | 우선순위 |
 |------|---------|---------|
 | scum-current-version.md | partial | 높음 (INTO THE WILD 세부 needs-review) |
 | scum-content-taxonomy.md | partial | 높음 (INTO THE WILD 항목 needs-review) |
@@ -635,3 +635,4 @@ Phase 10: 테스트 및 배포 (1주)
 - `route-map.md`: 라우팅 구조
 - `api-contract.md`: API 호출 명세
 - `../research/`: 조사 문서들
+

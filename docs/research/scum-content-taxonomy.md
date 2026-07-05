@@ -11,7 +11,7 @@ type ContentKnowledgeKind =
   | "beginner-guide"            // 신규 유저 대상 가이드
   | "advanced-guide"            // 중고급 플레이어 가이드
   | "patch-dependent"           // 패치에 따라 변경되는 내용
-  | "community-derived"         // 커뮤니티 검증 내용
+  | "community-derived"         // 커뮤니티 확인 내용
 ```
 
 ## 카테고리 분류
@@ -33,7 +33,7 @@ type ContentKnowledgeKind =
 **성격**: official-game-system + beginner-guide  
 **도메인**: `domains/scum/guides/`  
 **신뢰도**: Tier 2 (Steam Store 게임 설명)  
-**검증상태**: verified  
+**확인상태**: verified  
 **sourceIds**: `source-scum-steam-store`  
 
 **대상**: 게임 처음 접하는 플레이어  
@@ -132,7 +132,7 @@ type ContentKnowledgeKind =
 **성격**: patch-dependent + advanced-guide  
 **도메인**: `domains/scum/hunting/`  
 **신뢰도**: Tier 2 (Steam) + Tier 3-4 (Wiki/Community)  
-**검증상태**: partial (INTO THE WILD 랜드 동물 needs-review)  
+**확인상태**: partial (INTO THE WILD 랜드 동물 needs-review)  
 **sourceIds**: `source-scum-steam-store`, `source-scum-into-wild-wildlife` (needs-review), `source-scum-hunting-loot-table` (partial)  
 
 **대상**: 초급~고급  
@@ -149,7 +149,7 @@ type ContentKnowledgeKind =
 **성격**: official-game-system + patch-dependent  
 **도메인**: `domains/scum/fishing/`  
 **신뢰도**: Tier 2 (Steam) + Tier 3-4 (Wiki)  
-**검증상태**: partial (INTO THE WILD 트로피 물고기 장식 partial)  
+**확인상태**: partial (INTO THE WILD 트로피 물고기 장식 partial)  
 **sourceIds**: `source-scum-steam-store`, `source-scum-into-wild-trophy-fish` (partial)  
 
 **대상**: 초급~고급  
@@ -167,7 +167,7 @@ type ContentKnowledgeKind =
 **성격**: patch-dependent + beginner-guide  
 **도메인**: `domains/scum/cooking/`  
 **신뢰도**: Tier 2 (Steam) + Tier 3-4 (Wiki)  
-**검증상태**: partial (INTO THE WILD 즉흥 요리 needs-review)  
+**확인상태**: partial (INTO THE WILD 즉흥 요리 needs-review)  
 **sourceIds**: `source-scum-steam-store`, `source-scum-into-wild-cooking` (needs-review)  
 
 **대상**: 초급~중급  
@@ -268,7 +268,7 @@ type ContentKnowledgeKind =
 **성격**: patch-dependent + beginner-guide  
 **도메인**: `domains/scum/enemies/`  
 **신뢰도**: Tier 2 (Steam) + Tier 3-4 (Wiki)  
-**검증상태**: partial (INTO THE WILD 랜드 동물 needs-review)  
+**확인상태**: partial (INTO THE WILD 랜드 동물 needs-review)  
 **sourceIds**: `source-scum-steam-store`, `source-scum-into-wild-wildlife` (needs-review)  
 
 **대상**: 초급~고급  
@@ -287,7 +287,7 @@ type ContentKnowledgeKind =
 **성격**: patch-dependent + beginner-guide  
 **도메인**: `domains/scum/quest/` (신규)  
 **신뢰도**: Tier 2 (Steam) + Tier 3-4 (Wiki)  
-**검증상태**: partial (INTO THE WILD 1.0 기념 퀘스트 partial)  
+**확인상태**: partial (INTO THE WILD 1.0 기념 퀘스트 partial)  
 **sourceIds**: `source-scum-steam-store`, `source-scum-into-wild-quest` (partial)  
 
 **대상**: 초급~고급  
@@ -324,10 +324,10 @@ type ContentKnowledgeKind =
 **성격**: patch-dependent + server-local-policy  
 **도메인**: `domains/scum/server-settings/`, `domains/galaxy-server/profile/`  
 **신뢰도**: Tier 2 (Steam) + Tier 5 (Server Local)  
-**검증상태**: needs-review (INTO THE WILD 커스텀 옵션 needs-review)  
+**확인상태**: needs-review (INTO THE WILD 커스텀 옵션 needs-review)  
 **sourceIds**: `source-scum-steam-store`, `source-scum-steam-news-server-settings` (needs-review), `source-galaxy-server-local-2026-07-05`  
 
-**대상**: 플레이어, 서버 관리자  
+**대상**: 플레이어, 서버 서버 문의  
 **우선순위**: 낮음 (4)  
 **주요 내용**:
 - PvE/PvP 모드 차이
@@ -355,7 +355,7 @@ type ContentKnowledgeKind =
 - 서버 소개 (KOR_PVE 갤럭시 since 2021)
 - 방제 및 검색 키워드
 - 운영 방향 (가족 같은 분위기, 고인물과 뉴비 공존)
-- 관리자 정보 및 연락처
+- 서버 문의 정보 및 연락처
 - 서버 특화 콘텐츠 (뉴비용 파밍지, 엔드컨텐츠, 원전 등)
 
 #### 28. 웰컴팩 (Welcome Pack)
@@ -383,7 +383,7 @@ type ContentKnowledgeKind =
 **성격**: server-local-policy + beginner-guide  
 **도메인**: `domains/galaxy-server/newbie-care/`  
 **신뢰도**: Tier 5 (Server Local)  
-**검증상태**: partial (세부 안내 내용 확인 필요)  
+**확인상태**: partial (세부 안내 내용 확인 필요)  
 **sourceIds**: `source-galaxy-server-local-2026-07-05`  
 
 **대상**: 신규 유저  
@@ -391,7 +391,7 @@ type ContentKnowledgeKind =
 **주요 내용**:
 - 갤럭시 서버 뉴비 케어 프로그램
 - 적응 단계별 가이드
-- 관리자(블락) 직접 안내 (약 15분)
+- 서버 문의(Galaxy Notice) 직접 안내 (약 15분)
 - 신규 유저 관심사항
 - 활용 가능한 채널 및 디스코드
 
@@ -402,7 +402,7 @@ type ContentKnowledgeKind =
 **성격**: patch-dependent  
 **도메인**: `domains/scum/version/`  
 **신뢰도**: Tier 2 (Steam News)  
-**검증상태**: verified  
+**확인상태**: verified  
 **sourceIds**: `source-scum-steam-news-2026-06-30`, `source-scum-steam-news-latest`  
 
 **대상**: 모든 플레이어  
@@ -417,7 +417,7 @@ type ContentKnowledgeKind =
 **성격**: server-local-policy  
 **도메인**: `domains/galaxy-server/discord/`  
 **신뢰도**: Tier 5 (Server Local)  
-**검증상태**: partial  
+**확인상태**: partial  
 **sourceIds**: `source-galaxy-server-local-2026-07-05`  
 
 **대상**: 갤럭시 서버 플레이어  
@@ -427,18 +427,18 @@ type ContentKnowledgeKind =
 - 상점 가격 및 배송
 - 아이템별 효과
 
-#### 33. 관리자 문의/신고 (Admin Contact)
+#### 33. 서버 문의 문의/신고 (Admin Contact)
 **카테고리 ID**: `galaxyAdminContact`  
 **성격**: server-local-policy  
 **도메인**: `domains/galaxy-server/discord/`  
 **신뢰도**: Tier 5 (Server Local)  
-**검증상태**: verified  
+**확인상태**: verified  
 **sourceIds**: `source-galaxy-server-local-2026-07-05`  
 
 **대상**: 갤럭시 서버 플레이어  
 **우선순위**: 높음 (2)  
 **주요 내용**:
-- 관리자 연락 방법 (블락)
+- 서버 문의 연락 방법 (Galaxy Notice)
 - 신고 절차
 - 응답 시간
 
@@ -447,7 +447,7 @@ type ContentKnowledgeKind =
 **성격**: server-local-policy  
 **도메인**: `domains/galaxy-server/rules/`  
 **신뢰도**: Tier 5 (Server Local)  
-**검증상태**: partial  
+**확인상태**: partial  
 **sourceIds**: `source-galaxy-server-local-2026-07-05`  
 
 **대상**: 모든 갤럭시 서버 플레이어  
@@ -462,7 +462,7 @@ type ContentKnowledgeKind =
 **성격**: beginner-guide  
 **도메인**: `domains/scum/guides/`  
 **신뢰도**: Tier 3-4 (Community)  
-**검증상태**: needs-review  
+**확인상태**: needs-review  
 **sourceIds**: `source-scum-into-wild-wildlife`  
 
 **대상**: 신규 유저  
@@ -477,7 +477,7 @@ type ContentKnowledgeKind =
 **성격**: advanced-guide  
 **도메인**: `domains/scum/weapons/`  
 **신뢰도**: Tier 4 (Community)  
-**검증상태**: needs-review  
+**확인상태**: needs-review  
 **sourceIds**: (Community source 필요)  
 
 **대상**: 중급~고급 플레이어  
@@ -492,7 +492,7 @@ type ContentKnowledgeKind =
 **성격**: beginner-guide + server-local-policy  
 **도메인**: `domains/scum/guides/`, `domains/galaxy-server/newbie-care/`  
 **신뢰도**: Tier 2-5 (Mixed)  
-**검증상태**: partial  
+**확인상태**: partial  
 **sourceIds**: `source-scum-steam-store`, `source-galaxy-server-local-2026-07-05`  
 
 **대상**: 신규 유저  
@@ -507,7 +507,7 @@ type ContentKnowledgeKind =
 **성격**: beginner-guide + patch-dependent  
 **도메인**: `domains/scum/locations/`  
 **신뢰도**: Tier 3-4 (Wiki/Community)  
-**검증상태**: needs-review  
+**확인상태**: needs-review  
 **sourceIds**: (Wiki/Community source 필요)  
 
 **대상**: 초급~중급 플레이어  
@@ -522,7 +522,7 @@ type ContentKnowledgeKind =
 **성격**: server-local-policy  
 **도메인**: `domains/galaxy-server/events/`  
 **신뢰도**: Tier 5 (Server Local)  
-**검증상태**: partial  
+**확인상태**: partial  
 **sourceIds**: `source-galaxy-server-local-2026-07-05`  
 
 **대상**: 모든 갤럭시 서버 플레이어  
@@ -538,7 +538,7 @@ type ContentKnowledgeKind =
 **성격**: beginner-guide + server-local-policy  
 **도메인**: `features/faq/`, `domains/galaxy-server/`  
 **신뢰도**: Tier 2-5 (Mixed)  
-**검증상태**: partial  
+**확인상태**: partial  
 **sourceIds**: (Multiple)  
 
 **대상**: 모든 플레이어  
@@ -561,7 +561,7 @@ type ContentKnowledgeKind =
 | 문서 | 용도 |
 |------|------|
 | `scum-source-register.md` | 각 카테고리 sourceIds 기준점 |
-| `scum-current-version.md` | INTO THE WILD 관련 카테고리 검증상태 |
+| `scum-current-version.md` | INTO THE WILD 관련 카테고리 확인상태 |
 | `scum-beginner-guide.md` | 각 카테고리별 상세 가이드 초안 |
 | `scum-server-galaxy-profile.md` | 갤럭시 서버 카테고리(26-30, 39-40) 통합 |
 | `data-model.md` | ContentKnowledgeKind 타입 정의 |
@@ -577,11 +577,12 @@ type ContentKnowledgeKind =
 
 ### Phase 3 (선택) — Needs-Review
 31-38 (심화 및 커뮤니티 콘텐츠)
-35-39 검증 후 추가
+35-39 확인 후 추가
 
 ## 다음 단계
 
-1. **Phase 1 마감**: 높은 우선순위 sourceIds 재검증
+1. **Phase 1 마감**: 높은 우선순위 sourceIds 재확인
 2. **Phase 2 시작**: verified 카테고리부터 가이드 데이터 작성
 3. **Phase 3**: partial 항목들 조사 및 보완
 4. **프론트엔드**: 카테고리별 필터링, 검색, 우선순위 배지 표시
+

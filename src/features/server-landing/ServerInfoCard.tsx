@@ -47,7 +47,7 @@ export function ServerInfoCard() {
       <div className="border-b px-6 py-4 bg-gradient-to-r from-blue-50 to-blue-100">
         <h2 className="text-2xl font-bold text-gray-900 mb-1">{profile.name}</h2>
         <p className="text-sm text-gray-700">
-          {profile.playStyle} · Since {profile.sinceYear} · 관리자: {profile.adminDiscordName}
+          {profile.playStyle} · Since {profile.sinceYear} · 공지 작성자: Galaxy Notice
         </p>
       </div>
 
@@ -78,8 +78,8 @@ export function ServerInfoCard() {
               <dd className="text-sm font-semibold text-gray-900">없음 (PVE)</dd>
             </div>
             <div className="p-3 bg-gray-50 rounded border border-gray-200">
-              <dt className="text-xs font-medium text-gray-600 mb-1">관리자</dt>
-              <dd className="text-sm font-semibold text-gray-900">{profile.adminDiscordName}</dd>
+              <dt className="text-xs font-medium text-gray-600 mb-1">공지 작성자</dt>
+              <dd className="text-sm font-semibold text-gray-900">Galaxy Notice</dd>
             </div>
             <div className="p-3 bg-gray-50 rounded border border-gray-200">
               <dt className="text-xs font-medium text-gray-600 mb-1">접속 IP</dt>

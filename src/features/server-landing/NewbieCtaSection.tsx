@@ -1,79 +1,67 @@
-/**
- * 신규 유저 시작하기 CTA 섹션
- */
+import { BookOpen, Gamepad2, MessageSquare, Package, Sparkles } from "lucide-react"
+import { GALAXY_SERVER } from "@/shared/types/constants"
 
-import { BookOpen, Gamepad2, Sparkles, Users } from "lucide-react"
+const newcomerCards = [
+  {
+    icon: BookOpen,
+    title: "생존 가이드",
+    description: "캐릭터 생성, 물과 음식 확보, 첫 피난처 확보까지 단계별로 확인합니다.",
+  },
+  {
+    icon: Package,
+    title: "웰컴팩 안내",
+    description: "신규 유저가 초반 생존에 필요한 시작 아이템을 받을 수 있는 흐름을 안내합니다.",
+  },
+  {
+    icon: Sparkles,
+    title: "뉴비 케어",
+    description: "디스코드 문의를 통해 서버 적응, 기본 규칙, 초반 이동 동선을 확인합니다.",
+  },
+]
 
 export function NewbieCtaSection() {
   return (
-    <div className="w-full max-w-4xl mx-auto border rounded-lg bg-gradient-to-r from-green-50 to-emerald-50 shadow-sm">
-      <div className="px-6 py-8">
-        <div className="flex items-center gap-3 mb-6">
-          <Sparkles className="w-8 h-8 text-green-600" />
-          <h2 className="text-2xl font-bold text-gray-900">신규 유저를 위한 안내</h2>
+    <section className="galaxy-panel newcomer-section">
+      <div className="galaxy-section-heading">
+        <Sparkles className="w-5 h-5" />
+        <div>
+          <span>New Player</span>
+          <h2>신규 유저를 위한 안내</h2>
         </div>
-
-        <p className="text-gray-700 mb-8 text-base">
-          SCUM에 처음 입문하거나 갤럭시 서버에 새로 오신 분들을 위해 준비했습니다.
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-          {/* 생존 가이드 */}
-          <div className="p-4 bg-white rounded-lg border border-green-200">
-            <div className="flex items-center gap-2 mb-2">
-              <BookOpen className="w-5 h-5 text-green-600" />
-              <h3 className="font-semibold text-gray-900">생존 가이드</h3>
-            </div>
-            <p className="text-sm text-gray-600">
-              캐릭터 생성부터 기본 생존까지 단계별 안내
-            </p>
-          </div>
-
-          {/* 웰컴팩 안내 */}
-          <div className="p-4 bg-white rounded-lg border border-green-200">
-            <div className="flex items-center gap-2 mb-2">
-              <Users className="w-5 h-5 text-green-600" />
-              <h3 className="font-semibold text-gray-900">웰컴팩 안내</h3>
-            </div>
-            <p className="text-sm text-gray-600">
-              신규 유저 게임 시작 아이템 및 혜택 안내
-            </p>
-          </div>
-
-          {/* 뉴비 케어 */}
-          <div className="p-4 bg-white rounded-lg border border-green-200">
-            <div className="flex items-center gap-2 mb-2">
-              <Sparkles className="w-5 h-5 text-green-600" />
-              <h3 className="font-semibold text-gray-900">뉴비 케어</h3>
-            </div>
-            <p className="text-sm text-gray-600">
-              관리자 블락의 약 15분 속성 가이드 및 지원
-            </p>
-          </div>
-        </div>
-
-        <div className="bg-green-100 border border-green-300 rounded-lg p-4 mb-6">
-          <h3 className="font-semibold text-green-900 mb-2 flex items-center gap-2">
-            <Gamepad2 className="w-5 h-5 text-green-700" />
-            게임 시작 3단계
-          </h3>
-          <ol className="text-sm text-green-800 space-y-1">
-            <li>
-              <span className="font-semibold">1단계:</span> 캐릭터 생성 후 게임 시작
-            </li>
-            <li>
-              <span className="font-semibold">2단계:</span> 웰컴팩 메뉴에서 생존 아이템 수령
-            </li>
-            <li>
-              <span className="font-semibold">3단계:</span> 디스코드에서 관리자 블락에게 말 걸기 (뉴비 케어 신청)
-            </li>
-          </ol>
-        </div>
-
-        <p className="text-center text-gray-600 text-sm">
-          질문이 있으신가요? 디스코드에서 <span className="font-semibold">관리자 블락</span>이나 다른 플레이어들과 대화하세요!
-        </p>
       </div>
-    </div>
+
+      <p className="newcomer-section__lead">
+        SCUM에 처음 입문하거나 갤럭시 서버에 새로 온 플레이어가 첫 생존 루프를 놓치지 않도록 구성한 시작 안내입니다.
+      </p>
+
+      <div className="newcomer-section__grid">
+        {newcomerCards.map((card) => {
+          const Icon = card.icon
+          return (
+            <article className="galaxy-info-tile" key={card.title}>
+              <Icon className="w-5 h-5" />
+              <h3>{card.title}</h3>
+              <p>{card.description}</p>
+            </article>
+          )
+        })}
+      </div>
+
+      <div className="galaxy-callout">
+        <strong>
+          <Gamepad2 className="w-4 h-4" />
+          게임 시작 3단계
+        </strong>
+        <ol className="newcomer-section__steps">
+          <li>캐릭터 생성 후 서버에 접속합니다.</li>
+          <li>웰컴팩과 기본 생존 아이템을 확인합니다.</li>
+          <li>디스코드에서 질문과 지원 요청을 남깁니다.</li>
+        </ol>
+        <a className="galaxy-inline-link" href={GALAXY_SERVER.DISCORD_URL} target="_blank" rel="noopener noreferrer">
+          <MessageSquare className="w-4 h-4" />
+          디스코드 새창 연결
+        </a>
+      </div>
+    </section>
   )
 }

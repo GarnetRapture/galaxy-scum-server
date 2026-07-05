@@ -1,20 +1,16 @@
-/**
- * Badge 컴포넌트
- */
-
 import React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/shared/utils/cn"
 
-const badgeVariants = cva("inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold transition-colors", {
+const badgeVariants = cva("inline-flex min-h-7 items-center gap-1.5 rounded-md border px-2.5 py-1 text-xs font-bold transition-colors", {
   variants: {
     variant: {
-      default: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
-      secondary: "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200",
-      success: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
-      warning: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200",
-      danger: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200",
-      purple: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200",
+      default: "border-[rgba(0,217,255,0.24)] bg-[rgba(0,217,255,0.08)] text-[var(--scum-cyan)]",
+      secondary: "border-[var(--scum-border)] bg-[rgba(255,255,255,0.04)] text-[var(--scum-text-secondary)]",
+      success: "border-[rgba(0,255,136,0.24)] bg-[rgba(0,255,136,0.08)] text-[var(--scum-green)]",
+      warning: "border-[rgba(255,107,53,0.28)] bg-[rgba(255,107,53,0.08)] text-[var(--scum-orange)]",
+      danger: "border-[rgba(255,23,68,0.28)] bg-[rgba(255,23,68,0.08)] text-[var(--scum-red)]",
+      purple: "border-[rgba(0,217,255,0.22)] bg-[rgba(0,217,255,0.06)] text-[var(--scum-cyan)]",
     },
   },
   defaultVariants: {

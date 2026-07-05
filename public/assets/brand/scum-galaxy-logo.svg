@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 900" role="img" aria-labelledby="title desc">
+  <title id="title">SCUM GALAXY Logo</title>
+  <desc id="desc">A star field galaxy background with lime SCUM GALAXY lettering.</desc>
+  <defs>
+    <radialGradient id="nebula" cx="48%" cy="55%" r="58%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.92"/>
+      <stop offset="34%" stop-color="#312e81" stop-opacity="0.82"/>
+      <stop offset="70%" stop-color="#050816" stop-opacity="0.94"/>
+      <stop offset="100%" stop-color="#01030a"/>
+    </radialGradient>
+    <radialGradient id="core" cx="54%" cy="58%" r="38%">
+      <stop offset="0%" stop-color="#f5d0a9" stop-opacity="0.72"/>
+      <stop offset="24%" stop-color="#7c3aed" stop-opacity="0.44"/>
+      <stop offset="68%" stop-color="#1d4ed8" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="textShadow" x="-18%" y="-24%" width="136%" height="148%">
+      <feDropShadow dx="0" dy="18" stdDeviation="11" flood-color="#000000" flood-opacity="1"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#000000" flood-opacity="1"/>
+    </filter>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="smallStars" width="80" height="80" patternUnits="userSpaceOnUse">
+      <circle cx="8" cy="16" r="1.2" fill="#ffffff" opacity="0.9"/>
+      <circle cx="32" cy="9" r="0.9" fill="#bfdbfe" opacity="0.9"/>
+      <circle cx="55" cy="34" r="1.1" fill="#dbeafe" opacity="0.75"/>
+      <circle cx="71" cy="66" r="0.8" fill="#ffffff" opacity="0.65"/>
+      <circle cx="18" cy="58" r="0.7" fill="#93c5fd" opacity="0.8"/>
+      <circle cx="43" cy="71" r="1" fill="#ffffff" opacity="0.7"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="900" fill="#01030a"/>
+  <rect width="1280" height="900" fill="url(#nebula)"/>
+  <ellipse cx="626" cy="574" rx="720" ry="118" fill="#4f46e5" opacity="0.42" transform="rotate(-8 626 574)" filter="url(#softGlow)"/>
+  <ellipse cx="694" cy="564" rx="410" ry="62" fill="url(#core)" transform="rotate(-8 694 564)"/>
+  <rect width="1280" height="900" fill="url(#smallStars)"/>
+  <g opacity="0.95">
+    <circle cx="116" cy="102" r="2.1" fill="#ffffff"/>
+    <circle cx="218" cy="49" r="1.7" fill="#ffffff"/>
+    <circle cx="301" cy="173" r="2.6" fill="#dbeafe"/>
+    <circle cx="478" cy="93" r="2.2" fill="#bfdbfe"/>
+    <circle cx="621" cy="140" r="1.8" fill="#ffffff"/>
+    <circle cx="791" cy="73" r="2.4" fill="#ffffff"/>
+    <circle cx="884" cy="183" r="1.7" fill="#dbeafe"/>
+    <circle cx="1047" cy="109" r="2.1" fill="#bfdbfe"/>
+    <circle cx="1196" cy="68" r="1.9" fill="#ffffff"/>
+    <circle cx="174" cy="319" r="1.9" fill="#ffffff"/>
+    <circle cx="420" cy="303" r="2.6" fill="#bfdbfe"/>
+    <circle cx="1038" cy="335" r="2.3" fill="#ffffff"/>
+    <circle cx="1115" cy="527" r="1.8" fill="#dbeafe"/>
+    <circle cx="82" cy="824" r="2" fill="#ffffff"/>
+    <circle cx="1060" cy="790" r="2.4" fill="#dbeafe"/>
+  </g>
+  <g filter="url(#textShadow)" text-anchor="middle" font-family="'Arial Rounded MT Bold','Arial Black','Trebuchet MS',sans-serif" font-weight="900">
+    <text x="640" y="300" font-size="148" fill="#dcf857" stroke="#02030a" stroke-width="15" paint-order="stroke fill" letter-spacing="10">SCUM</text>
+    <text x="640" y="455" font-size="156" fill="#dcf857" stroke="#02030a" stroke-width="17" paint-order="stroke fill" letter-spacing="8">GALAXY</text>
+  </g>
+</svg>

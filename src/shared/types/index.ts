@@ -4,7 +4,7 @@
  */
 
 // ============================================================================
-// 1. 출처 신뢰도 및 검증 타입
+// 1. 출처 신뢰도 및 자료 상태 타입
 // ============================================================================
 
 export type SourceReliability =
@@ -13,12 +13,12 @@ export type SourceReliability =
   | "wiki"          // SCUM 공식/준공식 위키
   | "community"     // 플레이어 커뮤니티 정보
   | "server-local"  // 갤럭시 서버 로컬 정보
-  | "unverified"    // 미검증 또는 오래된 정보
+  | "unverified"    // 확인되지 않았거나 오래된 정보
 
 export type VerificationStatus =
-  | "verified"      // 공식 출처에서 확인됨
-  | "partial"       // 일부만 확인, 세부 사항 필요
-  | "needs-review"  // 재검증 필요
+  | "verified"      // 공식 자료 기준 확인 완료
+  | "partial"       // 내용 확인 중
+  | "needs-review"  // 업데이트 확인 필요
   | "deprecated"    // 패치로 더 이상 유효하지 않음
   | "server-local-only" // 갤럭시 서버 전용 정보
 
@@ -34,7 +34,7 @@ export type ContentKnowledgeKind =
   | "beginner-guide"         // 신규 유저 대상
   | "advanced-guide"         // 중고급 플레이어 대상
   | "patch-dependent"        // 패치에 따라 변경되는 내용
-  | "community-derived"      // 커뮤니티 검증 내용
+  | "community-derived"      // 커뮤니티 확인 내용
 
 // ============================================================================
 // 2. 콘텐츠 분류 타입
@@ -82,7 +82,7 @@ export type ScumContentCategory =
 export type BeginnerPriority = 1 | 2 | 3 | 4 | 5
 
 // ============================================================================
-// 3. 출처 참조 및 검증 메타데이터
+// 3. 출처 참조 및 자료 메타데이터
 // ============================================================================
 
 export type SourceRef = {
@@ -100,8 +100,8 @@ export type VerifiableContentMeta = {
   knowledgeScope: ContentKnowledgeKind
   freshness: ContentFreshness
   checkedAt: string            // 마지막 확인 (ISO 8601)
-  reviewBefore?: string        // 재검증 권장 날짜 (ISO 8601)
-  reviewReason?: string        // 재검증 필요 이유
+  reviewBefore?: string        // 업데이트 확인 권장 날짜 (ISO 8601)
+  reviewReason?: string        // 업데이트 확인 이유
 }
 
 // ============================================================================
@@ -160,7 +160,7 @@ export const CATEGORY_LABELS: Record<ScumContentCategory, string> = {
   galaxyServer: "갤럭시 서버",
   patchNotes: "패치노트/버전 히스토리",
   galaxyDiscordShop: "디스코드 상점",
-  galaxyAdminContact: "관리자 문의",
+  galaxyAdminContact: "문의/지원",
   galaxyRulesEnforcement: "금지 행위/처벌",
   beginnerRoute: "추천 시작 루트",
   gearPreset: "장비 세팅 프리셋",
@@ -179,9 +179,9 @@ export const PRIORITY_LABELS: Record<BeginnerPriority, string> = {
 }
 
 export const VERIFICATION_STATUS_LABELS: Record<VerificationStatus, string> = {
-  verified: "검증 완료",
-  partial: "부분 검증",
-  "needs-review": "재검증 필요",
+  verified: "확인 완료",
+  partial: "내용 확인 중",
+  "needs-review": "업데이트 확인 필요",
   deprecated: "사용 불가",
   "server-local-only": "갤럭시 전용",
 }
@@ -192,5 +192,5 @@ export const SOURCE_RELIABILITY_LABELS: Record<SourceReliability, string> = {
   wiki: "위키 (Tier 3)",
   community: "커뮤니티 (Tier 4)",
   "server-local": "갤럭시 (Tier 5)",
-  unverified: "미검증 (Tier 6)",
+  unverified: "확인 전 (Tier 6)",
 }

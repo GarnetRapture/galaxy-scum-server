@@ -6,9 +6,248 @@
   color: var(--scum-text-primary);
 }
 
+.app-shell,
 .galaxy-container {
   width: min(1280px, calc(100% - 48px));
   margin: 0 auto;
+}
+
+.app-header__inner {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) auto auto;
+  gap: 24px;
+  align-items: center;
+  min-height: 86px;
+  padding: 14px 0;
+}
+
+.galaxy-brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 100%;
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 0;
+}
+
+.galaxy-brand-logo {
+  width: 76px;
+  height: 54px;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid rgba(0, 217, 255, 0.22);
+  border-radius: 8px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+  flex: 0 0 auto;
+}
+
+.galaxy-brand-copy {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.galaxy-brand-copy strong {
+  color: var(--scum-cyan);
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+.galaxy-brand-copy small {
+  color: var(--scum-text-secondary);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.app-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.app-nav__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: var(--scum-text-secondary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.app-nav__link:hover {
+  color: var(--scum-cyan);
+  border-color: var(--scum-border);
+  background: rgba(0, 217, 255, 0.06);
+}
+
+.app-header__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  min-width: 0;
+}
+
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 40px;
+  padding: 4px;
+  border: 1px solid rgba(0, 255, 136, 0.28);
+  border-radius: 6px;
+  background: rgba(0, 255, 136, 0.04);
+}
+
+.language-switch__button,
+.icon-button {
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--scum-cyan);
+  cursor: pointer;
+}
+
+.language-switch__button {
+  min-height: 30px;
+  padding: 0 10px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.language-switch__button--active {
+  color: var(--scum-bg);
+  background: var(--scum-cyan);
+}
+
+.icon-button {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--scum-border);
+}
+
+.icon-button:hover {
+  color: var(--scum-green);
+  border-color: rgba(0, 255, 136, 0.28);
+  background: rgba(0, 255, 136, 0.06);
+}
+
+.app-header__discord {
+  min-height: 40px;
+  padding: 0 12px;
+  white-space: nowrap;
+}
+
+.galaxy-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.galaxy-footer-brand img {
+  width: 72px;
+  height: 50px;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid rgba(0, 217, 255, 0.18);
+  border-radius: 8px;
+}
+
+.app-footer {
+  margin-top: 56px;
+  border-top: 1px solid var(--scum-border);
+  background: rgba(8, 11, 28, 0.98);
+  color: var(--scum-text-secondary);
+}
+
+.app-footer__inner {
+  padding: 40px 0 28px;
+}
+
+.app-footer__grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 1.2fr) repeat(3, minmax(160px, 1fr));
+  gap: 28px;
+}
+
+.app-footer h3,
+.app-footer h4 {
+  margin: 0 0 12px;
+  color: var(--scum-text-primary);
+}
+
+.app-footer h3 {
+  font-size: 16px;
+}
+
+.app-footer h4 {
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.app-footer p,
+.app-footer li {
+  color: var(--scum-text-secondary);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.app-footer ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.app-footer__icon-link,
+.app-footer__icon-line,
+.app-footer__bottom p {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.app-footer__icon-line svg,
+.app-footer__bottom svg {
+  color: var(--scum-green);
+}
+
+.app-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--scum-border);
+}
+
+.app-footer__bottom p {
+  margin: 0;
+}
+
+.app-footer__disclaimer {
+  margin: 18px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--scum-border);
+  color: var(--scum-text-muted);
+  font-size: 12px;
 }
 
 .galaxy-hero {
@@ -164,9 +403,10 @@
 .galaxy-update-grid,
 .galaxy-stat-grid,
 .galaxy-rule-grid,
-.galaxy-server-summary {
+.galaxy-server-summary,
+.wiki-section-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 16px;
 }
 
@@ -317,7 +557,7 @@
 }
 
 .galaxy-rules-preview {
-  padding: 72px 0;
+  padding: 64px 0 40px;
 }
 
 .galaxy-rule-grid {
@@ -325,7 +565,226 @@
 }
 
 .galaxy-page-head {
-  padding: 64px 0 34px;
+  padding: 56px 0 32px;
+}
+
+.wiki-head {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 20px;
+  align-items: center;
+}
+
+.wiki-head img {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  padding: 12px;
+  border: 1px solid var(--scum-border);
+  border-radius: 8px;
+  background: rgba(17, 21, 46, 0.82);
+}
+
+.wiki-source-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+  padding: 16px;
+  border: 1px solid var(--scum-border);
+  border-radius: 8px;
+  background: rgba(17, 21, 46, 0.82);
+}
+
+.wiki-source-card div {
+  display: grid;
+  gap: 4px;
+}
+
+.wiki-source-card strong {
+  color: var(--scum-green);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.wiki-source-card span {
+  color: var(--scum-text-secondary);
+}
+
+.wiki-toolbar {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.wiki-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 14px;
+  border: 1px solid var(--scum-border);
+  border-radius: 8px;
+  background: rgba(17, 21, 46, 0.82);
+}
+
+.wiki-search svg {
+  color: var(--scum-cyan);
+  flex: 0 0 auto;
+}
+
+.wiki-search input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--scum-text-primary);
+  font: inherit;
+}
+
+.wiki-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.wiki-tab {
+  min-height: 42px;
+  padding: 0 12px;
+  border: 1px solid var(--scum-border);
+  border-radius: 8px;
+  background: rgba(17, 21, 46, 0.62);
+  color: var(--scum-text-secondary);
+  font-size: 12px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.wiki-tab--active {
+  border-color: rgba(0, 217, 255, 0.5);
+  background: rgba(0, 217, 255, 0.1);
+  color: var(--scum-cyan);
+}
+
+.wiki-section-grid {
+  padding-bottom: 40px;
+}
+
+.wiki-section-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.wiki-section-card__head {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.wiki-section-card__head svg {
+  color: var(--scum-cyan);
+  margin-top: 4px;
+}
+
+.wiki-section-card__head span {
+  display: block;
+  color: var(--scum-green);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.wiki-section-card__head h2 {
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: 0;
+}
+
+.wiki-section-card .galaxy-inline-link {
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.wiki-result-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 12px;
+  padding-bottom: 40px;
+}
+
+.wiki-result-card {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr) 16px;
+  gap: 10px;
+  align-items: center;
+  min-height: 52px;
+  padding: 12px;
+  border: 1px solid var(--scum-border);
+  border-radius: 8px;
+  background: rgba(17, 21, 46, 0.82);
+  color: var(--scum-text-primary);
+  text-decoration: none;
+}
+
+.wiki-result-card svg {
+  color: var(--scum-cyan);
+}
+
+.wiki-result-card span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wiki-image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: 14px;
+  padding-bottom: 40px;
+}
+
+.wiki-image-card {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--scum-border);
+  border-radius: 8px;
+  background: rgba(17, 21, 46, 0.82);
+  color: var(--scum-text-secondary);
+  text-decoration: none;
+}
+
+.wiki-image-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  padding: 10px;
+  background: rgba(6, 8, 18, 0.68);
+}
+
+.wiki-image-card span {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+  min-height: 42px;
+  padding: 10px;
+  font-size: 12px;
+}
+
+.wiki-image-card span svg {
+  color: var(--scum-cyan);
+}
+
+.wiki-state {
+  color: var(--scum-text-secondary);
 }
 
 .galaxy-page-head--media {
@@ -424,7 +883,507 @@
 }
 
 .galaxy-callout strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   color: var(--scum-green);
+}
+
+.newcomer-section,
+.discord-cta {
+  width: min(100%, 980px);
+  margin: 0 auto;
+}
+
+.newcomer-section__lead {
+  max-width: 760px;
+  margin-bottom: 22px;
+  color: var(--scum-text-secondary);
+  line-height: 1.7;
+}
+
+.newcomer-section__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.newcomer-section__steps {
+  margin: 12px 0 0;
+  padding-left: 20px;
+  color: var(--scum-text-secondary);
+  line-height: 1.8;
+}
+
+.discord-cta p {
+  color: var(--scum-text-secondary);
+  line-height: 1.7;
+}
+
+.discord-cta__list {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0 22px;
+  padding: 0;
+  list-style: none;
+}
+
+.discord-cta__list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--scum-text-secondary);
+}
+
+.discord-cta__list svg {
+  color: var(--scum-green);
+  flex: 0 0 auto;
+}
+
+.guide-card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  border: 0;
+}
+
+.guide-page-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+  padding-bottom: 56px;
+}
+
+.guide-filter-panel {
+  position: sticky;
+  top: 102px;
+  display: grid;
+  gap: 22px;
+}
+
+.guide-filter-panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.guide-filter-panel__head > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.guide-filter-panel__head svg {
+  color: var(--scum-cyan);
+}
+
+.guide-filter-panel__head h2 {
+  margin: 0;
+  color: var(--scum-text-primary);
+  font-size: 18px;
+  letter-spacing: 0;
+}
+
+.guide-filter-panel__clear {
+  min-height: 34px;
+  padding: 0 10px;
+  font-size: 12px;
+}
+
+.guide-filter-group {
+  display: grid;
+  gap: 10px;
+}
+
+.guide-filter-label {
+  color: var(--scum-cyan);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.guide-search-field {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+}
+
+.guide-search-field svg {
+  color: var(--scum-cyan);
+}
+
+.guide-filter-options {
+  display: grid;
+  gap: 8px;
+}
+
+.guide-filter-options--scroll {
+  max-height: 236px;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.guide-filter-option {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 9px;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 8px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: var(--scum-text-secondary);
+  cursor: pointer;
+}
+
+.guide-filter-option:hover {
+  border-color: var(--scum-border);
+  background: rgba(0, 217, 255, 0.04);
+  color: var(--scum-text-primary);
+}
+
+.guide-filter-option input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--scum-cyan);
+  cursor: pointer;
+}
+
+.guide-filter-result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 18px;
+  border-top: 1px solid var(--scum-border);
+  color: var(--scum-text-secondary);
+  font-size: 13px;
+}
+
+.guide-filter-result strong {
+  color: var(--scum-text-primary);
+}
+
+.guide-list {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.guide-card {
+  overflow: hidden;
+  border-color: var(--scum-border);
+  background: rgba(17, 21, 46, 0.82);
+}
+
+.guide-card__content {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 18px;
+  padding: 0;
+}
+
+.guide-card__image {
+  width: 100%;
+  height: 100%;
+  min-height: 172px;
+  object-fit: cover;
+  background: var(--scum-bg-tertiary);
+}
+
+.guide-card__body {
+  position: relative;
+  min-width: 0;
+  padding: 20px 46px 20px 0;
+}
+
+.guide-card__title {
+  margin: 0 0 8px;
+  color: var(--scum-text-primary);
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.guide-card__summary {
+  margin: 0;
+  color: var(--scum-text-secondary);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.guide-card__arrow {
+  position: absolute;
+  top: 22px;
+  right: 18px;
+  width: 20px;
+  height: 20px;
+  color: var(--scum-cyan);
+}
+
+.guide-card__badges,
+.guide-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.guide-card__tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 0 8px;
+  border: 1px solid var(--scum-border);
+  border-radius: 5px;
+  color: var(--scum-text-secondary);
+  font-size: 12px;
+}
+
+.guide-detail__image {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  object-fit: cover;
+  border: 1px solid var(--scum-border);
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.guide-empty-state {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  min-height: 260px;
+  align-content: center;
+  text-align: center;
+}
+
+.guide-empty-state svg {
+  color: var(--scum-cyan);
+}
+
+.guide-empty-state h1,
+.guide-empty-state h2 {
+  margin: 0;
+  color: var(--scum-text-primary);
+  font-size: 20px;
+  letter-spacing: 0;
+}
+
+.guide-empty-state p {
+  margin: 0;
+  color: var(--scum-text-secondary);
+}
+
+.guide-empty-state--danger {
+  border-color: rgba(255, 23, 68, 0.28);
+}
+
+.guide-detail-page {
+  display: grid;
+  gap: 20px;
+  max-width: 1040px;
+  padding: 32px 0 64px;
+}
+
+.guide-detail-hero {
+  overflow: hidden;
+}
+
+.guide-detail-hero__content {
+  display: grid;
+  gap: 18px;
+}
+
+.guide-detail-hero__content h1 {
+  margin: 8px 0 10px;
+  color: var(--scum-text-primary);
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.guide-detail-hero__content p {
+  max-width: 780px;
+  margin: 0;
+  color: var(--scum-text-secondary);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.guide-detail-hero__badges,
+.guide-detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.guide-detail-body {
+  white-space: pre-wrap;
+  color: var(--scum-text-secondary);
+  line-height: 1.85;
+}
+
+.guide-detail-tags {
+  margin-bottom: 4px;
+}
+
+.guide-detail-meta {
+  border-left: 3px solid var(--scum-cyan);
+}
+
+.guide-detail-meta__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: 14px;
+  margin: 18px 0 0;
+}
+
+.guide-detail-meta__grid div {
+  padding: 14px;
+  border: 1px solid var(--scum-border);
+  border-radius: 8px;
+  background: rgba(6, 8, 18, 0.28);
+}
+
+.guide-detail-meta__grid dt {
+  margin-bottom: 5px;
+  color: var(--scum-text-muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.guide-detail-meta__grid dd {
+  margin: 0;
+  color: var(--scum-text-primary);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.guide-detail-meta__notice {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 107, 53, 0.28);
+  border-radius: 8px;
+  background: rgba(255, 107, 53, 0.07);
+}
+
+.guide-detail-meta__notice p {
+  margin: 0;
+  color: var(--scum-orange);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.guide-related {
+  display: grid;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.guide-related__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 14px;
+}
+
+.guide-related-card {
+  display: grid;
+  gap: 10px;
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 0;
+}
+
+.guide-related-card h3 {
+  margin: 0;
+  color: var(--scum-text-primary);
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 1.45;
+}
+
+.guide-related-card p {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  color: var(--scum-text-secondary);
+  font-size: 13px;
+  line-height: 1.65;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.guide-related-card span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--scum-cyan);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.guide-skeleton-card,
+.guide-detail-skeleton {
+  display: grid;
+  gap: 16px;
+  overflow: hidden;
+  border: 1px solid var(--scum-border);
+  border-radius: 8px;
+  background: rgba(17, 21, 46, 0.82);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+.guide-skeleton-card {
+  grid-template-columns: 220px minmax(0, 1fr);
+}
+
+.guide-skeleton-card__image,
+.guide-detail-skeleton__media,
+.guide-skeleton-line,
+.guide-skeleton-chip-row div {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+}
+
+.guide-skeleton-card__image {
+  min-height: 172px;
+}
+
+.guide-skeleton-card__body,
+.guide-detail-skeleton {
+  padding: 20px;
+}
+
+.guide-skeleton-line {
+  height: 14px;
+}
+
+.guide-skeleton-line--title {
+  width: 64%;
+  height: 24px;
+}
+
+.guide-skeleton-line--short {
+  width: 42%;
+}
+
+.guide-skeleton-chip-row {
+  display: flex;
+  gap: 8px;
+}
+
+.guide-skeleton-chip-row div {
+  width: 96px;
+  height: 26px;
+}
+
+.guide-detail-skeleton__media {
+  height: 300px;
 }
 
 .galaxy-rule-list {
@@ -477,21 +1436,184 @@
   color: var(--scum-orange);
 }
 
+.galaxy-notice-list {
+  display: grid;
+  gap: 14px;
+}
+
+.galaxy-notice-card {
+  padding: 18px;
+  border: 1px solid var(--scum-border);
+  border-radius: 8px;
+  background: rgba(17, 21, 46, 0.82);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.2);
+}
+
+.galaxy-notice-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  color: var(--scum-text-muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.galaxy-notice-card__meta strong {
+  color: var(--scum-cyan);
+}
+
+.galaxy-notice-card h2,
+.galaxy-notice-card h3 {
+  margin: 0 0 8px;
+  color: var(--scum-text-primary);
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+.galaxy-notice-card p {
+  margin: 0;
+  color: var(--scum-text-secondary);
+  line-height: 1.75;
+}
+
+.galaxy-notice-card--critical,
+.galaxy-notice-card--live {
+  border-color: rgba(255, 23, 68, 0.38);
+}
+
+.galaxy-notice-card--important,
+.galaxy-notice-card--upcoming {
+  border-color: rgba(255, 107, 53, 0.34);
+}
+
+.event-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+.event-filter-row__button--active {
+  border-color: var(--scum-cyan);
+  background: rgba(0, 217, 255, 0.08);
+}
+
+.event-card__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.event-card__facts span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--scum-text-secondary);
+  font-size: 13px;
+}
+
+.event-card__facts svg {
+  color: var(--scum-green);
+}
+
+.mission-guide {
+  display: grid;
+  gap: 18px;
+  margin-bottom: 32px;
+}
+
+.mission-guide__summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.mission-guide__summary strong {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 10px;
+  border: 1px solid rgba(0, 217, 255, 0.24);
+  border-radius: 6px;
+  color: var(--scum-cyan);
+  background: rgba(0, 217, 255, 0.06);
+  font-size: 13px;
+}
+
+.mission-guide__notes {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 18px;
+  color: var(--scum-text-secondary);
+  line-height: 1.7;
+}
+
+.mission-trader__list {
+  display: grid;
+  gap: 8px;
+  max-height: 540px;
+  overflow: auto;
+  margin: 0;
+  padding: 0 0 0 20px;
+  color: var(--scum-text-secondary);
+  line-height: 1.65;
+}
+
+.mission-trader__list li {
+  padding: 8px 10px;
+  border: 1px solid var(--scum-border);
+  border-radius: 6px;
+  background: rgba(6, 8, 18, 0.32);
+}
+
 @media (max-width: 980px) {
+  .app-shell,
   .galaxy-container {
     width: min(100% - 28px, 1280px);
   }
 
+  .app-header__inner {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    align-items: stretch;
+    min-height: auto;
+  }
+
+  .app-nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .app-header__actions {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
   .galaxy-section-grid,
   .galaxy-beginner-layout,
-  .galaxy-page-head--media {
+  .galaxy-page-head--media,
+  .guide-page-layout {
     grid-template-columns: 1fr;
+  }
+
+  .guide-filter-panel {
+    position: static;
   }
 
   .galaxy-update-grid,
   .galaxy-stat-grid,
   .galaxy-rule-grid,
-  .galaxy-server-summary {
+  .galaxy-server-summary,
+  .wiki-section-grid,
+  .newcomer-section__grid,
+  .app-footer__grid {
     grid-template-columns: 1fr;
   }
 
@@ -505,5 +1627,92 @@
 
   .galaxy-rule-row__head {
     display: block;
+  }
+
+  .galaxy-brand-logo {
+    width: 64px;
+    height: 46px;
+  }
+
+  .guide-card__content {
+    grid-template-columns: 160px minmax(0, 1fr);
+  }
+
+  .guide-skeleton-card {
+    grid-template-columns: 160px minmax(0, 1fr);
+  }
+
+  .guide-card__body {
+    padding: 16px 42px 16px 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .app-shell,
+  .galaxy-container {
+    width: min(100% - 20px, 1280px);
+  }
+
+  .galaxy-brand-copy strong {
+    font-size: 17px;
+  }
+
+  .galaxy-brand-copy small {
+    font-size: 11px;
+  }
+
+  .app-nav__link {
+    padding: 0 10px;
+  }
+
+  .app-header__discord {
+    flex: 1 1 160px;
+    justify-content: center;
+  }
+
+  .guide-card__content {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-skeleton-card {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-card__image {
+    height: 180px;
+  }
+
+  .guide-skeleton-card__image {
+    min-height: 180px;
+  }
+
+  .guide-card__body {
+    padding: 16px;
+  }
+
+  .guide-card__arrow {
+    top: 18px;
+    right: 14px;
+  }
+
+  .guide-detail__image {
+    aspect-ratio: 16 / 10;
+  }
+
+  .wiki-head {
+    grid-template-columns: 1fr;
+  }
+
+  .wiki-source-card {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .wiki-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .wiki-tabs {
+    justify-content: flex-start;
   }
 }

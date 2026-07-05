@@ -10,7 +10,7 @@
 
 ## 1. 공용 타입 (`src/shared/types/`)
 
-### 1.1 출처 신뢰도 및 검증 타입
+### 1.1 출처 신뢰도 및 확인 타입
 
 ```typescript
 // src/shared/types/index.ts
@@ -21,12 +21,12 @@ export type SourceReliability =
   | "wiki"          // SCUM 공식/준공식 위키
   | "community"     // 플레이어 커뮤니티 정보
   | "server-local"  // 갤럭시 서버 로컬 정보
-  | "unverified"    // 미검증 또는 오래된 정보
+  | "unverified"    // 확인 전 또는 오래된 정보
 
 export type VerificationStatus = 
   | "verified"      // 공식 출처에서 확인됨
   | "partial"       // 일부만 확인, 세부 사항 필요
-  | "needs-review"  // 재검증 필요
+  | "needs-review"  // 재확인 필요
   | "deprecated"    // 패치로 더 이상 유효하지 않음
   | "server-local-only" // 갤럭시 서버 전용 정보
 
@@ -42,7 +42,7 @@ export type ContentKnowledgeKind =
   | "beginner-guide"         // 신규 유저 대상
   | "advanced-guide"         // 중고급 플레이어 대상
   | "patch-dependent"        // 패치에 따라 변경되는 내용
-  | "community-derived"      // 커뮤니티 검증 내용
+  | "community-derived"      // 커뮤니티 확인 내용
 ```
 
 ### 1.2 콘텐츠 카테고리 타입
@@ -121,15 +121,15 @@ export type SourceRef = {
   notes?: string               // 추가 설명 (선택사항)
 }
 
-// 검증 가능한 콘텐츠용 메타데이터
+// 확인 가능한 콘텐츠용 메타데이터
 export type VerifiableContentMeta = {
   sourceIds: string[]           // 참고한 출처 ID 목록
   verificationStatus: VerificationStatus
   knowledgeScope: ContentKnowledgeKind
   freshness: ContentFreshness
   checkedAt: string            // 마지막 확인 (ISO 8601)
-  reviewBefore?: string        // 재검증 권장 날짜 (ISO 8601)
-  reviewReason?: string        // 재검증 필요 이유
+  reviewBefore?: string        // 재확인 권장 날짜 (ISO 8601)
+  reviewReason?: string        // 재확인 필요 이유
 }
 ```
 
@@ -169,7 +169,7 @@ export type GuideEntry = {
   
   // 메타정보
   beginnerPriority: BeginnerPriority // 신규 유저 우선순위 (1-5)
-  meta: VerifiableContentMeta        // 검증 메타데이터 (sourceIds, status, freshness 등)
+  meta: VerifiableContentMeta        // 확인 메타데이터 (sourceIds, status, freshness 등)
   
   // 관계
   relatedGuideIds?: string[]        // 관련 가이드 ID 목록 (최대 5개)
@@ -205,7 +205,7 @@ export type GameVersion = {
   features: string[]                // 주요 기능 목록
   bugFixes: string[]                // 버그 수정 목록
   qolImprovements: string[]         // QoL 개선 사항
-  meta: VerifiableContentMeta       // 검증 메타데이터
+  meta: VerifiableContentMeta       // 확인 메타데이터
 }
 
 export type VersionInfo = {
@@ -435,7 +435,7 @@ export type NewbieCareProgram = {
     description: string
     duration?: string
   }[]
-  contactMethod: string             // 관리자 연락 방법
+  contactMethod: string             // 서버 문의 연락 방법
   adminDiscordName: string
   features: string[]                // 프로그램 특징
   sourceIds: string[]
@@ -507,7 +507,7 @@ export type PaginatedResponse<T> = {
 
 ## 4. 게임 데이터 엔티티 (모든 도메인)
 
-모든 게임 데이터는 검증 메타데이터를 포함한다:
+모든 게임 데이터는 확인 메타데이터를 포함한다:
 
 ```typescript
 // 모든 도메인 타입에 meta 필드 추가 권장
@@ -517,7 +517,7 @@ export type GameDataEntity<TKind extends string = string> = {
   name: string                      // 이름
   description: string               // 설명
   tags: string[]                    // 태그/분류
-  meta: VerifiableContentMeta       // ✓ 검증 메타데이터 필수
+  meta: VerifiableContentMeta       // ✓ 확인 메타데이터 필수
 }
 ```
 
@@ -578,7 +578,7 @@ src/domains/galaxy-server/
 ### 6.2 필드 사용
 - **id**: 모든 엔티티는 고유 ID 필수
 - **sourceIds**: 모든 정보는 출처 추적
-- **checkedAt/updatedAt**: 모든 정보는 검증 날짜 기록
+- **checkedAt/updatedAt**: 모든 정보는 확인 날짜 기록
 - **description**: 모든 복잡한 항목은 설명 필수
 
 ### 6.3 임포트 패턴
@@ -596,7 +596,7 @@ type ScumContentCategory = any   // any 금지
 
 1. 타입 파일 생성 (Phase 1 → 2 → 3)
 2. 정적 데이터 파일 작성 (각 도메인의 `data/` 폴더)
-3. 타입 검증 (TypeScript strict mode 활성화)
+3. 타입 확인 (TypeScript strict mode 활성화)
 4. API 레이어 구현 (공용 타입 사용)
 
 ## 관련 문서
@@ -605,3 +605,4 @@ type ScumContentCategory = any   // any 금지
 - `route-map.md`: 라우팅 및 페이지 구조
 - `api-contract.md`: API 호출 명세
 - `implementation-plan.md`: 구현 우선순위
+

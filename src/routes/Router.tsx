@@ -12,6 +12,7 @@ import GuideDetailPage from "@/pages/guides/detail"
 import ServerInfoPage from "@/pages/server-info"
 import BeginnerPage from "@/pages/beginner"
 import EventsPage from "@/pages/events"
+import WikiPage from "@/pages/wiki"
 import NotFoundPage from "@/pages/error/NotFound"
 
 export function Router() {
@@ -24,6 +25,7 @@ export function Router() {
               <Route path="/" element={<App />} />
               <Route path="/guides" element={<GuidesPage />} />
               <Route path="/guides/:guideId" element={<GuideDetailPage />} />
+              <Route path="/wiki" element={<WikiPage />} />
               <Route path="/server-info" element={<ServerInfoPage />} />
               <Route path="/beginner" element={<BeginnerPage />} />
               <Route path="/events" element={<EventsPage />} />

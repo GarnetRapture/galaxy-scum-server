@@ -26,15 +26,15 @@ export const galaxyServerInfo = {
 
     vehicleRental: {
       enabled: true,
-      description: '관리자가 무료로 차량 제공',
-      process: '디스코드에서 관리자 블락에게 신청',
+      description: '디스코드 문의 기준 차량 지원',
+      process: '디스코드 문의 채널에서 신청',
       availability: '무제한',
       rentalPolicy: '새 차량 구매 시에만 반납'
     },
 
     newbieCare: {
       enabled: true,
-      description: '관리자 블락의 직접 가이드',
+      description: '신규 유저 적응 지원',
       duration: '약 15분',
       content: ['게임 기본 설명', '생존 팁', '서버 규칙', '커뮤니티 안내'],
       process: '디스코드에서 신청'
@@ -55,15 +55,15 @@ export const galaxyServerInfo = {
     }
   },
 
-  adminInfo: {
-    adminName: '블락',
-    role: '서버 관리자',
+  noticeInfo: {
+    authorName: 'Galaxy Notice',
+    role: '공지 작성자',
     responsibilities: [
       '뉴비 케어 제공',
-      '차량 렌트 관리',
-      '서버 규칙 집행',
-      '이벤트 운영',
-      '커뮤니티 중재'
+      '차량 지원 안내',
+      '서버 규칙 안내',
+      '이벤트 공지',
+      '커뮤니티 안내'
     ],
     contactMethod: '디스코드 DM 또는 멘션'
   },
@@ -95,9 +95,9 @@ export const galaxyServerInfo = {
       ]
     },
     {
-      category: '관리자 지시',
+      category: '서버 공지',
       rules: [
-        '관리자 지시에 따를 것',
+        '서버 공지를 따를 것',
         '부정 행위 엄격 처벌',
         '계정 공유 금지'
       ]
@@ -176,7 +176,7 @@ export const galaxyServerInfo = {
     {
       step: 6,
       title: '뉴비 케어 신청 (선택)',
-      description: '관리자 블락에게 DM으로 15분 가이드 신청'
+      description: '디스코드 문의 채널에서 신규 유저 지원 신청'
     }
   ],
 

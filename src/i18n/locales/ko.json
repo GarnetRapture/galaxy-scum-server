@@ -7,6 +7,7 @@
   "nav": {
     "home": "홈",
     "guides": "가이드",
+    "wiki": "SCUM 위키",
     "beginner": "신규 유저",
     "serverInfo": "서버 정보",
     "events": "이벤트"
@@ -29,20 +30,20 @@
     "welcomePack": "웰컴팩 안내",
     "welcomePackDesc": "모든 신규 유저에게 제공되는 시작 아이템 및 혜택",
     "newbieCare": "뉴비 케어",
-    "newbieCareDesc": "관리자 블락의 15분 직접 가이드 및 적응 지원",
+    "newbieCareDesc": "디스코드 문의 기반 신규 유저 적응 지원",
     "gameStart": "게임 시작 3단계",
     "step1": "캐릭터 생성 후 게임 월드 진입",
     "step2": "게임 메뉴에서 웰컴팩 수령",
-    "step3": "디스코드에서 관리자 블락에게 연락"
+    "step3": "디스코드에서 지원 요청 남기기"
   },
   "version": {
     "title": "SCUM 최신 버전",
-    "subtitle": "INTO THE WILD 업데이트의 주요 기능과 검증 상태",
+    "subtitle": "INTO THE WILD 업데이트의 주요 기능과 자료 상태",
     "versionInfo": "버전 정보",
     "versionNumber": "버전 번호",
     "releaseDate": "출시일",
     "officialReleaseDate": "정식 출시일",
-    "verificationStatus": "검증 상태",
+    "verificationStatus": "자료 상태",
     "latestFeatures": "최신 업데이트 기능",
     "lastChecked": "마지막 확인"
   },
@@ -58,10 +59,10 @@
     "adjustFilters": "필터를 조정해 다시 시도해주세요",
     "clearFilters": "필터 초기화",
     "guideInfo": "가이드 정보",
-    "verificationStatus": "검증 상태",
+    "verificationStatus": "자료 상태",
     "freshness": "신선도",
     "knowledgeScope": "지식 범위",
-    "reviewRecommended": "재검증 권장",
+    "reviewRecommended": "업데이트 확인 권장",
     "source": "출처"
   },
   "beginner": {
@@ -110,12 +111,12 @@
     "quickLinks": "빠른 링크",
     "community": "커뮤니티",
     "info": "정보",
-    "admin": "관리자: 블락",
+    "admin": "공지 작성자: Galaxy Notice",
     "since": "서버 시작: 2021",
     "game": "게임: SCUM (Gamepires)",
     "mode": "플레이 모드: PVE",
-    "copyright": "© {{year}} 갤럭시 서버. 제작: 플레이어들",
-    "verification": "출처 검증: Tier 1-6 시스템",
+    "copyright": "© {{year}} 갤럭시 서버. 제작: Nekoi",
+    "verification": "자료 기준: SCUM 공식 자료 및 갤럭시 공지",
     "lastUpdate": "마지막 업데이트: 2026-07-05",
     "disclaimer": "이 웹사이트는 갤럭시 서버의 팬 가이드입니다. SCUM은 Gamepires의 저작권 게임입니다. 모든 정보는 최선을 다해 정확하게 유지되지만, 게임 업데이트에 따라 변경될 수 있습니다."
   }

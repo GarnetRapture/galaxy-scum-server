@@ -1,7 +1,3 @@
-/**
- * 검증 상태 배지 컴포넌트
- */
-
 import type { SVGProps, ForwardRefExoticComponent } from "react"
 import type { VerificationStatus } from "@/shared/types"
 import {
@@ -36,24 +32,24 @@ type BadgeConfig = {
 
 const statusConfig = {
   verified: {
-    label: "검증됨",
-    bgColor: "bg-green-100",
-    textColor: "text-green-800",
-    borderColor: "border-green-300",
+    label: "확인 완료",
+    bgColor: "bg-emerald-950/40",
+    textColor: "text-emerald-200",
+    borderColor: "border-emerald-500/30",
     icon: CheckCircle2,
   },
   partial: {
-    label: "부분 검증",
-    bgColor: "bg-yellow-100",
-    textColor: "text-yellow-800",
-    borderColor: "border-yellow-300",
+    label: "내용 확인 중",
+    bgColor: "bg-amber-950/40",
+    textColor: "text-amber-200",
+    borderColor: "border-amber-500/30",
     icon: AlertCircle,
   },
   "needs-review": {
-    label: "재검증 필요",
-    bgColor: "bg-orange-100",
-    textColor: "text-orange-800",
-    borderColor: "border-orange-300",
+    label: "업데이트 확인 필요",
+    bgColor: "bg-orange-950/40",
+    textColor: "text-orange-200",
+    borderColor: "border-orange-500/30",
     icon: AlertTriangle,
   },
   deprecated: {
@@ -90,7 +86,7 @@ export function VerificationBadge({ status, size = "md" }: VerificationBadgeProp
 
   return (
     <div
-      className={`inline-flex items-center ${sizeClasses[size]} rounded-full border ${config.bgColor} ${config.borderColor}`}
+      className={`inline-flex items-center ${sizeClasses[size]} rounded-md border ${config.bgColor} ${config.borderColor}`}
     >
       <Icon className={`${iconSizes[size]} ${config.textColor}`} />
       <span className={config.textColor}>{config.label}</span>

@@ -5,6 +5,7 @@
 export type RouteKey =
   | "home"
   | "guides"
+  | "wiki"
   | "guideDetail"
   | "serverInfo"
   | "beginner"
@@ -33,6 +34,13 @@ export const ROUTES: Record<RouteKey, RouteConfig> = {
     label: "가이드",
     title: "게임 가이드",
     description: "SCUM 게임 가이드 검색",
+    inNav: true,
+  },
+  wiki: {
+    path: "/wiki",
+    label: "SCUM 위키",
+    title: "SCUM 위키 허브",
+    description: "SCUM 공식 위키 기반 내부 요약 허브",
     inNav: true,
   },
   guideDetail: {

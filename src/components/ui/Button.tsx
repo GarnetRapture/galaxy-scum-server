@@ -1,27 +1,23 @@
-/**
- * Button 컴포넌트 (GitHub 스타일)
- */
-
 import React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/shared/utils/cn"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center gap-2 rounded-md border font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--scum-cyan)] disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "bg-blue-600 text-white hover:bg-blue-700 dark:hover:bg-blue-500",
-        secondary: "bg-gray-200 text-gray-900 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-50 dark:hover:bg-gray-600",
-        outline: "border border-gray-300 bg-white text-gray-900 hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-50 dark:hover:bg-gray-800",
-        ghost: "hover:bg-gray-100 dark:hover:bg-gray-800",
-        danger: "bg-red-600 text-white hover:bg-red-700",
-        success: "bg-green-600 text-white hover:bg-green-700",
+        default: "border-[rgba(0,217,255,0.35)] bg-[rgba(0,217,255,0.12)] text-[var(--scum-cyan)] hover:bg-[rgba(0,217,255,0.18)]",
+        secondary: "border-[var(--scum-border)] bg-[rgba(255,255,255,0.04)] text-[var(--scum-text-primary)] hover:bg-[rgba(255,255,255,0.08)]",
+        outline: "border-[var(--scum-border)] bg-transparent text-[var(--scum-text-primary)] hover:border-[rgba(0,217,255,0.35)] hover:bg-[rgba(0,217,255,0.08)]",
+        ghost: "border-transparent bg-transparent text-[var(--scum-text-secondary)] hover:bg-[rgba(255,255,255,0.06)] hover:text-[var(--scum-text-primary)]",
+        danger: "border-[rgba(255,23,68,0.35)] bg-[rgba(255,23,68,0.12)] text-[var(--scum-red)] hover:bg-[rgba(255,23,68,0.18)]",
+        success: "border-[rgba(0,255,136,0.35)] bg-[rgba(0,255,136,0.12)] text-[var(--scum-green)] hover:bg-[rgba(0,255,136,0.18)]",
       },
       size: {
-        sm: "px-3 py-1.5 text-sm",
-        md: "px-4 py-2 text-base",
-        lg: "px-6 py-3 text-lg",
+        sm: "min-h-9 px-3 py-1.5 text-sm",
+        md: "min-h-10 px-4 py-2 text-sm",
+        lg: "min-h-12 px-6 py-3 text-base",
       },
     },
     defaultVariants: {
