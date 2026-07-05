@@ -1,0 +1,122 @@
+{
+  "site": {
+    "title": "Galaxy Server",
+    "subtitle": "[KOR_PVE] SCUM Official Server · Since 2021",
+    "description": "Post-apocalyptic PVE community server for veterans and newcomers"
+  },
+  "nav": {
+    "home": "Home",
+    "guides": "Guides",
+    "beginner": "Beginner",
+    "serverInfo": "Server Info",
+    "events": "Events"
+  },
+  "hero": {
+    "title": "GALAXY SERVER",
+    "pveOnly": "PVE ONLY",
+    "welcomePack": "WELCOME PACK",
+    "beginnerGuide": "NEWBIE GUIDE",
+    "weekendEvents": "WEEKEND EVENTS",
+    "experienceEvent": "EXPERIENCE EVENT ACTIVE",
+    "viewGuides": "VIEW GUIDES",
+    "joinDiscord": "JOIN DISCORD"
+  },
+  "newcomer": {
+    "title": "NEWCOMER GUIDE",
+    "subtitle": "Essential information for new players joining SCUM and Galaxy Server",
+    "survivalGuide": "Survival Guide",
+    "survivalDesc": "Step-by-step instructions from character creation to advanced survival",
+    "welcomePack": "Welcome Pack",
+    "welcomePackDesc": "Startup items and benefits provided to all new players",
+    "newbieCare": "Newbie Care",
+    "newbieCareDesc": "Admin support: 15-minute guided tutorial and game orientation",
+    "gameStart": "GAME START: 3-STEP PROCESS",
+    "step1": "Create character and spawn into game world",
+    "step2": "Claim welcome pack from in-game menu",
+    "step3": "Contact admin Blac on Discord for newbie care"
+  },
+  "version": {
+    "title": "SCUM VERSION STATUS",
+    "subtitle": "INTO THE WILD update: Major features and verification status",
+    "versionInfo": "VERSION INFORMATION",
+    "versionNumber": "VERSION NUMBER",
+    "releaseDate": "RELEASE DATE",
+    "officialReleaseDate": "OFFICIAL RELEASE DATE",
+    "verificationStatus": "VERIFICATION STATUS",
+    "latestFeatures": "Latest Update Features",
+    "lastChecked": "Last Checked"
+  },
+  "guides": {
+    "title": "GAME GUIDES",
+    "subtitle": "Search and explore all SCUM information",
+    "filter": "FILTERS",
+    "keywordSearch": "Keyword Search",
+    "category": "CATEGORY",
+    "beginnerPriority": "BEGINNER PRIORITY",
+    "searchResults": "Search Results",
+    "noResults": "No results found",
+    "adjustFilters": "Try adjusting your filters",
+    "clearFilters": "CLEAR FILTERS",
+    "guideInfo": "GUIDE INFORMATION",
+    "verificationStatus": "Verification Status",
+    "freshness": "Freshness",
+    "knowledgeScope": "Knowledge Scope",
+    "reviewRecommended": "Review Recommended",
+    "source": "Source"
+  },
+  "beginner": {
+    "title": "BEGINNER GUIDE",
+    "subtitle": "Step-by-step guidance from game start to basic gameplay",
+    "progress": "PROGRESS",
+    "step": "STEP",
+    "objectives": "OBJECTIVES",
+    "tips": "TIPS",
+    "galaxyTips": "GALAXY SERVER TIPS",
+    "checklist": "CHECKLIST",
+    "complete": "COMPLETE STEP",
+    "next": "NEXT STEP"
+  },
+  "events": {
+    "title": "GALAXY SERVER EVENTS",
+    "subtitle": "Current and upcoming events",
+    "all": "ALL",
+    "weekendEvent": "WEEKEND EVENTS",
+    "specialEvent": "SPECIAL EVENTS",
+    "experienceEvent": "EXPERIENCE EVENTS",
+    "live": "LIVE EVENTS",
+    "upcoming": "UPCOMING EVENTS",
+    "ended": "ENDED EVENTS",
+    "ongoing": "ONGOING NOW",
+    "noEvents": "No events found"
+  },
+  "serverInfo": {
+    "title": "GALAXY SERVER INFO",
+    "subtitle": "Complete information and features of our Korean PVE server",
+    "overview": "SERVER OVERVIEW",
+    "overviewDesc": "Basic information about Galaxy Server",
+    "rules": "SERVER RULES",
+    "rulesDesc": "Rules and policies for PVE server",
+    "features": "FEATURES",
+    "featuresDesc": "Various support for new players",
+    "farmingAreas": "FARMING AREAS",
+    "farmingAreasDesc": "Difficulty-based farming location guide",
+    "discord": "DISCORD COMMUNITY",
+    "discordDesc": "Connect with other players",
+    "joinDiscord": "JOIN DISCORD"
+  },
+  "footer": {
+    "about": "Galaxy Server",
+    "aboutDesc": "Official information site for the Korean PVE SCUM community server.",
+    "quickLinks": "Quick Links",
+    "community": "COMMUNITY",
+    "info": "INFO",
+    "admin": "Admin: Blac",
+    "since": "Server Since: 2021",
+    "game": "Game: SCUM (Gamepires)",
+    "mode": "Play Mode: PVE",
+    "copyright": "© {{year}} Galaxy Server. Made by Players",
+    "verification": "Source Verification: Tier 1-6 System",
+    "lastUpdate": "Last Update: 2026-07-05",
+    "disclaimer": "This website is a fan guide for Galaxy Server. SCUM is a copyrighted game by Gamepires. All information is maintained as accurately as possible but may change with game updates."
+  }
+}

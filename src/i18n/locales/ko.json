@@ -1,0 +1,122 @@
+{
+  "site": {
+    "title": "갤럭시 서버",
+    "subtitle": "[KOR_PVE] SCUM 공식 서버 · Since 2021",
+    "description": "고인물과 뉴비가 함께하는 포스트 아포칼립틱 PVE 커뮤니티 서버"
+  },
+  "nav": {
+    "home": "홈",
+    "guides": "가이드",
+    "beginner": "신규 유저",
+    "serverInfo": "서버 정보",
+    "events": "이벤트"
+  },
+  "hero": {
+    "title": "갤럭시 서버",
+    "pveOnly": "PVE 전용",
+    "welcomePack": "웰컴팩",
+    "beginnerGuide": "뉴비 가이드",
+    "weekendEvents": "주말 이벤트",
+    "experienceEvent": "경험치 이벤트 진행 중",
+    "viewGuides": "가이드 보기",
+    "joinDiscord": "디스코드 참가"
+  },
+  "newcomer": {
+    "title": "신규 유저를 위한 안내",
+    "subtitle": "SCUM 입문자와 갤럭시 서버 신입을 위한 필수 정보",
+    "survivalGuide": "생존 가이드",
+    "survivalDesc": "캐릭터 생성부터 고급 생존까지 단계별 교육",
+    "welcomePack": "웰컴팩 안내",
+    "welcomePackDesc": "모든 신규 유저에게 제공되는 시작 아이템 및 혜택",
+    "newbieCare": "뉴비 케어",
+    "newbieCareDesc": "관리자 블락의 15분 직접 가이드 및 적응 지원",
+    "gameStart": "게임 시작 3단계",
+    "step1": "캐릭터 생성 후 게임 월드 진입",
+    "step2": "게임 메뉴에서 웰컴팩 수령",
+    "step3": "디스코드에서 관리자 블락에게 연락"
+  },
+  "version": {
+    "title": "SCUM 최신 버전",
+    "subtitle": "INTO THE WILD 업데이트의 주요 기능과 검증 상태",
+    "versionInfo": "버전 정보",
+    "versionNumber": "버전 번호",
+    "releaseDate": "출시일",
+    "officialReleaseDate": "정식 출시일",
+    "verificationStatus": "검증 상태",
+    "latestFeatures": "최신 업데이트 기능",
+    "lastChecked": "마지막 확인"
+  },
+  "guides": {
+    "title": "게임 가이드",
+    "subtitle": "SCUM의 모든 정보를 검색하고 탐색하세요",
+    "filter": "필터",
+    "keywordSearch": "키워드 검색",
+    "category": "카테고리",
+    "beginnerPriority": "신규 우선순위",
+    "searchResults": "검색 결과",
+    "noResults": "검색 결과가 없습니다",
+    "adjustFilters": "필터를 조정해 다시 시도해주세요",
+    "clearFilters": "필터 초기화",
+    "guideInfo": "가이드 정보",
+    "verificationStatus": "검증 상태",
+    "freshness": "신선도",
+    "knowledgeScope": "지식 범위",
+    "reviewRecommended": "재검증 권장",
+    "source": "출처"
+  },
+  "beginner": {
+    "title": "신규 유저 가이드",
+    "subtitle": "게임 시작부터 초급 플레이까지 단계별 안내",
+    "progress": "진행도",
+    "step": "단계",
+    "objectives": "목표",
+    "tips": "팁",
+    "galaxyTips": "갤럭시 팁",
+    "checklist": "체크리스트",
+    "complete": "단계 완료",
+    "next": "다음 단계"
+  },
+  "events": {
+    "title": "갤럭시 서버 이벤트",
+    "subtitle": "현재 및 예정 이벤트 안내",
+    "all": "전체",
+    "weekendEvent": "주말 이벤트",
+    "specialEvent": "특별 이벤트",
+    "experienceEvent": "경험치 이벤트",
+    "live": "진행 중인 이벤트",
+    "upcoming": "예정 이벤트",
+    "ended": "종료된 이벤트",
+    "ongoing": "지금 진행 중",
+    "noEvents": "해당하는 이벤트가 없습니다"
+  },
+  "serverInfo": {
+    "title": "갤럭시 서버 정보",
+    "subtitle": "한국 PVE 서버의 모든 정보와 특징",
+    "overview": "서버 개요",
+    "overviewDesc": "갤럭시 서버의 기본 정보",
+    "rules": "서버 규칙",
+    "rulesDesc": "PVE 서버의 규칙과 정책",
+    "features": "지원 기능",
+    "featuresDesc": "신규 유저를 위한 다양한 지원",
+    "farmingAreas": "파밍 지역",
+    "farmingAreasDesc": "난이도별 파밍 지역 안내",
+    "discord": "디스코드 커뮤니티",
+    "discordDesc": "다른 플레이어들과 연결하세요",
+    "joinDiscord": "디스코드 참가하기"
+  },
+  "footer": {
+    "about": "갤럭시 서버",
+    "aboutDesc": "SCUM 한국 PVE 커뮤니티 서버의 공식 정보 사이트입니다.",
+    "quickLinks": "빠른 링크",
+    "community": "커뮤니티",
+    "info": "정보",
+    "admin": "관리자: 블락",
+    "since": "서버 시작: 2021",
+    "game": "게임: SCUM (Gamepires)",
+    "mode": "플레이 모드: PVE",
+    "copyright": "© {{year}} 갤럭시 서버. 제작: 플레이어들",
+    "verification": "출처 검증: Tier 1-6 시스템",
+    "lastUpdate": "마지막 업데이트: 2026-07-05",
+    "disclaimer": "이 웹사이트는 갤럭시 서버의 팬 가이드입니다. SCUM은 Gamepires의 저작권 게임입니다. 모든 정보는 최선을 다해 정확하게 유지되지만, 게임 업데이트에 따라 변경될 수 있습니다."
+  }
+}

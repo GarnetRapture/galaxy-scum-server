@@ -1,0 +1,133 @@
+# ===========================
+# 의존성 & 설치
+# ===========================
+node_modules/
+/.pnp
+.pnp.js
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ===========================
+# 빌드 결과물
+# ===========================
+dist/
+dist-ssr/
+build/
+.next/
+out/
+coverage/
+
+# ===========================
+# 개발 서버 & 캐시
+# ===========================
+.vite/
+.cache/
+*.local
+*.sw?
+
+# ===========================
+# 환경 변수
+# ===========================
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ===========================
+# IDE & 에디터
+# ===========================
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+.idea/
+.idea_modules/
+*.sublime-workspace
+*.sublime-project
+.project
+.classpath
+.settings/
+*.iml
+
+# ===========================
+# JetBrains IDE (WebStorm, IntelliJ, etc.)
+# ===========================
+.jetbrains/
+.fleet/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# ===========================
+# OS 파일
+# ===========================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ===========================
+# Windows
+# ===========================
+*.exe
+*.dll
+*.lnk
+$RECYCLE.BIN/
+
+# ===========================
+# macOS
+# ===========================
+.AppleDouble
+.LSOverride
+
+# ===========================
+# 로깅
+# ===========================
+logs/
+*.log
+npm-debug.log*
+npm-error.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+pnpm-error.log*
+lerna-debug.log*
+*.tgz
+
+# ===========================
+# 테스트 & 커버리지
+# ===========================
+coverage/
+.nyc_output/
+*.lcov
+.mocha_output/
+
+# ===========================
+# 번들러 & 빌드 도구
+# ===========================
+.eslintcache
+.parcel-cache/
+tsconfig.tsbuildinfo
+
+# ===========================
+# VS Code 확장 (선택적 설치)
+# ===========================
+# .vscode/extensions/ (필요시 주석 해제)
+
+# ===========================
+# 기타 임시 파일
+# ===========================
+.turbo/
+.vercel/
+.netlify/
+*.pem
+*.cer
+.env.example.local

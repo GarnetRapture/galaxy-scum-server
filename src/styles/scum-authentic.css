@@ -1,0 +1,433 @@
+/**
+ * SCUM 게임 + 현대 다크테마 웹사이트 스타일
+ * 포스트 아포칼립틱 감성 × 2026년 모던 디자인
+ */
+
+:root {
+  /* 기본 배경 - 깊은 어둠 */
+  --scum-bg: #0a0e27;
+  --scum-bg-secondary: #11152e;
+  --scum-bg-tertiary: #1a1f3d;
+
+  /* 테두리 - 미묘한 현대식 */
+  --scum-border: rgba(255, 255, 255, 0.08);
+  --scum-border-hover: rgba(0, 217, 255, 0.2);
+
+  /* 주요 강조색 - 세련된 네온 */
+  --scum-cyan: #00d9ff;
+  --scum-green: #00ff88;
+  --scum-orange: #ff6b35;
+  --scum-red: #ff1744;
+  --scum-pink: #ff0066;
+
+  /* 텍스트 - 계층적 */
+  --scum-text-primary: #f5f5f7;
+  --scum-text-secondary: #b3b3b8;
+  --scum-text-muted: #6b6b73;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--scum-bg);
+  color: var(--scum-text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ====== 카드 ====== */
+.scum-card {
+  background-color: var(--scum-bg-secondary);
+  border: 1px solid var(--scum-border);
+  border-radius: 8px;
+  padding: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+}
+
+.scum-card:hover {
+  background-color: var(--scum-bg-tertiary);
+  border-color: var(--scum-border-hover);
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ====== 버튼 ====== */
+.scum-button {
+  background-color: transparent;
+  color: var(--scum-text-primary);
+  border: 1px solid var(--scum-border);
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.scum-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.scum-button:hover {
+  border-color: var(--scum-cyan);
+  background-color: rgba(0, 217, 255, 0.05);
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
+}
+
+.scum-button:hover::before {
+  left: 100%;
+}
+
+.scum-button:active {
+  transform: scale(0.98);
+}
+
+.scum-button.accent {
+  border-color: rgba(255, 107, 53, 0.3);
+  color: var(--scum-orange);
+}
+
+.scum-button.accent:hover {
+  border-color: var(--scum-orange);
+  background-color: rgba(255, 107, 53, 0.05);
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.2);
+}
+
+/* ====== 배지 ====== */
+.scum-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(0, 217, 255, 0.08);
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  color: var(--scum-cyan);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  transition: all 0.2s ease;
+}
+
+.scum-badge:hover {
+  border-color: var(--scum-cyan);
+  background-color: rgba(0, 217, 255, 0.12);
+}
+
+.scum-badge.alert {
+  background-color: rgba(255, 107, 53, 0.08);
+  border-color: rgba(255, 107, 53, 0.2);
+  color: var(--scum-orange);
+}
+
+.scum-badge.danger {
+  background-color: rgba(255, 23, 68, 0.08);
+  border-color: rgba(255, 23, 68, 0.2);
+  color: var(--scum-red);
+}
+
+.scum-badge.success {
+  background-color: rgba(0, 255, 136, 0.08);
+  border-color: rgba(0, 255, 136, 0.2);
+  color: var(--scum-green);
+}
+
+/* ====== 입력 필드 ====== */
+.scum-input {
+  background-color: rgba(17, 21, 46, 0.5);
+  border: 1px solid var(--scum-border);
+  border-radius: 6px;
+  color: var(--scum-text-primary);
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.scum-input:focus {
+  outline: none;
+  border-color: var(--scum-cyan);
+  background-color: rgba(17, 21, 46, 0.8);
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.1);
+}
+
+.scum-input::placeholder {
+  color: var(--scum-text-muted);
+}
+
+/* ====== 제목 ====== */
+.scum-title {
+  color: var(--scum-cyan);
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, var(--scum-cyan), #00b8e6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+}
+
+.scum-title.accent {
+  background: linear-gradient(135deg, var(--scum-orange), #ff8c42);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.scum-title.danger {
+  background: linear-gradient(135deg, var(--scum-red), #ff5252);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ====== 섹션 ====== */
+.scum-section {
+  border-top: 1px solid var(--scum-border);
+  border-bottom: 1px solid var(--scum-border);
+  padding: 48px 0;
+  margin: 32px 0;
+}
+
+.scum-section.highlight {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 217, 255, 0.03) 0%,
+    rgba(0, 255, 136, 0.02) 100%
+  );
+  border-color: var(--scum-border-hover);
+}
+
+/* ====== 그리드 ====== */
+.scum-grid {
+  display: grid;
+  gap: 16px;
+  grid-auto-flow: row;
+}
+
+.scum-grid > * {
+  background-color: var(--scum-bg-secondary);
+  border: 1px solid var(--scum-border);
+  border-radius: 8px;
+  padding: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scum-grid > *:hover {
+  background-color: var(--scum-bg-tertiary);
+  border-color: var(--scum-border-hover);
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.1);
+}
+
+/* ====== 상태 표시 ====== */
+.scum-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  transition: all 0.2s ease;
+}
+
+.scum-status.active {
+  color: var(--scum-green);
+  border-color: rgba(0, 255, 136, 0.3);
+  background-color: rgba(0, 255, 136, 0.05);
+}
+
+.scum-status.inactive {
+  color: var(--scum-text-muted);
+  border-color: rgba(107, 107, 115, 0.3);
+  background-color: rgba(107, 107, 115, 0.05);
+}
+
+.scum-status.warning {
+  color: var(--scum-orange);
+  border-color: rgba(255, 107, 53, 0.3);
+  background-color: rgba(255, 107, 53, 0.05);
+}
+
+.scum-status.critical {
+  color: var(--scum-red);
+  border-color: rgba(255, 23, 68, 0.3);
+  background-color: rgba(255, 23, 68, 0.05);
+}
+
+/* ====== CRT 스캔라인 (선택적) ====== */
+.scum-crt::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.08) 0px,
+    rgba(0, 0, 0, 0.08) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* ====== 헤더 ====== */
+.scum-header {
+  background-color: var(--scum-bg-secondary);
+  border-bottom: 1px solid var(--scum-border);
+  padding: 12px 0;
+}
+
+.scum-header-top {
+  border-bottom: 1px solid var(--scum-border);
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+/* ====== 분할선 ====== */
+.scum-divider {
+  border: none;
+  border-top: 1px solid var(--scum-border);
+  margin: 24px 0;
+  height: 0;
+}
+
+.scum-divider.accent {
+  border-top-color: var(--scum-cyan);
+}
+
+/* ====== 히어로 섹션 ====== */
+.scum-hero {
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.05) 0%, rgba(255, 107, 53, 0.03) 100%);
+  border: 1px solid var(--scum-border);
+  border-radius: 8px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.scum-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 217, 255, 0.1) 0%, transparent 70%);
+  animation: pulse 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.3;
+  }
+}
+
+/* ====== 메터/게이지 ====== */
+.scum-meter {
+  height: 20px;
+  background-color: var(--scum-bg);
+  border: 1px solid var(--scum-border);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.scum-meter-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--scum-green), #00ff88);
+  width: 100%;
+  position: relative;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+.scum-meter.warning .scum-meter-fill {
+  background: linear-gradient(90deg, var(--scum-orange), #ff8c42);
+  box-shadow: 0 0 10px rgba(255, 107, 53, 0.3);
+}
+
+.scum-meter.critical .scum-meter-fill {
+  background: linear-gradient(90deg, var(--scum-red), #ff5252);
+  box-shadow: 0 0 10px rgba(255, 23, 68, 0.3);
+}
+
+/* ====== 일반 텍스트 스타일 ====== */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+a {
+  color: var(--scum-cyan);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+
+a:hover {
+  color: var(--scum-green);
+  border-bottom-color: rgba(0, 255, 136, 0.3);
+}
+
+/* ====== 코드 블록 ====== */
+code {
+  background-color: rgba(17, 21, 46, 0.8);
+  color: var(--scum-cyan);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Monaco', 'Menlo', monospace;
+  font-size: 12px;
+}
+
+pre {
+  background-color: var(--scum-bg-secondary);
+  border: 1px solid var(--scum-border);
+  border-radius: 6px;
+  padding: 16px;
+  overflow-x: auto;
+  margin: 16px 0;
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+  color: var(--scum-text-primary);
+}
