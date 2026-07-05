@@ -1,11 +1,12 @@
 import type { GuideEntry } from "@/domains/scum/guides/types"
+import { resolveAssetUrl } from "@/shared/utils/asset-url"
 
 const guideImages = {
-  start: { src: "/assets/scum/guides/scum-hero-capsule.jpg", alt: { ko: "SCUM 공식 히어로 캡슐 이미지", en: "Official SCUM hero capsule image" } },
-  island: { src: "/assets/scum/guides/scum-island-background.jpg", alt: { ko: "SCUM 섬 배경 이미지", en: "SCUM island background image" } },
-  library: { src: "/assets/scum/guides/scum-library-hero-guide.jpg", alt: { ko: "SCUM 공식 라이브러리 히어로 이미지", en: "Official SCUM library hero image" } },
-  header: { src: "/assets/scum/guides/scum-header-guide.jpg", alt: { ko: "SCUM 공식 헤더 이미지", en: "Official SCUM header image" } },
-  capsule: { src: "/assets/scum/guides/scum-main-capsule.jpg", alt: { ko: "SCUM 공식 메인 캡슐 이미지", en: "Official SCUM main capsule image" } },
+  start: { src: resolveAssetUrl("/assets/scum/guides/scum-hero-capsule.jpg"), alt: { ko: "SCUM 공식 히어로 캡슐 이미지", en: "Official SCUM hero capsule image" } },
+  island: { src: resolveAssetUrl("/assets/scum/guides/scum-island-background.jpg"), alt: { ko: "SCUM 섬 배경 이미지", en: "SCUM island background image" } },
+  library: { src: resolveAssetUrl("/assets/scum/guides/scum-library-hero-guide.jpg"), alt: { ko: "SCUM 공식 라이브러리 히어로 이미지", en: "Official SCUM library hero image" } },
+  header: { src: resolveAssetUrl("/assets/scum/guides/scum-header-guide.jpg"), alt: { ko: "SCUM 공식 헤더 이미지", en: "Official SCUM header image" } },
+  capsule: { src: resolveAssetUrl("/assets/scum/guides/scum-main-capsule.jpg"), alt: { ko: "SCUM 공식 메인 캡슐 이미지", en: "Official SCUM main capsule image" } },
 } as const
 
 const checkedMeta = {

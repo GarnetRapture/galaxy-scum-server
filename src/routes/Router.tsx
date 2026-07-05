@@ -2,7 +2,7 @@
  * 라우트 정의
  */
 
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { HashRouter, Routes, Route } from "react-router-dom"
 import { ErrorBoundary } from "@/features/error/ErrorBoundary"
 import { LanguageProvider } from "@/i18n"
 import { Layout } from "@/features/layout/Layout"
@@ -18,7 +18,7 @@ import NotFoundPage from "@/pages/error/NotFound"
 export function Router() {
   return (
     <ErrorBoundary>
-      <BrowserRouter>
+      <HashRouter>
         <LanguageProvider>
           <Layout>
             <Routes>
@@ -33,7 +33,7 @@ export function Router() {
             </Routes>
           </Layout>
         </LanguageProvider>
-      </BrowserRouter>
+      </HashRouter>
     </ErrorBoundary>
   )
 }

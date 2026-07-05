@@ -2,6 +2,8 @@
  * 공용 상수 정의
  */
 
+import { resolveAssetUrl } from "@/shared/utils/asset-url"
+
 // ============================================================================
 // API 설정
 // ============================================================================
@@ -85,8 +87,8 @@ export const GALAXY_SERVER = {
 } as const
 
 export const GALAXY_BRAND_ASSETS = {
-  LOGO: "/assets/brand/scum-galaxy-logo.svg",
-  FAVICON: "/favicon.svg",
+  LOGO: resolveAssetUrl("/assets/brand/scum-galaxy-logo.svg"),
+  FAVICON: resolveAssetUrl("/favicon.svg"),
 } as const
 
 // ============================================================================

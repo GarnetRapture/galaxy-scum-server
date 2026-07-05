@@ -8,22 +8,23 @@ import type {
   StatRecommendation,
   VersionKnowledge,
 } from "@/domains/galaxy-server/content/types"
+import { resolveAssetUrl } from "@/shared/utils/asset-url"
 
 export const contentImages: ContentImageAsset[] = [
   {
-    src: "/assets/scum/scum-library-hero.jpg",
+    src: resolveAssetUrl("/assets/scum/scum-library-hero.jpg"),
     title: { ko: "SCUM 공식 히어로 이미지", en: "Official SCUM hero image" },
     alt: { ko: "SCUM 공식 스토어 히어로 아트", en: "Official SCUM store hero art" },
     sourceId: "source-steamdb-scum-assets-2026-06-30",
   },
   {
-    src: "/assets/scum/scum-header.jpg",
+    src: resolveAssetUrl("/assets/scum/scum-header.jpg"),
     title: { ko: "SCUM 공식 헤더", en: "Official SCUM header" },
     alt: { ko: "SCUM 공식 Steam 헤더 이미지", en: "Official SCUM Steam header image" },
     sourceId: "source-steamdb-scum-assets-2026-06-30",
   },
   {
-    src: "/assets/scum/scum-capsule.jpg",
+    src: resolveAssetUrl("/assets/scum/scum-capsule.jpg"),
     title: { ko: "SCUM 공식 캡슐 이미지", en: "Official SCUM capsule image" },
     alt: { ko: "SCUM 공식 Steam 캡슐 이미지", en: "Official SCUM Steam capsule image" },
     sourceId: "source-steamdb-scum-assets-2026-06-30",

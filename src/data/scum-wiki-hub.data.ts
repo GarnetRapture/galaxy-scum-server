@@ -8,11 +8,12 @@ import {
   Wrench,
 } from "lucide-react"
 import type { LocalizedText } from "@/domains/galaxy-server/content/types"
+import { resolveAssetUrl } from "@/shared/utils/asset-url"
 
 export const scumWikiSource = {
   name: "Scum Wiki",
   url: "https://scum.wiki.gg/",
-  logo: "/assets/scum/scum-wiki-logo.png",
+  logo: resolveAssetUrl("/assets/scum/scum-wiki-logo.png"),
   checkedAt: "2026-07-05",
   api: "https://scum.wiki.gg/api.php",
 } as const
