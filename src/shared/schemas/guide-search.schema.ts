@@ -3,7 +3,6 @@
  */
 
 import { z } from "zod"
-import type { ScumContentCategory, BeginnerPriority } from "@/shared/types"
 
 export const guideSearchSchema = z.object({
   query: z.string().max(100, "검색어는 100자 이하여야 합니다").optional().default(""),

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
 interface AnimatedListProps {
   items: Array<{ id: string | number; content: ReactNode }>
