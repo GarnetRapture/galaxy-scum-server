@@ -3,6 +3,7 @@
  */
 
 import type { VerifiableContentMeta } from "@/shared/types"
+import type { LocalizedText } from "@/domains/galaxy-server/content/types"
 
 export type GalaxyServerEventType = "weekend" | "special" | "experience"
 
@@ -12,14 +13,14 @@ export type GalaxyServerEvent = {
   id: string
   type: GalaxyServerEventType
   status: GalaxyServerEventStatus
-  title: string
-  description: string
+  title: LocalizedText
+  description: LocalizedText
   schedule: {
     startDate: string
     endDate: string
     time?: string
   }
-  reward?: string
+  reward?: LocalizedText
   meta: VerifiableContentMeta
 }
 

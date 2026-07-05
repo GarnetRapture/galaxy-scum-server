@@ -3,6 +3,7 @@
  */
 
 import type { VerifiableContentMeta } from "@/shared/types"
+import type { LocalizedText } from "@/domains/galaxy-server/content/types"
 
 // ============================================================================
 // 게임 버전 정보
@@ -11,12 +12,12 @@ import type { VerifiableContentMeta } from "@/shared/types"
 export type GameVersion = {
   id: string // 버전 고유 ID (예: "version-1311")
   versionNumber: string // 버전번호 (예: "1.3.1.0.125621")
-  updateName: string // 업데이트명 (예: "INTO THE WILD")
+  updateName: string // 업데이트명 (예: "INTO THE WILD", 고유명사이므로 언어 공통)
   releaseDate: string // 출시 날짜 (ISO 8601)
   officialReleaseDate?: string // 공식 정식 출시일 (ISO 8601, 선택)
-  features: string[] // 주요 기능 목록
-  bugFixes: string[] // 버그 수정 목록
-  qolImprovements: string[] // QoL 개선 사항
+  features: LocalizedText[] // 주요 기능 목록
+  bugFixes: LocalizedText[] // 버그 수정 목록
+  qolImprovements: LocalizedText[] // QoL 개선 사항
   meta: VerifiableContentMeta // 자료 메타데이터
 }
 
@@ -31,8 +32,8 @@ export type VersionInfo = {
 
 export type VersionFeature = {
   id: string
-  title: string
-  description: string
+  title: LocalizedText
+  description: LocalizedText
   category: "feature" | "bugfix" | "qol"
   status: "verified" | "partial" | "needs-review"
   affectsGameplay: boolean // 게임플레이에 영향을 주는지 여부

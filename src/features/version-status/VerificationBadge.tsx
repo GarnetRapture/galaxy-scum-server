@@ -1,5 +1,9 @@
 import type { SVGProps, ForwardRefExoticComponent } from "react"
 import type { VerificationStatus } from "@/shared/types"
+import { VERIFICATION_STATUS_LABELS } from "@/shared/types"
+import { useLanguage } from "@/i18n"
+import { pickLocalizedText } from "@/data/galaxy-wiki-content.data"
+import type { LocaleCode } from "@/domains/galaxy-server/content/types"
 import {
   CheckCircle2,
   AlertCircle,
@@ -23,7 +27,6 @@ type LucideIcon = ForwardRefExoticComponent<
 }
 
 type BadgeConfig = {
-  label: string
   bgColor: string
   textColor: string
   borderColor: string
@@ -32,35 +35,30 @@ type BadgeConfig = {
 
 const statusConfig = {
   verified: {
-    label: "확인 완료",
     bgColor: "bg-emerald-950/40",
     textColor: "text-emerald-200",
     borderColor: "border-emerald-500/30",
     icon: CheckCircle2,
   },
   partial: {
-    label: "내용 확인 중",
     bgColor: "bg-amber-950/40",
     textColor: "text-amber-200",
     borderColor: "border-amber-500/30",
     icon: AlertCircle,
   },
   "needs-review": {
-    label: "업데이트 확인 필요",
     bgColor: "bg-orange-950/40",
     textColor: "text-orange-200",
     borderColor: "border-orange-500/30",
     icon: AlertTriangle,
   },
   deprecated: {
-    label: "사용 불가",
     bgColor: "bg-red-100",
     textColor: "text-red-800",
     borderColor: "border-red-300",
     icon: XCircle,
   },
   "server-local-only": {
-    label: "갤럭시 전용",
     bgColor: "bg-blue-100",
     textColor: "text-blue-800",
     borderColor: "border-blue-300",
@@ -69,7 +67,10 @@ const statusConfig = {
 } satisfies Record<VerificationStatus, BadgeConfig>
 
 export function VerificationBadge({ status, size = "md" }: VerificationBadgeProps) {
+  const { language } = useLanguage()
+  const locale = language as LocaleCode
   const config = statusConfig[status]
+  const label = pickLocalizedText(VERIFICATION_STATUS_LABELS[status], locale)
   const Icon = config.icon
 
   const sizeClasses = {
@@ -89,7 +90,7 @@ export function VerificationBadge({ status, size = "md" }: VerificationBadgeProp
       className={`inline-flex items-center ${sizeClasses[size]} rounded-md border ${config.bgColor} ${config.borderColor}`}
     >
       <Icon className={`${iconSizes[size]} ${config.textColor}`} />
-      <span className={config.textColor}>{config.label}</span>
+      <span className={config.textColor}>{label}</span>
     </div>
   )
 }

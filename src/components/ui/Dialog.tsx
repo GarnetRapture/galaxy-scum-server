@@ -12,7 +12,7 @@ export const DialogContent = React.forwardRef<HTMLDivElement, React.HTMLAttribut
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn("fixed left-[50%] top-[50%] z-50 w-[min(100%-32px,36rem)] translate-x-[-50%] translate-y-[-50%] rounded-lg border border-[var(--scum-border)] bg-[rgba(17,21,46,0.96)] p-6 text-[var(--scum-text-primary)] shadow-2xl", className)}
+      className={cn("fixed left-[50%] top-[50%] z-50 w-[calc(100%_-_32px)] max-w-lg translate-x-[-50%] translate-y-[-50%] rounded-lg border border-[var(--scum-border)] bg-[rgba(17,21,46,0.96)] p-6 text-[var(--scum-text-primary)] shadow-2xl", className)}
       {...props}
     />
   )
@@ -21,7 +21,7 @@ DialogContent.displayName = "DialogContent"
 
 export const DialogHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn("flex flex-col space-y-1.5 text-center sm:text-left", className)} {...props} />
+    <div ref={ref} className={cn("flex flex-col gap-1.5 text-center sm:text-left", className)} {...props} />
   )
 )
 DialogHeader.displayName = "DialogHeader"

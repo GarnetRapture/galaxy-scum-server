@@ -8,13 +8,18 @@ import {
 } from "lucide-react"
 import { GuideDetailSkeleton } from "@/features/loading/LoadingSkeleton"
 import { getGuideDetail, getRelatedGuides } from "@/shared/api/guides"
-import { CATEGORY_LABELS, PRIORITY_LABELS } from "@/shared/types"
+import { CATEGORY_LABELS, PRIORITY_LABELS, FRESHNESS_LABELS, KNOWLEDGE_SCOPE_LABELS } from "@/shared/types"
 import { getCategoryIcon } from "@/shared/constants/icons"
 import { scumMissionRefreshNotes, scumMissionSource, scumMissionTraderSections } from "@/data/scum-missions.data"
+import { useLanguage } from "@/i18n"
+import { pickLocalizedText } from "@/data/galaxy-wiki-content.data"
+import type { LocaleCode } from "@/domains/galaxy-server/content/types"
 import "@/App.css"
 import "@/styles/scum-authentic.css"
 
 export function GuideDetailPage() {
+  const { t, language } = useLanguage()
+  const locale = language as LocaleCode
   const { guideId } = useParams<{ guideId: string }>()
   const navigate = useNavigate()
 
@@ -53,11 +58,11 @@ export function GuideDetailPage() {
             className="scum-button"
           >
             <ArrowLeft className="w-4 h-4" />
-            가이드로 돌아가기
+            {t("guides.backToList")}
           </button>
           <div className="galaxy-panel guide-empty-state guide-empty-state--danger">
-            <h1>가이드를 찾을 수 없습니다</h1>
-            <p>요청한 가이드 주소가 현재 목록에 없습니다.</p>
+            <h1>{t("guides.notFound")}</h1>
+            <p>{t("guides.notFoundDesc", "The requested guide address is not in the current list.")}</p>
           </div>
         </main>
       </div>
@@ -74,35 +79,35 @@ export function GuideDetailPage() {
           className="scum-button"
         >
           <ArrowLeft className="w-4 h-4" />
-          가이드로 돌아가기
+          {t("guides.backToList")}
         </button>
 
         <article className="galaxy-panel guide-detail-hero">
-          <img className="guide-detail__image" src={guide.image.src} alt={guide.image.alt} />
+          <img className="guide-detail__image" src={guide.image.src} alt={pickLocalizedText(guide.image.alt, locale)} />
           <div className="guide-detail-hero__content">
             <div>
               <span className="galaxy-kicker">Guide Detail</span>
-              <h1>{guide.title}</h1>
-              <p>{guide.summary}</p>
+              <h1>{pickLocalizedText(guide.title, locale)}</h1>
+              <p>{pickLocalizedText(guide.summary, locale)}</p>
             </div>
             <div className="guide-detail-hero__badges">
               <span className="scum-badge">
                 <CategoryIcon className="w-4 h-4" />
-                {CATEGORY_LABELS[guide.category]}
+                {pickLocalizedText(CATEGORY_LABELS[guide.category], locale)}
               </span>
               <span className="scum-badge success">
-                우선순위: {PRIORITY_LABELS[guide.beginnerPriority]}
+                {t("guides.priorityLabel", undefined, { priority: pickLocalizedText(PRIORITY_LABELS[guide.beginnerPriority], locale) })}
               </span>
               <span className="scum-badge">
                 <Calendar className="w-4 h-4" />
-                {new Date(guide.meta.checkedAt).toLocaleDateString("ko-KR")}
+                {new Date(guide.meta.checkedAt).toLocaleDateString(locale === "ko" ? "ko-KR" : "en-US")}
               </span>
             </div>
           </div>
         </article>
 
         <section className="galaxy-panel guide-detail-body">
-          {guide.body}
+          {pickLocalizedText(guide.body, locale)}
         </section>
 
         {guide.id === "guide-015" ? (
@@ -112,17 +117,17 @@ export function GuideDetailPage() {
                 <BookOpen className="w-5 h-5" />
                 <div>
                   <span>{scumMissionSource.fileName}</span>
-                  <h2>상인별 전체 미션</h2>
+                  <h2>{t("guides.missionSectionTitle")}</h2>
                 </div>
               </div>
               <div className="mission-guide__summary">
-                <strong>{scumMissionSource.traderCount}개 상인</strong>
-                <strong>{scumMissionSource.missionLineCount}개 미션 원문 항목</strong>
-                <strong>추출일: {scumMissionSource.extractedAt}</strong>
+                <strong>{t("guides.traderCount", undefined, { count: scumMissionSource.traderCount })}</strong>
+                <strong>{t("guides.missionLineCount", undefined, { count: scumMissionSource.missionLineCount })}</strong>
+                <strong>{t("guides.extractedAt", undefined, { date: scumMissionSource.extractedAt })}</strong>
               </div>
               <ul className="mission-guide__notes">
                 {scumMissionRefreshNotes.map((note) => (
-                  <li key={note}>{note}</li>
+                  <li key={pickLocalizedText(note, locale)}>{pickLocalizedText(note, locale)}</li>
                 ))}
               </ul>
             </div>
@@ -132,13 +137,13 @@ export function GuideDetailPage() {
                 <div className="galaxy-section-heading">
                   <BookOpen className="w-5 h-5" />
                   <div>
-                    <span>{section.missions.length} Missions</span>
+                    <span>{t("guides.missionsCount", undefined, { count: section.missions.length })}</span>
                     <h2>{section.traderName}</h2>
                   </div>
                 </div>
                 <ol className="mission-trader__list">
                   {section.missions.map((mission, index) => (
-                    <li key={`${section.id}-${index}`}>{mission}</li>
+                    <li key={`${section.id}-${index}`}>{pickLocalizedText(mission, locale)}</li>
                   ))}
                 </ol>
               </article>
@@ -148,8 +153,8 @@ export function GuideDetailPage() {
 
         <div className="guide-detail-tags">
           {guide.tags.map((tag) => (
-            <span key={tag} className="scum-badge">
-              #{tag}
+            <span key={tag.ko} className="scum-badge">
+              #{pickLocalizedText(tag, locale)}
             </span>
           ))}
         </div>
@@ -159,40 +164,26 @@ export function GuideDetailPage() {
             <BookOpen className="w-5 h-5" />
             <div>
               <span>Guide Information</span>
-              <h2>가이드 정보</h2>
+              <h2>{t("guides.guideInfo")}</h2>
             </div>
           </div>
           <dl className="guide-detail-meta__grid">
             <div>
-              <dt>마지막 확인</dt>
+              <dt>{t("guides.lastCheckedLabel")}</dt>
               <dd>
-                {new Date(guide.meta.checkedAt).toLocaleDateString("ko-KR")}
+                {new Date(guide.meta.checkedAt).toLocaleDateString(locale === "ko" ? "ko-KR" : "en-US")}
               </dd>
             </div>
             <div>
-              <dt>업데이트 민감도</dt>
-              <dd>
-                {guide.meta.freshness === "current"
-                  ? "현재 기준"
-                  : guide.meta.freshness === "patch-sensitive"
-                    ? "패치 민감"
-                    : guide.meta.freshness === "stale-risk"
-                      ? "갱신 필요 가능성"
-                      : "불명"}
-              </dd>
+              <dt>{t("guides.freshness")}</dt>
+              <dd>{pickLocalizedText(FRESHNESS_LABELS[guide.meta.freshness], locale)}</dd>
             </div>
             <div>
-              <dt>정보 범위</dt>
-              <dd>
-                {guide.meta.knowledgeScope === "official-game-system"
-                  ? "공식 시스템"
-                  : guide.meta.knowledgeScope === "server-local-policy"
-                    ? "갤럭시 정책"
-                    : "기타"}
-              </dd>
+              <dt>{t("guides.knowledgeScope")}</dt>
+              <dd>{pickLocalizedText(KNOWLEDGE_SCOPE_LABELS[guide.meta.knowledgeScope], locale)}</dd>
             </div>
             <div>
-              <dt>출처</dt>
+              <dt>{t("guides.source")}</dt>
               <dd>{guide.meta.sourceIds.join(", ")}</dd>
             </div>
           </dl>
@@ -200,8 +191,9 @@ export function GuideDetailPage() {
           {guide.meta.reviewBefore && (
             <div className="guide-detail-meta__notice">
               <p>
-                {new Date(guide.meta.reviewBefore).toLocaleDateString("ko-KR")} 이전에
-                업데이트 여부 확인이 필요합니다.
+                {t("guides.reviewRecommendedNote", undefined, {
+                  date: new Date(guide.meta.reviewBefore).toLocaleDateString(locale === "ko" ? "ko-KR" : "en-US"),
+                })}
                 {guide.meta.reviewReason && ` (${guide.meta.reviewReason})`}
               </p>
             </div>
@@ -214,7 +206,7 @@ export function GuideDetailPage() {
               <BookOpen className="w-5 h-5" />
               <div>
                 <span>Related Guides</span>
-                <h2>관련 가이드</h2>
+                <h2>{t("guides.relatedGuides")}</h2>
               </div>
             </div>
             <div className="guide-related__grid">
@@ -224,10 +216,10 @@ export function GuideDetailPage() {
                   to={`/guides/${related.id}`}
                   className="galaxy-info-tile guide-related-card"
                 >
-                  <h3>{related.title}</h3>
-                  <p>{related.summary}</p>
+                  <h3>{pickLocalizedText(related.title, locale)}</h3>
+                  <p>{pickLocalizedText(related.summary, locale)}</p>
                   <span>
-                    보기
+                    {t("guides.viewMore")}
                     <ChevronRight className="w-3 h-3" />
                   </span>
                 </Link>

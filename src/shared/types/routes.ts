@@ -34,7 +34,7 @@ export const ROUTES: Record<RouteKey, RouteConfig> = {
     label: "가이드",
     title: "게임 가이드",
     description: "SCUM 게임 가이드 검색",
-    inNav: true,
+    inNav: false,
   },
   wiki: {
     path: "/wiki",
@@ -69,7 +69,7 @@ export const ROUTES: Record<RouteKey, RouteConfig> = {
     label: "이벤트",
     title: "현재 이벤트",
     description: "갤럭시 서버 이벤트 안내",
-    inNav: true,
+    inNav: false,
   },
   notFound: {
     path: "*",

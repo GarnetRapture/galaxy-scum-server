@@ -6,10 +6,12 @@ import en from './locales/en.json'
 type Language = 'ko' | 'en'
 type Translations = Record<Language, Record<string, any>>
 
+type TranslationVars = Record<string, string | number>
+
 interface LanguageContextType {
   language: Language
   setLanguage: (lang: Language) => void
-  t: (key: string, defaultValue?: string) => string
+  t: (key: string, defaultValue?: string, vars?: TranslationVars) => string
 }
 
 const translations: Translations = {
@@ -34,7 +36,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     localStorage.setItem('language', lang)
   }
 
-  const t = (key: string, defaultValue = key): string => {
+  const t = (key: string, defaultValue = key, vars?: TranslationVars): string => {
     const keys = key.split('.')
     let value: any = translations[language]
 
@@ -42,11 +44,20 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       if (value && typeof value === 'object') {
         value = value[k]
       } else {
-        return defaultValue
+        value = undefined
+        break
       }
     }
 
-    return typeof value === 'string' ? value : defaultValue
+    let result = typeof value === 'string' ? value : defaultValue
+
+    if (vars) {
+      for (const [varKey, varValue] of Object.entries(vars)) {
+        result = result.replaceAll(`{{${varKey}}}`, String(varValue))
+      }
+    }
+
+    return result
   }
 
   return (

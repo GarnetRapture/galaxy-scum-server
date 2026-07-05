@@ -2,23 +2,28 @@ import { useState } from "react"
 import { Calendar, Circle, CircleDot, Gift } from "lucide-react"
 import { galaxyEvents } from "@/data/galaxy-events.data"
 import { GALAXY_SERVER } from "@/shared/types/constants"
+import { useLanguage } from "@/i18n"
+import { pickLocalizedText } from "@/data/galaxy-wiki-content.data"
 import type { GalaxyServerEventStatus, GalaxyServerEventType } from "@/domains/galaxy-server/event/types"
+import type { LocaleCode } from "@/domains/galaxy-server/content/types"
 import "@/styles/scum-authentic.css"
 import "@/App.css"
 
-const eventTypeLabels: Record<GalaxyServerEventType, string> = {
-  weekend: "주말 이벤트",
-  special: "특별 이벤트",
-  experience: "경험치 이벤트",
+const eventTypeKeyByType: Record<GalaxyServerEventType, string> = {
+  weekend: "weekendEvent",
+  special: "specialEvent",
+  experience: "experienceEvent",
 }
 
-const eventStatusLabels: Record<GalaxyServerEventStatus, string> = {
-  live: "진행 중",
-  upcoming: "예정",
-  ended: "종료",
+const eventStatusKeyByStatus: Record<GalaxyServerEventStatus, string> = {
+  live: "live",
+  upcoming: "upcoming",
+  ended: "ended",
 }
 
 export function EventsPage() {
+  const { t, language } = useLanguage()
+  const locale = language as LocaleCode
   const [selectedType, setSelectedType] = useState<GalaxyServerEventType | null>(null)
   const [selectedStatus, setSelectedStatus] = useState<GalaxyServerEventStatus | null>(null)
 
@@ -28,21 +33,23 @@ export function EventsPage() {
     return true
   })
 
+  const typeFilterButtons: Array<{ label: string; value: GalaxyServerEventType | null }> = [
+    { label: t("events.all"), value: null },
+    { label: t(`events.${eventTypeKeyByType.weekend}`), value: "weekend" },
+    { label: t(`events.${eventTypeKeyByType.special}`), value: "special" },
+    { label: t(`events.${eventTypeKeyByType.experience}`), value: "experience" },
+  ]
+
   return (
     <div className="galaxy-page">
       <section className="galaxy-container galaxy-page-head">
         <div className="galaxy-kicker">Galaxy Notice</div>
-        <h1>갤럭시 서버 이벤트</h1>
-        <p>디스코드 공지에서 제공된 이벤트 기록과 현재 공지 확인 흐름을 카드 리스트로 정리합니다.</p>
+        <h1>{t("events.title")}</h1>
+        <p>{t("events.subtitle")}</p>
       </section>
 
       <section className="galaxy-container event-filter-row">
-        {[
-          { label: "전체", value: null },
-          { label: "주말 이벤트", value: "weekend" as GalaxyServerEventType },
-          { label: "특별 이벤트", value: "special" as GalaxyServerEventType },
-          { label: "경험치 이벤트", value: "experience" as GalaxyServerEventType },
-        ].map((button) => (
+        {typeFilterButtons.map((button) => (
           <button
             key={button.label}
             type="button"
@@ -59,7 +66,7 @@ export function EventsPage() {
             onClick={() => setSelectedStatus(selectedStatus === status ? null : status)}
             className={selectedStatus === status ? "scum-button event-filter-row__button--active" : "scum-button"}
           >
-            {eventStatusLabels[status]}
+            {t(`events.${eventStatusKeyByStatus[status]}`)}
           </button>
         ))}
       </section>
@@ -70,12 +77,12 @@ export function EventsPage() {
           return (
             <article className={`galaxy-notice-card galaxy-notice-card--${event.status}`} key={event.id}>
               <div className="galaxy-notice-card__meta">
-                <span>{eventTypeLabels[event.type]}</span>
-                <span>작성자: {GALAXY_SERVER.NOTICE_AUTHOR}</span>
-                <strong>{eventStatusLabels[event.status]}</strong>
+                <span>{t(`events.${eventTypeKeyByType[event.type]}`)}</span>
+                <span>{t("events.authorLabel", "Author: {{name}}", { name: GALAXY_SERVER.NOTICE_AUTHOR })}</span>
+                <strong>{t(`events.${eventStatusKeyByStatus[event.status]}`)}</strong>
               </div>
-              <h2>{event.title}</h2>
-              <p>{event.description}</p>
+              <h2>{pickLocalizedText(event.title, locale)}</h2>
+              <p>{pickLocalizedText(event.description, locale)}</p>
               <div className="event-card__facts">
                 <span>
                   <Calendar className="w-4 h-4" />
@@ -85,12 +92,12 @@ export function EventsPage() {
                 {event.reward ? (
                   <span>
                     <Gift className="w-4 h-4" />
-                    {event.reward}
+                    {pickLocalizedText(event.reward, locale)}
                   </span>
                 ) : null}
                 <span>
                   <StatusIcon className="w-4 h-4" />
-                  {eventStatusLabels[event.status]}
+                  {t(`events.${eventStatusKeyByStatus[event.status]}`)}
                 </span>
               </div>
             </article>

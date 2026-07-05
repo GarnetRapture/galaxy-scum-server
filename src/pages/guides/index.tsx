@@ -6,35 +6,32 @@ import { Input } from "@/components/ui/Input"
 import { GuideCard } from "@/components/features/GuideCard"
 import { GuideListSkeleton } from "@/features/loading/LoadingSkeleton"
 import { searchGuides } from "@/shared/api/guides"
-import { PRIORITY_LABELS } from "@/shared/types"
+import { CATEGORY_LABELS, PRIORITY_LABELS } from "@/shared/types"
 import type { ScumContentCategory, BeginnerPriority } from "@/shared/types"
+import { useLanguage } from "@/i18n"
+import { pickLocalizedText } from "@/data/galaxy-wiki-content.data"
+import type { LocaleCode } from "@/domains/galaxy-server/content/types"
+import { GUIDE_FILTER_CATEGORIES, guideUrlQuerySchema } from "@/shared/schemas/guide-search.schema"
 import "@/App.css"
 import "@/styles/scum-authentic.css"
 
-const CATEGORIES: Array<{ key: ScumContentCategory; label: string }> = [
-  { key: "beginnerGuide", label: "신규 가이드" },
-  { key: "character", label: "캐릭터" },
-  { key: "skill", label: "스킬" },
-  { key: "metabolism", label: "신진대사" },
-  { key: "health", label: "건강" },
-  { key: "looting", label: "루팅" },
-  { key: "crafting", label: "제작" },
-  { key: "weapon", label: "무기" },
-  { key: "hunting", label: "사냥" },
-  { key: "baseBuilding", label: "기지" },
-  { key: "vehicle", label: "차량" },
-  { key: "galaxyServer", label: "갤럭시" },
-  { key: "faq", label: "FAQ" },
-]
+const FILTER_CATEGORIES: ScumContentCategory[] = [...GUIDE_FILTER_CATEGORIES]
 
 export function GuidesPage() {
+  const { t, language } = useLanguage()
+  const locale = language as LocaleCode
   const [searchParams, setSearchParams] = useSearchParams()
-  const [query, setQuery] = useState(searchParams.get("query") || "")
+  const initialQuery = guideUrlQuerySchema.parse({
+    query: searchParams.get("query") ?? undefined,
+    category: searchParams.get("category") ?? undefined,
+    priority: searchParams.get("priority") ?? undefined,
+  })
+  const [query, setQuery] = useState(initialQuery.query)
   const [selectedCategory, setSelectedCategory] = useState<ScumContentCategory | "">(
-    (searchParams.get("category") as ScumContentCategory) || ""
+    initialQuery.category ?? ""
   )
   const [selectedPriority, setSelectedPriority] = useState<BeginnerPriority | 0>(
-    searchParams.get("priority") ? (parseInt(searchParams.get("priority")!) as BeginnerPriority) : 0
+    initialQuery.priority as BeginnerPriority | 0
   )
 
   const { data: guides = [], isLoading } = useQuery({
@@ -85,9 +82,9 @@ export function GuidesPage() {
   return (
     <div className="galaxy-page">
       <section className="galaxy-container galaxy-page-head">
-        <span className="galaxy-kicker">SCUM Guide Library</span>
-        <h1>게임 가이드</h1>
-        <p>SCUM 시스템, 갤럭시 서버 규칙, 퀘스트, 초보 루트를 같은 기준으로 탐색합니다.</p>
+        <span className="galaxy-kicker">{t("guides.kicker")}</span>
+        <h1>{t("guides.title")}</h1>
+        <p>{t("guides.subtitle")}</p>
       </section>
 
       <section className="galaxy-container guide-page-layout">
@@ -95,18 +92,18 @@ export function GuidesPage() {
           <div className="guide-filter-panel__head">
             <div>
               <Filter className="w-5 h-5" />
-              <h2>필터</h2>
+              <h2>{t("guides.filter")}</h2>
             </div>
             {hasActiveFilters && (
               <button className="scum-button guide-filter-panel__clear" onClick={handleClearFilters}>
                 <X className="w-4 h-4" />
-                초기화
+                {t("guides.reset")}
               </button>
             )}
           </div>
 
           <div className="guide-filter-group">
-            <label className="guide-filter-label" htmlFor="guide-search">키워드 검색</label>
+            <label className="guide-filter-label" htmlFor="guide-search">{t("guides.keywordSearch")}</label>
             <div className="guide-search-field">
               <Search className="w-4 h-4" />
               <Input
@@ -114,29 +111,29 @@ export function GuidesPage() {
                 type="text"
                 value={query}
                 onChange={(e) => handleSearch(e.target.value)}
-                placeholder="가이드 검색"
+                placeholder={t("guides.searchPlaceholder")}
               />
             </div>
           </div>
 
           <div className="guide-filter-group">
-            <span className="guide-filter-label">카테고리</span>
+            <span className="guide-filter-label">{t("guides.category")}</span>
             <div className="guide-filter-options guide-filter-options--scroll">
-              {CATEGORIES.map((cat) => (
-                <label className="guide-filter-option" key={cat.key}>
+              {FILTER_CATEGORIES.map((cat) => (
+                <label className="guide-filter-option" key={cat}>
                   <input
                     type="checkbox"
-                    checked={selectedCategory === cat.key}
-                    onChange={() => handleCategoryChange(cat.key)}
+                    checked={selectedCategory === cat}
+                    onChange={() => handleCategoryChange(cat)}
                   />
-                  <span>{cat.label}</span>
+                  <span>{pickLocalizedText(CATEGORY_LABELS[cat], locale)}</span>
                 </label>
               ))}
             </div>
           </div>
 
           <div className="guide-filter-group">
-            <span className="guide-filter-label">신규 우선순위</span>
+            <span className="guide-filter-label">{t("guides.beginnerPriority")}</span>
             <div className="guide-filter-options">
               {[1, 2, 3, 4, 5].map((priority) => (
                 <label className="guide-filter-option" key={priority}>
@@ -145,15 +142,19 @@ export function GuidesPage() {
                     checked={selectedPriority === priority}
                     onChange={() => handlePriorityChange(priority as BeginnerPriority)}
                   />
-                  <span>{PRIORITY_LABELS[priority as BeginnerPriority]} 이상</span>
+                  <span>
+                    {t("guides.priorityAndAbove", undefined, {
+                      priority: pickLocalizedText(PRIORITY_LABELS[priority as BeginnerPriority], locale),
+                    })}
+                  </span>
                 </label>
               ))}
             </div>
           </div>
 
           <div className="guide-filter-result">
-            <span>검색 결과</span>
-            <strong>{guides.length}개</strong>
+            <span>{t("guides.searchResults")}</span>
+            <strong>{t("guides.resultCount", undefined, { count: guides.length })}</strong>
           </div>
         </aside>
 
@@ -163,12 +164,12 @@ export function GuidesPage() {
           ) : guides.length === 0 ? (
             <div className="galaxy-panel guide-empty-state">
               <Search className="w-10 h-10" />
-              <h2>검색 결과가 없습니다</h2>
-              <p>{hasActiveFilters ? "필터를 조정해 다시 시도해주세요." : "검색어 또는 카테고리를 선택해보세요."}</p>
+              <h2>{t("guides.noResults")}</h2>
+              <p>{hasActiveFilters ? t("guides.noResultsWithFilter") : t("guides.noResultsNoFilter")}</p>
               {hasActiveFilters && (
                 <button className="scum-button" onClick={handleClearFilters}>
                   <X className="w-4 h-4" />
-                  필터 초기화
+                  {t("guides.clearFilters")}
                 </button>
               )}
             </div>

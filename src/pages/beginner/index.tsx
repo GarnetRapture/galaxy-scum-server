@@ -8,6 +8,8 @@ import {
   statRecommendations,
 } from "@/data/galaxy-wiki-content.data"
 import type { LocaleCode } from "@/domains/galaxy-server/content/types"
+import { NewbieCtaSection } from "@/features/server-landing/NewbieCtaSection"
+import { toast } from "@/shared/utils/toast"
 import "@/App.css"
 import "@/styles/scum-authentic.css"
 
@@ -16,7 +18,7 @@ type StepNumber = 0 | 1 | 2 | 3 | 4
 const stepNumbers: StepNumber[] = [0, 1, 2, 3, 4]
 
 export function BeginnerPage() {
-  const { language } = useLanguage()
+  const { t, language } = useLanguage()
   const locale = language as LocaleCode
   const [searchParams] = useSearchParams()
   const requestedStep = Number.parseInt(searchParams.get("step") || "0", 10)
@@ -34,7 +36,13 @@ export function BeginnerPage() {
       setCompletedSteps([...completedSteps, currentStep])
     }
     if (currentStep < 4) {
+      toast.success(
+        t("beginner.toastStepDoneTitle", undefined, { step: pickLocalizedText(currentRouteStep.title, locale) }),
+        t("beginner.toastStepDoneDesc"),
+      )
       setCurrentStep((currentStep + 1) as StepNumber)
+    } else {
+      toast.success(t("beginner.toastAllDoneTitle"), t("beginner.toastAllDoneDesc"))
     }
   }
 
@@ -42,17 +50,17 @@ export function BeginnerPage() {
     <div className="galaxy-page">
       <section className="galaxy-container galaxy-page-head">
         <div className="galaxy-kicker">Galaxy PVE · Beginner Operations</div>
-        <h1>{language === "ko" ? "신규 유저 가이드" : "New Player Guide"}</h1>
-        <p>
-          {language === "ko"
-            ? "캐릭터 생성, 추천 스탯, 갤럭시 서버 규칙, 첫 파밍 루틴을 실제 플레이 순서대로 정리했습니다."
-            : "Character creation, recommended stats, Galaxy server rules, and the first looting loop are arranged in actual play order."}
-        </p>
+        <h1>{t("beginner.title")}</h1>
+        <p>{t("beginner.subtitle")}</p>
+      </section>
+
+      <section className="galaxy-container">
+        <NewbieCtaSection />
       </section>
 
       <section className="galaxy-container galaxy-beginner-layout">
         <aside className="galaxy-panel galaxy-beginner-nav">
-          <h2>{language === "ko" ? "진행도" : "Progress"}</h2>
+          <h2>{t("beginner.progress")}</h2>
           {beginnerRouteSteps.map((step, index) => {
             const stepNumber = index as StepNumber
             const isCompleted = completedSteps.includes(stepNumber)
@@ -78,7 +86,7 @@ export function BeginnerPage() {
           <div className="galaxy-section-heading">
             <Target className="w-5 h-5" />
             <div>
-              <span>{`${currentStep + 1} / ${beginnerRouteSteps.length}`}</span>
+              <span>{t("beginner.progressCount", undefined, { current: currentStep + 1, total: beginnerRouteSteps.length })}</span>
               <h2>{pickLocalizedText(currentRouteStep.title, locale)}</h2>
             </div>
           </div>
@@ -97,14 +105,12 @@ export function BeginnerPage() {
           </div>
 
           <div className="galaxy-callout">
-            <strong>{language === "ko" ? "갤럭시 서버 기준" : "Galaxy Server Note"}</strong>
+            <strong>{t("beginner.galaxyTips")}</strong>
             <p>{pickLocalizedText(currentRouteStep.galaxyNote, locale)}</p>
           </div>
 
           <button onClick={handleStepComplete} className="scum-button">
-            {completedSteps.includes(currentStep)
-              ? language === "ko" ? "다음 단계" : "Next Step"
-              : language === "ko" ? "단계 완료" : "Mark Complete"}
+            {completedSteps.includes(currentStep) ? t("beginner.next") : t("beginner.complete")}
             <ChevronRight className="w-4 h-4" />
           </button>
         </main>
@@ -114,8 +120,8 @@ export function BeginnerPage() {
         <div className="galaxy-section-heading">
           <Target className="w-5 h-5" />
           <div>
-            <span>{language === "ko" ? "캐릭터 생성" : "Character Build"}</span>
-            <h2>{language === "ko" ? "초보 추천 스탯 상세" : "Recommended Starter Stats"}</h2>
+            <span>{t("beginner.statSectionKicker")}</span>
+            <h2>{t("beginner.statSectionTitle")}</h2>
           </div>
         </div>
         <div className="galaxy-stat-grid">

@@ -1,15 +1,17 @@
 import { ExternalLink, MessageSquare, Server, BadgeCheck } from "lucide-react"
 import { GALAXY_BRAND_ASSETS, GALAXY_SERVER } from "@/shared/types/constants"
+import { useLanguage } from "@/i18n"
 import "@/styles/scum-authentic.css"
 
 const footerLinks = [
-  { href: "/", label: "홈" },
-  { href: "/guides", label: "가이드" },
-  { href: "/server-info", label: "서버 정보" },
-  { href: "/events", label: "이벤트" },
-]
+  { href: "/", navKey: "home" },
+  { href: "/guides", navKey: "guides" },
+  { href: "/server-info", navKey: "serverInfo" },
+  { href: "/events", navKey: "events" },
+] as const
 
 export function Footer() {
+  const { t } = useLanguage()
   const currentYear = new Date().getFullYear()
 
   return (
@@ -19,43 +21,43 @@ export function Footer() {
           <section>
             <div className="galaxy-footer-brand">
               <img src={GALAXY_BRAND_ASSETS.LOGO} alt="SCUM Galaxy" />
-              <h3 className="scum-title">갤럭시 서버</h3>
+              <h3 className="scum-title">{t("footer.about")}</h3>
             </div>
-            <p>SCUM 한국 PVE 커뮤니티 서버의 공식 정보 사이트입니다.</p>
+            <p>{t("footer.aboutDesc")}</p>
           </section>
 
           <section>
-            <h4>빠른 링크</h4>
+            <h4>{t("footer.quickLinks")}</h4>
             <ul>
               {footerLinks.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href}>{link.label}</a>
+                  <a href={link.href}>{t(`nav.${link.navKey}`)}</a>
                 </li>
               ))}
             </ul>
           </section>
 
           <section>
-            <h4>커뮤니티</h4>
+            <h4>{t("footer.community")}</h4>
             <ul>
               <li>
                 <a href={GALAXY_SERVER.DISCORD_URL} target="_blank" rel="noopener noreferrer" className="app-footer__icon-link">
                   <MessageSquare className="w-4 h-4" />
-                  디스코드
+                  Discord
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </li>
-              <li>공지 작성자: {GALAXY_SERVER.NOTICE_AUTHOR}</li>
-              <li>웹앱 제작자: {GALAXY_SERVER.SITE_CREATOR}</li>
+              <li>{t("footer.admin", "Notice Author: {{author}}", { author: GALAXY_SERVER.NOTICE_AUTHOR })}</li>
+              <li>{t("footer.creator", "Site Built By: {{creator}}", { creator: GALAXY_SERVER.SITE_CREATOR })}</li>
             </ul>
           </section>
 
           <section>
-            <h4>정보</h4>
+            <h4>{t("footer.info")}</h4>
             <ul>
-              <li>서버 시작: 2021</li>
-              <li>게임: SCUM (Gamepires)</li>
-              <li>플레이 모드: PVE</li>
+              <li>{t("footer.since", "Server Since: {{year}}", { year: GALAXY_SERVER.SINCE_YEAR })}</li>
+              <li>{t("footer.game")}</li>
+              <li>{t("footer.mode")}</li>
               <li className="app-footer__icon-line">
                 <Server className="w-4 h-4" />
                 {GALAXY_SERVER.SERVER_ADDRESS}
@@ -66,15 +68,17 @@ export function Footer() {
 
         <div className="app-footer__bottom">
           <p>
-            © {currentYear} 갤럭시 서버. 제작: <BadgeCheck className="w-4 h-4" /> {GALAXY_SERVER.SITE_CREATOR}
+            {t("footer.copyright", "© {{year}} {{name}}. Built by {{creator}}", {
+              year: currentYear,
+              name: t("footer.about"),
+              creator: GALAXY_SERVER.SITE_CREATOR,
+            })}
+            <BadgeCheck className="w-4 h-4" />
           </p>
-          <p>마지막 업데이트: 2026-07-05</p>
+          <p>{t("footer.lastUpdate")}</p>
         </div>
 
-        <p className="app-footer__disclaimer">
-          이 웹사이트는 갤럭시 서버의 팬 가이드입니다. SCUM은 Gamepires의 저작권 게임입니다.
-          모든 정보는 게임 업데이트에 맞춰 계속 확인하고 갱신합니다.
-        </p>
+        <p className="app-footer__disclaimer">{t("footer.disclaimer")}</p>
       </div>
     </footer>
   )

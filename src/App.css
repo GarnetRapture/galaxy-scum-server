@@ -4,12 +4,28 @@
     linear-gradient(180deg, rgba(10, 14, 39, 0.96), rgba(6, 8, 18, 1)),
     var(--scum-bg);
   color: var(--scum-text-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding-bottom: 48px;
 }
 
 .app-shell,
 .galaxy-container {
   width: min(1280px, calc(100% - 48px));
   margin: 0 auto;
+}
+
+.app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--scum-bg);
+  color: var(--scum-text-primary);
+}
+
+.app-main {
+  flex: 1;
 }
 
 .app-header__inner {
@@ -354,7 +370,6 @@
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
   gap: 20px;
-  padding: 72px 0 0;
 }
 
 .galaxy-panel,
@@ -557,7 +572,7 @@
 }
 
 .galaxy-rules-preview {
-  padding: 64px 0 40px;
+  padding: 0;
 }
 
 .galaxy-rule-grid {
@@ -565,7 +580,7 @@
 }
 
 .galaxy-page-head {
-  padding: 56px 0 32px;
+  padding: 0 0 32px;
 }
 
 .wiki-head {
@@ -804,7 +819,6 @@
   display: grid;
   grid-template-columns: 330px minmax(0, 1fr);
   gap: 20px;
-  padding: 20px 0 56px;
 }
 
 .galaxy-beginner-nav {
@@ -1715,4 +1729,78 @@
   .wiki-tabs {
     justify-content: flex-start;
   }
+}
+
+/* ====== 오류 페이지 ====== */
+.error-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.error-page__content {
+  max-width: 560px;
+  text-align: center;
+  padding: 56px 0;
+}
+
+.error-page__code {
+  font-size: clamp(64px, 12vw, 120px);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--scum-border-hover);
+  margin-bottom: 16px;
+}
+
+.error-page__icon {
+  width: 64px;
+  height: 64px;
+  color: var(--scum-red);
+  margin: 0 auto 16px;
+}
+
+.error-page__content h1 {
+  font-size: clamp(28px, 4vw, 40px);
+  margin-bottom: 12px;
+}
+
+.error-page__content p {
+  color: var(--scum-text-secondary);
+  line-height: 1.7;
+}
+
+.error-page__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.error-page__contact {
+  margin-top: 24px;
+  font-size: 13px;
+}
+
+.error-page__contact a {
+  color: var(--scum-cyan);
+}
+
+.error-page__details {
+  text-align: left;
+  margin-top: 24px;
+}
+
+.error-page__details summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--scum-red);
+}
+
+.error-page__details pre {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--scum-text-secondary);
+  overflow: auto;
 }

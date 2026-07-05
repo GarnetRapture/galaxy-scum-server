@@ -8,6 +8,7 @@ import { ThemeProvider } from "next-themes"
 import { Toaster } from "sonner"
 import { Header } from "./Header"
 import { Footer } from "./Footer"
+import "@/App.css"
 import "@/styles/scum-authentic.css"
 import "@/animations/transitions.css"
 import "@/styles/responsive.css"
@@ -26,9 +27,9 @@ export function Layout({ children }: { children: ReactNode }) {
   return (
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
       <QueryClientProvider client={queryClient}>
-        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: 'var(--scum-bg)', color: 'var(--scum-text-primary)' }}>
+        <div className="app-root">
           <Header />
-          <main style={{ flex: 1 }}>{children}</main>
+          <main className="app-main">{children}</main>
           <Footer />
           <Toaster
             position="bottom-right"

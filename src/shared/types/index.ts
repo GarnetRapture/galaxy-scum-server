@@ -3,6 +3,8 @@
  * 프로젝트 전역에서 사용되는 기본 타입들
  */
 
+import type { LocalizedText } from "@/domains/galaxy-server/content/types"
+
 // ============================================================================
 // 1. 출처 신뢰도 및 자료 상태 타입
 // ============================================================================
@@ -130,67 +132,83 @@ export type PaginatedResponse<T> = {
 // 5. 라벨 상수
 // ============================================================================
 
-export const CATEGORY_LABELS: Record<ScumContentCategory, string> = {
-  beginnerGuide: "신규 유저 시작",
-  character: "캐릭터 생성",
-  skill: "능력치/스킬",
-  metabolism: "대사/영양/수분/피로",
-  health: "건강/부상/질병",
-  injury: "부상/질병/치료",
-  looting: "루팅",
-  crafting: "제작",
-  weapon: "무기/탄약",
-  combat: "전투",
-  hunting: "사냥",
-  fishing: "낚시",
-  cooking: "요리",
-  farming: "농사",
-  baseBuilding: "기지 건설",
-  vehicle: "차량",
-  trader: "거래소/상인",
-  fame: "명성/평판",
-  location: "맵/지역",
-  bunker: "벙커/군사지역",
-  radiation: "방사능/오염",
-  contamination: "오염",
-  enemy: "적",
-  quest: "퀘스트",
-  cargoDrop: "카고 드랍",
-  serverSetting: "서버 설정",
-  galaxyServer: "갤럭시 서버",
-  patchNotes: "패치노트/버전 히스토리",
-  galaxyDiscordShop: "디스코드 상점",
-  galaxyAdminContact: "문의/지원",
-  galaxyRulesEnforcement: "금지 행위/처벌",
-  beginnerRoute: "추천 시작 루트",
-  gearPreset: "장비 세팅 프리셋",
-  beginnerChecklist: "초보 체크리스트",
-  dangerMap: "위험도 지도",
-  galaxyEvent: "이벤트",
-  faq: "FAQ",
+export const CATEGORY_LABELS: Record<ScumContentCategory, LocalizedText> = {
+  beginnerGuide: { ko: "신규 유저 시작", en: "New Player Start" },
+  character: { ko: "캐릭터 생성", en: "Character Creation" },
+  skill: { ko: "능력치/스킬", en: "Attributes/Skills" },
+  metabolism: { ko: "대사/영양/수분/피로", en: "Metabolism/Nutrition/Hydration/Fatigue" },
+  health: { ko: "건강/부상/질병", en: "Health/Injury/Illness" },
+  injury: { ko: "부상/질병/치료", en: "Injury/Illness/Treatment" },
+  looting: { ko: "루팅", en: "Looting" },
+  crafting: { ko: "제작", en: "Crafting" },
+  weapon: { ko: "무기/탄약", en: "Weapons/Ammo" },
+  combat: { ko: "전투", en: "Combat" },
+  hunting: { ko: "사냥", en: "Hunting" },
+  fishing: { ko: "낚시", en: "Fishing" },
+  cooking: { ko: "요리", en: "Cooking" },
+  farming: { ko: "농사", en: "Farming" },
+  baseBuilding: { ko: "기지 건설", en: "Base Building" },
+  vehicle: { ko: "차량", en: "Vehicles" },
+  trader: { ko: "거래소/상인", en: "Traders" },
+  fame: { ko: "명성/평판", en: "Fame/Reputation" },
+  location: { ko: "맵/지역", en: "Map/Locations" },
+  bunker: { ko: "벙커/군사지역", en: "Bunkers/Military Zones" },
+  radiation: { ko: "방사능/오염", en: "Radiation/Contamination" },
+  contamination: { ko: "오염", en: "Contamination" },
+  enemy: { ko: "적", en: "Enemies" },
+  quest: { ko: "퀘스트", en: "Quests" },
+  cargoDrop: { ko: "카고 드랍", en: "Cargo Drops" },
+  serverSetting: { ko: "서버 설정", en: "Server Settings" },
+  galaxyServer: { ko: "갤럭시 서버", en: "Galaxy Server" },
+  patchNotes: { ko: "패치노트/버전 히스토리", en: "Patch Notes/Version History" },
+  galaxyDiscordShop: { ko: "디스코드 상점", en: "Discord Shop" },
+  galaxyAdminContact: { ko: "문의/지원", en: "Support/Contact" },
+  galaxyRulesEnforcement: { ko: "금지 행위/처벌", en: "Rule Enforcement" },
+  beginnerRoute: { ko: "추천 시작 루트", en: "Recommended Start Route" },
+  gearPreset: { ko: "장비 세팅 프리셋", en: "Gear Preset" },
+  beginnerChecklist: { ko: "초보 체크리스트", en: "Beginner Checklist" },
+  dangerMap: { ko: "위험도 지도", en: "Danger Map" },
+  galaxyEvent: { ko: "이벤트", en: "Events" },
+  faq: { ko: "FAQ", en: "FAQ" },
 }
 
-export const PRIORITY_LABELS: Record<BeginnerPriority, string> = {
-  1: "최상 (필수)",
-  2: "높음",
-  3: "보통",
-  4: "낮음",
-  5: "심화",
+export const PRIORITY_LABELS: Record<BeginnerPriority, LocalizedText> = {
+  1: { ko: "최상 (필수)", en: "Top (Required)" },
+  2: { ko: "높음", en: "High" },
+  3: { ko: "보통", en: "Normal" },
+  4: { ko: "낮음", en: "Low" },
+  5: { ko: "심화", en: "Advanced" },
 }
 
-export const VERIFICATION_STATUS_LABELS: Record<VerificationStatus, string> = {
-  verified: "확인 완료",
-  partial: "내용 확인 중",
-  "needs-review": "업데이트 확인 필요",
-  deprecated: "사용 불가",
-  "server-local-only": "갤럭시 전용",
+export const VERIFICATION_STATUS_LABELS: Record<VerificationStatus, LocalizedText> = {
+  verified: { ko: "확인 완료", en: "Verified" },
+  partial: { ko: "내용 확인 중", en: "Under Review" },
+  "needs-review": { ko: "업데이트 확인 필요", en: "Review Needed" },
+  deprecated: { ko: "사용 불가", en: "Deprecated" },
+  "server-local-only": { ko: "갤럭시 전용", en: "Galaxy Only" },
 }
 
-export const SOURCE_RELIABILITY_LABELS: Record<SourceReliability, string> = {
-  official: "공식 (Tier 1)",
-  steam: "Steam (Tier 2)",
-  wiki: "위키 (Tier 3)",
-  community: "커뮤니티 (Tier 4)",
-  "server-local": "갤럭시 (Tier 5)",
-  unverified: "확인 전 (Tier 6)",
+export const SOURCE_RELIABILITY_LABELS: Record<SourceReliability, LocalizedText> = {
+  official: { ko: "공식 (Tier 1)", en: "Official (Tier 1)" },
+  steam: { ko: "Steam (Tier 2)", en: "Steam (Tier 2)" },
+  wiki: { ko: "위키 (Tier 3)", en: "Wiki (Tier 3)" },
+  community: { ko: "커뮤니티 (Tier 4)", en: "Community (Tier 4)" },
+  "server-local": { ko: "갤럭시 (Tier 5)", en: "Galaxy (Tier 5)" },
+  unverified: { ko: "확인 전 (Tier 6)", en: "Unverified (Tier 6)" },
+}
+
+export const FRESHNESS_LABELS: Record<ContentFreshness, LocalizedText> = {
+  current: { ko: "최신", en: "Current" },
+  "patch-sensitive": { ko: "패치 민감", en: "Patch Sensitive" },
+  "stale-risk": { ko: "오래됨 위험", en: "Stale Risk" },
+  unknown: { ko: "불명", en: "Unknown" },
+}
+
+export const KNOWLEDGE_SCOPE_LABELS: Record<ContentKnowledgeKind, LocalizedText> = {
+  "official-game-system": { ko: "공식 시스템", en: "Official Game System" },
+  "server-local-policy": { ko: "갤럭시 정책", en: "Galaxy Server Policy" },
+  "beginner-guide": { ko: "신규 유저 가이드", en: "Beginner Guide" },
+  "advanced-guide": { ko: "중고급 가이드", en: "Advanced Guide" },
+  "patch-dependent": { ko: "패치 종속", en: "Patch Dependent" },
+  "community-derived": { ko: "커뮤니티 확인", en: "Community Derived" },
 }

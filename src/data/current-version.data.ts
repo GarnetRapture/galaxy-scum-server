@@ -33,8 +33,8 @@ const versionMeta: VerifiableContentMeta = {
 const features: VersionFeature[] = [
   {
     id: "feature-001-land-animals",
-    title: "랜드 동물 추가",
-    description: "새로운 야생동물 종류 추가, 자유로운 배회 행동 패턴",
+    title: { ko: "랜드 동물 추가", en: "Land Animals Added" },
+    description: { ko: "새로운 야생동물 종류 추가, 자유로운 배회 행동 패턴", en: "New wildlife species added with free-roaming behavior patterns." },
     category: "feature",
     status: "partial",
     affectsGameplay: true,
@@ -42,8 +42,8 @@ const features: VersionFeature[] = [
   },
   {
     id: "feature-002-wildlife-server-control",
-    title: "오픈월드 사냥",
-    description: "동물 서버 컨트롤 추가",
+    title: { ko: "오픈월드 사냥", en: "Open-World Hunting" },
+    description: { ko: "동물 서버 컨트롤 추가", en: "Server-side wildlife controls added." },
     category: "feature",
     status: "verified",
     affectsGameplay: true,
@@ -51,8 +51,8 @@ const features: VersionFeature[] = [
   },
   {
     id: "feature-003-anniversary-quest",
-    title: "1.0 퀘스트",
-    description: "SCUM 1.0 기념 특별 퀘스트 시스템",
+    title: { ko: "1.0 퀘스트", en: "1.0 Anniversary Quest" },
+    description: { ko: "SCUM 1.0 기념 특별 퀘스트 시스템", en: "A special quest system marking the SCUM 1.0 anniversary." },
     category: "feature",
     status: "partial",
     affectsGameplay: true,
@@ -60,8 +60,8 @@ const features: VersionFeature[] = [
   },
   {
     id: "feature-004-trophy-fish",
-    title: "트로피 물고기",
-    description: "낚시 획득 물고기를 기지 벽에 전시 장식",
+    title: { ko: "트로피 물고기", en: "Trophy Fish" },
+    description: { ko: "낚시 획득 물고기를 기지 벽에 전시 장식", en: "Mount fish caught while fishing as wall decorations at your base." },
     category: "feature",
     status: "partial",
     affectsGameplay: false,
@@ -69,8 +69,8 @@ const features: VersionFeature[] = [
   },
   {
     id: "feature-005-improvised-cooking",
-    title: "즉흥 요리",
-    description: "새로운 요리 조합 및 임시 조리 레시피 추가",
+    title: { ko: "즉흥 요리", en: "Improvised Cooking" },
+    description: { ko: "새로운 요리 조합 및 임시 조리 레시피 추가", en: "New cooking combinations and improvised recipes added." },
     category: "feature",
     status: "partial",
     affectsGameplay: true,
@@ -78,8 +78,8 @@ const features: VersionFeature[] = [
   },
   {
     id: "feature-006-custom-tombstone",
-    title: "커스텀 묘비",
-    description: "기지 내 커스터마이징 가능한 묘비 장식 추가",
+    title: { ko: "커스텀 묘비", en: "Custom Tombstone" },
+    description: { ko: "기지 내 커스터마이징 가능한 묘비 장식 추가", en: "Customizable tombstone decorations added for your base." },
     category: "feature",
     status: "verified",
     affectsGameplay: false,
@@ -87,8 +87,8 @@ const features: VersionFeature[] = [
   },
   {
     id: "feature-007-new-server-settings",
-    title: "신규 설정",
-    description: "INTO THE WILD 관련 새 서버 옵션 추가",
+    title: { ko: "신규 설정", en: "New Server Settings" },
+    description: { ko: "INTO THE WILD 관련 새 서버 옵션 추가", en: "New server options tied to the INTO THE WILD update." },
     category: "feature",
     status: "needs-review",
     affectsGameplay: true,
@@ -96,8 +96,8 @@ const features: VersionFeature[] = [
   },
   {
     id: "feature-008-qol-improvements",
-    title: "QoL 개선",
-    description: "게임 삶의 질 개선 사항 여러 건",
+    title: { ko: "QoL 개선", en: "QoL Improvements" },
+    description: { ko: "게임 삶의 질 개선 사항 여러 건", en: "Several quality-of-life improvements." },
     category: "qol",
     status: "needs-review",
     affectsGameplay: false,
@@ -117,10 +117,10 @@ export const currentVersion: GameVersion = {
   officialReleaseDate: "2025-06-17",
   features: features.map((f) => f.title),
   bugFixes: [
-    "여러 버그 수정 (패치노트 참조)",
+    { ko: "여러 버그 수정 (패치노트 참조)", en: "Various bug fixes (see patch notes)" },
   ],
   qolImprovements: [
-    "게임 삶의 질 개선 사항 (세부사항 needs-review)",
+    { ko: "게임 삶의 질 개선 사항 (세부사항 needs-review)", en: "Quality-of-life improvements (details needs-review)" },
   ],
   meta: versionMeta,
 }

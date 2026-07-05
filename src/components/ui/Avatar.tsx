@@ -1,7 +1,3 @@
-/**
- * Avatar 컴포넌트
- */
-
 import React from "react"
 import { cn } from "@/shared/utils/cn"
 
@@ -24,7 +20,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
       <div
         ref={ref}
         className={cn(
-          "inline-flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 font-semibold text-gray-900 dark:text-gray-50",
+          "inline-flex items-center justify-center rounded-full border border-[var(--scum-border)] bg-[rgba(0,217,255,0.08)] font-semibold text-[var(--scum-cyan)]",
           sizeClasses[size],
           className
         )}

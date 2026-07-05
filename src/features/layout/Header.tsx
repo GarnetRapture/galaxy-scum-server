@@ -60,7 +60,7 @@ export function Header() {
             type="button"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className="icon-button"
-            aria-label="테마 전환"
+            aria-label={t("header.themeToggle")}
           >
             {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
           </button>

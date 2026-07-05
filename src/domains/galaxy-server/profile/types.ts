@@ -3,6 +3,7 @@
  */
 
 import type { VerifiableContentMeta } from "@/shared/types"
+import type { LocalizedText } from "@/domains/galaxy-server/content/types"
 
 // ============================================================================
 // 갤럭시 서버 프로필
@@ -10,7 +11,7 @@ import type { VerifiableContentMeta } from "@/shared/types"
 
 export type GalaxyServerProfile = {
   // 기본 정보
-  name: "갤럭시 서버"
+  name: LocalizedText
   searchKeywords: string[]
   roomTitle: string
   playStyle: "PVE" // PVE 전용
@@ -24,7 +25,7 @@ export type GalaxyServerProfile = {
   adminDiscordName: string
 
   // 특징
-  features: string[]
+  features: LocalizedText[]
 
   // 시스템 활성화 상태
   welcomePackEnabled: boolean

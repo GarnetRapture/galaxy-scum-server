@@ -27,7 +27,7 @@ const galaxyServerMeta: VerifiableContentMeta = {
 
 export const galaxyServerProfile: GalaxyServerProfile = {
   // 기본 정보
-  name: "갤럭시 서버",
+  name: { ko: "갤럭시 서버", en: "Galaxy Server" },
   searchKeywords: ["갤럭시", "KOR_", "kor_galaxy"],
   roomTitle:
     "KOR_PVE 갤럭시 since2021 경험치이벤트[디코상점-웰컴팩-직장인뉴비환영]",
@@ -43,14 +43,14 @@ export const galaxyServerProfile: GalaxyServerProfile = {
 
   // 특징
   features: [
-    "신규 유저 웰컴팩 지원",
-    "차량 무료 렌트 (신규 유저)",
-    "뉴비 케어 가이드 (~15분)",
-    "주말 이벤트",
-    "경험치 이벤트 진행 중",
-    "파밍지 지원 (뉴비용, 고인물용)",
-    "벙커, 원전 등 POI",
-    "디스코드 상점 연동",
+    { ko: "신규 유저 웰컴팩 지원", en: "Welcome pack support for new players" },
+    { ko: "차량 무료 렌트 (신규 유저)", en: "Free vehicle rental (new players)" },
+    { ko: "뉴비 케어 가이드 (~15분)", en: "Newbie care guide (~15 min)" },
+    { ko: "주말 이벤트", en: "Weekend events" },
+    { ko: "경험치 이벤트 진행 중", en: "Experience event currently active" },
+    { ko: "파밍지 지원 (뉴비용, 고인물용)", en: "Looting zone support (beginner and veteran tiers)" },
+    { ko: "벙커, 원전 등 POI", en: "Points of interest such as bunkers and the nuclear plant" },
+    { ko: "디스코드 상점 연동", en: "Discord shop integration" },
   ],
 
   // 시스템 활성화 상태
